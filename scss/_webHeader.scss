@@ -1,5 +1,7 @@
 .webHeader{
   padding:5px 0;
+  outline: 1px dashed #f008;
+  outline-offset: -1px;
   h1{
     margin: 0;padding:0;
     height: 60px;
@@ -63,7 +65,9 @@
             border: none; 
             border-radius: 2em;
             color: #fff;
-            background-image: linear-gradient(134deg, #0097e5, #004c93);
+            background-image: linear-gradient(134deg, #0097e5 0%, #004c93 100%);
+            box-shadow: rgb(0 0 0 / .3) 0 3px 8px;
+            transition: .2s;
             &::before{
               content: ''; display: inline-block; 
               vertical-align: middle; margin-right: 6px; margin-top: -2px;
@@ -71,13 +75,18 @@
               background: url(../images/icon_avatar.png) no-repeat center top;
               background-size: contain;
             }
+
+            &:hover{
+              box-shadow: #fff 0 0 0 3px, rgb(0 0 0 / .3) 0 2px 12px 3px;
+            }
+            &:focus{box-shadow: #fff 0 0 0 2px, #004c93 0 0 0 5px, rgb(0 0 0 / .3) 0 0 8px 5px;}
           }
         }
       }
     }
   }
 
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: $wwNormal){
     margin: 0 5%; padding: 50px 0;
     display: flex; flex-flow: row wrap;
     justify-content: space-between;
@@ -98,7 +107,7 @@
 
   }
 
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: $wwMaximum){
     width: 1296px; margin: 0 auto;
   }
 }

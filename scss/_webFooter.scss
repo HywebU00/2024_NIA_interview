@@ -32,7 +32,7 @@
     }
   }
 
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: $wwNormal){
 
     display: flex;
 
@@ -68,7 +68,7 @@
 
   }
 
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: $wwMaximum){
     padding-left: calc(50% - 648px);
     padding-right: calc(50% - 648px);
   }

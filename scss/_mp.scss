@@ -42,7 +42,7 @@
     }
   }
 
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: $wwNormal){
     display: flex; flex-flow: row nowrap;
     height: 46.25vw; 
     hgroup{
@@ -106,7 +106,7 @@
 
   }
   
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: $wwMaximum){
     height: 666px; width: 1296px;
     hgroup{flex-basis: 666px; width: 666px;}
     ul{ flex-basis: 610px; width: 610px;}
@@ -141,7 +141,7 @@
     }
   }
 
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: $wwMaximum){
     padding-left: calc(50% - 648px);
     padding-right: calc(50% - 648px);
   }
