@@ -1,0 +1,76 @@
+/* 頁腳 */
+.webFooter{
+  padding: 55px 5vw;
+  font-size: .9em;
+  background-image: linear-gradient(107deg, #5aa6bd, #1867ac);
+  color: #fff;
+  a{color: #fff; text-decoration: auto;}
+
+  .logo{
+    img{ display: block; margin: 0 auto 10px; width: 80px;}
+  }
+
+  .center{
+    line-height: 1.6; margin: 0 0 30px;
+    p{
+      margin: 0 0 .7em;
+      &:first-child{font-size: 1.25em; text-align: center;}
+    }
+  }
+
+  &>ul{
+    list-style: none;
+    margin: 30px -15px 0; padding: 0;
+    text-align: center; line-height: 1.6;
+    display: flex;
+    &>li{
+      flex: 0 0 33.33%;
+      margin: 0; padding: 0;
+      border-left: 1px solid rgb(255 255 255 / .3);
+      &:first-child{border: none;}
+      a{ display: block; padding: 5px 15px; height: 100%;}
+    }
+  }
+
+  @media screen and (min-width: 1000px){
+
+    display: flex;
+
+    .logo{
+      img{ width: 130px; margin: 0;}
+    }
+    .center{
+      border-left: 2px solid #fff;
+      padding: 0 0 0 45px; margin: 0 45px;
+      p{
+        &:first-child{ text-align: left; font-size: 1em;}
+        &:last-child{margin-bottom: 0;}
+      }
+    }
+    &>ul{
+      margin: 0 0 0 auto;
+      display: block;
+      text-align: left;
+      &>li{
+        border: none; margin: 0 0 .6em;
+        a{ padding: 0 0 0 16px;
+          position: relative;
+          &::before{
+            content: ''; position: absolute;
+            left: 0; top: .7em;
+            width: 4px; height: 4px; border-radius: 2px;
+            background-color: #fff;
+          }
+        }
+      }
+    
+    }
+
+  }
+
+  @media screen and (min-width: 1440px){
+    padding-left: calc(50% - 648px);
+    padding-right: calc(50% - 648px);
+  }
+
+}
