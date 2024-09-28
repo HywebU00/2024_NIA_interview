@@ -6,25 +6,58 @@ $wwNormal: 1000px;
 $wwMaximum: 1440px;
 // ---------------------------------------------------------------- //
 
+%gradientBlue {
+  background-image: linear-gradient(134deg, #0097e5, #004c93);
+}
+%gradientGreen {
+  background-image: linear-gradient(134deg, #5db741, #0a7c1d);
+}
+
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
+
+
 
 :root{
   --primaryColor: #004c93;
-  --secondaryColor: #5db741;
+  --secondaryColor: #0a7c1d;
+
+  --assistantColor1: #0086ff;
+  --assistantColor2: #79c501;
   --assistantColor: #9b6c21;
 
   --fontColor: #333333;
   --fontColorLight: #666;
   --fontColorDark: #000;
 
+  --border-color: #dadada;
+
+  font-size:1.25em;
 }
+
 body{
   margin: 0 auto; padding: 0;
   box-sizing: border-box;
-  font-size:1.25em ;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
-  
+  color: var(--fontColor);
+
   *{ box-sizing: border-box;}
 
   a, input, button {outline: none;}
+  button{cursor: pointer;}
 }
+
+table{border-collapse: collapse; width: 100%;margin: 0;}
+
+
+// 內頁標題
+.pageHeading{
+  width: 90%;margin: 50px auto;
+  text-align: center;
+  h2{ font-size: 2em; margin: 0; line-height: 1.2; color: var(--primaryColor);}
+  .description { line-height: 1.6; margin: 1em 0 0;}
+
+}
+
