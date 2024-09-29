@@ -81,3 +81,8 @@ button.btnStyle1{
   @extend %gradientBlue;
   color: #fff;
 }
+
+abbr{
+  text-decoration: none;
+  color: #c00;
+}
