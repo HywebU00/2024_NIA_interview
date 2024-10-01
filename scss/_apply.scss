@@ -1,4 +1,5 @@
 // 預約面(訪)談
+// ---------------------------------------------------------------- //
 .apply{
   width: 90%;font-size: 1.3rem;
   padding: 60px 5vw; margin: 50px auto;
@@ -51,6 +52,7 @@
 
 
 // 選面談日期
+// ---------------------------------------------------------------- //
 .bookingCalendar{
   position: relative;
   font-size: 1rem;
@@ -159,7 +161,9 @@
 }
 
 
+
 // 
+// ---------------------------------------------------------------- //
 dl.dataReady{
   margin-left: 28px;
   display: flex; flex-flow: row wrap;
@@ -180,6 +184,7 @@ dl.dataReady{
 
 
 //
+// ---------------------------------------------------------------- //
 .formFilled{
   padding: 50px;
   border-radius: 12px;
@@ -225,4 +230,87 @@ dl.dataReady{
     }
   }
 
+}
+
+
+
+
+// 已完成訊息『您已完成本次的面談預約！』
+// ---------------------------------------------------------------- //
+.messageDone {
+  @extend %primSection;
+
+  outline: 1px dashed #f008;
+  outline-offset: -1px;
+
+  article{
+    font-size: 1.3em;line-height: 1.6; text-align: center;
+    padding:50px 4% 40px; margin: 0 auto; 
+    width: 88%; max-width: 1024px;
+    border-radius: 8px;
+    background: #f4f4f4;
+    &::before{
+       content: ''; display: block; margin: 0 auto;
+       width: 84px; height: 84px; border-radius: 50%;
+       @extend %gradientGreen;
+    }
+  }
+
+
+  .downloadfiles{
+    list-style: none; margin: 20px auto 40px; padding: 0;
+    width: 88%;
+    line-height: 1; font-size: 1.1em;
+
+    &>li{
+      outline: 1px dashed #f008;
+      outline-offset: -1px;
+
+      flex: 0 0 31%; 
+      margin: 20px 0;
+
+      a{
+        display: block; width: 100%;
+
+        padding: .8em 1em; margin: 18px 0 0;
+        text-align: center;
+        border-radius: 6px;
+        text-decoration: none; color: #fff;
+        @extend %gradientBlue;
+
+        &:after{
+          content: ''; display: inline-block; width: 20px; height: 24px;margin-left: 5px;
+          vertical-align: bottom;
+          outline: 1px solid #fff;
+        }
+
+      }
+
+      &:last-child{
+        margin-top: 50px;
+        a{@extend %gradientGreen;}
+      } 
+    }
+  }
+
+
+  .hint{
+    padding: 60px 6%; max-width: 1024px; margin: 0 auto;
+    line-height: 1.8;
+    border-top: 2px solid $borderColor;
+     color: #d14b1a;
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    
+    .downloadfiles{
+      max-width: 906px;
+      display: flex;justify-content: space-between;
+      align-items:  flex-end;
+      &>li{
+        flex: 0 0 31%;
+      }
+    }
+  }
 }

@@ -6,6 +6,36 @@ $wwNormal: 1000px;
 $wwMaximum: 1440px;
 // ---------------------------------------------------------------- //
 
+// 大區塊寬度
+// ---------------------------------------------------------------- //
+%primSection{
+  width: 90%; margin-left: auto;  margin-right: auto;
+  @media screen and (min-width: $wwMaximum ){
+    width: $wwMaximum * .9;
+  }
+}
+%primSectionFull{
+  width: 100%; padding-left: 5%; padding-right: 5%;
+  @media screen and (min-width: $wwMaximum ){
+    padding-left: calc(50% - $wwMaximum*.45); 
+    padding-right: calc(50% - $wwMaximum*.45);
+  }
+}
+// ---------------------------------------------------------------- //
+$borderColor: #d5d5d5;
+$borderColorLight: #e6e6e6;
+$borderColorDark:#aaa;
+
+$bgLight: #d5d5d5;
+$bgPale: #e6e6e6;
+
+// 顏色變數
+// ---------------------------------------------------------------- //
+
+
+
+// 漸層
+// ---------------------------------------------------------------- //
 %gradientBlue {
   background-image: linear-gradient(134deg, #0097e5, #004c93);
 }

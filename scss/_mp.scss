@@ -1,7 +1,7 @@
 /* 首頁 */
 // 首頁:主要功能選單
 .mainFunction{
-  width: 90%; margin: 0 auto;
+  @extend %primSection;
   hgroup{ 
     margin: 10px 0 2vw; font-weight: bold;
     h2{
@@ -107,32 +107,29 @@
   }
   
   @media screen and (min-width: $wwMaximum){
-    height: 666px; width: 1296px;
+    height: 666px; 
     hgroup{flex-basis: 666px; width: 666px;}
     ul{ flex-basis: 610px; width: 610px;}
   }
-
-
 }
-
 
 
 
 // 首頁:注意事項
 .notices {
-  margin: 70px auto 0; padding: 55px 5vw;
+  @extend %primSectionFull;
+  margin-top: 70px; padding-top: 55px; padding-bottom: 55px;
   box-shadow: rgb(0 0 0 / .25) 0 0 20px;
   h2{
     font-size: 1.3em; text-align: center;
     margin: 0 0 30px;padding: 0 0 15px;
-    border-bottom: 2px solid #d5d5d5;
+    border-bottom: 2px solid $borderColor;
     color: var(--assistantColor);
   }
   h3{
     font-size: 1.6em; text-align: center;
     margin: 0 0 30px;padding: 0 0 18px;
-    border-bottom: 2px solid #d5d5d5;
-
+    border-bottom: 2px solid $borderColor;
   }
   ul, ol{margin: 0; padding: 0;line-height:1.8;}
   ul{
@@ -152,10 +149,4 @@
     padding-left: 2em;
     li{margin-bottom: .9em;}
   }
-
-  @media screen and (min-width: $wwMaximum){
-    padding-left: calc(50% - 648px);
-    padding-right: calc(50% - 648px);
-  }
-
 }

@@ -12,7 +12,7 @@ input[type="radio"], input[type="checkbox"], button, select {
 }
 input[type="radio"], input[type="checkbox"]{
   width: 1.25em; height: 1.25em; vertical-align: -.25em;
-  background: var(--border-color);
+  background: $bgLight;
 }
 input[type="radio"]{ border-radius: 50%;}
 input[type="checkbox"]{ border-radius: 4px;}
@@ -22,7 +22,7 @@ select{
   padding: .9em 40px .9em 20px;
   border: none;
   border-radius: 5px;
-  box-shadow: var(--border-color) 0 0 0 2px inset;
+  box-shadow: $borderColor 0 0 0 2px inset;
 
 }
 
