@@ -1,11 +1,115 @@
+// 頁籤項
+// ---------------------------------------------------------------- //
+.tabItems{
+  position: relative;
+  display: flex;
+  &::after {
+    content: ''; position: absolute; left: 0;right: 0;
+    bottom: 0; height: 2px;
+    background-color: $borderColor;
+  }
+
+
+  &>button{
+    position: relative; z-index: 9;
+    flex: 1 1 auto;
+    font-size: 1.4em;
+    margin: 0;padding: .7em 1em;
+    border-radius: 6px 6px 0 0;
+    background-color:transparent;
+    &.active{
+      @extend %gradientBlue;
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+
+// 預約紀錄
+// ---------------------------------------------------------------- //
+.records{
+  @extend %primSection;
+  @extend %frame;
+
+  margin-bottom: 60px;
+
+  .tabItems{
+    &>button{ flex: 1 0 33.33%}
+  }
+
+  .colx3{
+    display: flex; justify-content: space-between;
+
+    // &>*{
+    //   outline: 1px dashed #f008;
+    //   outline-offset: -1px;
+    // }
+
+    .status{
+      flex: 0 0 200px; height: 200px; line-height: 200px;
+      text-align: center;
+      border-radius: 12px;
+      background-color: #ecf9ff;
+      color: #004c93;
+    }
+
+    dl{
+      flex: 1 1 auto;
+      margin: 0 3%;
+
+      display: flex; flex-flow: row wrap;
+
+      &>div{
+        // outline: 1px dashed #f008;
+        // outline-offset: -1px;
+
+        flex: 1 1 60%;
+
+        &:nth-child(odd){
+          flex-basis: 40%;
+        }
+      }
+
+      dt, dd{margin: 0;
+        
+      }
+    }
+
+    .buttonGroup{
+      flex: 0 0 20%;
+      .btnLook:is(a, button) {
+        display: block; width: 100%;
+        margin:0 0 10px;
+      }
+
+    }
+  }
+
+  .list{
+    margin-top: 60px; padding-top: 60px;
+    border-top: 2px solid $borderColor;
+    h3{margin: 0 0 30px;}
+  }
+}
+
+
+
 // 預約面(訪)談
 // ---------------------------------------------------------------- //
+
 .apply{
-  width: 90%;font-size: 1.3rem;
-  padding: 60px 5vw; margin: 50px auto;
-  border-radius: 16px;
-  background-color: rgb(255 255 255 / .5);
-  box-shadow: rgb(0 0 0 / .2) 0 0 20px;
+  @extend %primSection;
+  @extend %frame;
+  margin-top: 50px; margin-bottom: 50px;
+  font-size: 1.3rem;
+  // width: 90%;
+  // border-radius: 16px;
+  // background-color: rgb(255 255 255 / .5);
+  // box-shadow: rgb(0 0 0 / .2) 0 0 20px;
+
 
   .notices{
     box-shadow: none; margin:70px 0 0;padding: 0;
@@ -232,6 +336,18 @@ dl.dataReady{
 
 }
 
+// ---------------------------------------------------------------- //
+.secHeading{
+  position: relative;
+  font-size: 1.4em; line-height: 1; font-weight: bold;
+  padding: 2px 0 2px 22px;
+  &::before{
+    content: ""; position: absolute; 
+    left: 0; top: 0; bottom: 0;width: 7px;
+    background-color: var(--assistantColor2);
+  }
+}
+// ---------------------------------------------------------------- //
 
 
 

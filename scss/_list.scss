@@ -1,0 +1,19 @@
+.list{
+  &>table{
+    margin: 0; padding: 0; width: 100%;
+    border-collapse: collapse;
+    line-height: 1.4;
+    th, td{
+      padding:.6em; text-align: center;
+    }
+    thead{
+      tr{ border-bottom: 2px solid $borderColor;}
+    }
+    tbody{
+      tr{
+        &:hover{ background-color: $bgPale;}
+      }
+      
+    }
+  }
+}

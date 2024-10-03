@@ -86,3 +86,54 @@ abbr{
   text-decoration: none;
   color: #c00;
 }
+
+// ---------------------------------------------------------------- //
+// ---------------------------------------------------------------- //
+
+// a, button {
+//   display: block; width: 100%;
+//   line-height: 1;margin:0 0 10px;
+//   &.btnLook{
+//     text-align: center;
+//     padding: .8em .5em;
+//     border-radius: 6px;
+//     background-color: transparent;
+//     @extend %gradientBlue;
+//     color: #fff;
+//     text-decoration: none;
+//   }
+
+// }
+
+.btnLook:is(a, button) {
+  display: inline-block;
+  text-align: center;
+  height: 2.6em; line-height: 2.6;
+  padding: 0 1em;
+  margin: 5px;
+  border-radius: 6px;
+  background-color: $bgPale;
+  color: #000;
+  text-decoration: none;
+  transition: .2s;
+  
+  &.st1 {
+    @extend %gradientBlue;color: #fff;
+  }
+  &.st2 {
+    @extend %gradientGreen;color: #fff;
+  }
+
+  &:hover{
+    translate: 0 -4px;
+    box-shadow: rgb(0 0 0 / .3) 0 10px 16px -8px;
+  }
+
+}
+
+.btnDiv{
+  text-align: center; padding: 20px;
+  .btnLook:is(a, button){
+    min-width: 280px; margin-left: 8px; margin-right: 8px;
+  }
+}
