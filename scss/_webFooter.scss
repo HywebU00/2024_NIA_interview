@@ -18,17 +18,34 @@
     }
   }
 
-  &>ul{
+  ul.claim{
     list-style: none;
-    margin: 30px -15px 0; padding: 0;
-    text-align: center; line-height: 1.6;
-    display: flex;
+    margin: 50px 0 0; padding: 0;
+    text-align: center; line-height: 1.4;
+
     &>li{
-      flex: 0 0 33.33%;
-      margin: 0; padding: 0;
-      border-left: 1px solid rgb(255 255 255 / .3);
+      // flex: 0 0 calc(33.33% - 10px);
+      margin:8px 0; padding:0;
       &:first-child{border: none;}
-      a{ display: block; padding: 5px 15px; height: 100%;}
+      a{ 
+        position: relative;display: block; 
+        padding: .5em 0 3px; margin: 0 auto; width: clamp(50%, 12em, 100%);
+        &::after{
+          content: ''; position: absolute; left: 0; right: 0;
+          bottom: 0; height: 1px; background-color: rgb(255 255 255 / .5);
+          transition: .2s;
+        }
+        &:hover, &:focus {
+          &::after{background-color: #fff; height: 2px;}
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 720px){
+    ul.claim{
+      text-align: left;
+      &>li{display: inline-block; margin: 0 20px 0 0;}
     }
   }
 
@@ -47,25 +64,30 @@
         &:last-child{margin-bottom: 0;}
       }
     }
-    &>ul{
+    ul.claim{
       margin: 0 0 0 auto;
       display: block;
       text-align: left;
       &>li{
+        display: block;
         border: none; margin: 0 0 .6em;
-        a{ padding: 0 0 0 16px;
-          position: relative;
+        a{ 
+          position: relative;padding: 0 0 0 20px;
           &::before{
             content: ''; position: absolute;
-            left: 0; top: .7em;
+            left: 4px; top: .5em;
             width: 4px; height: 4px; border-radius: 2px;
             background-color: #fff;
+            transition: .2s;
+          }
+          &::after{background-color: rgb(255 255 255 / 0);}
+
+          &:hover, &:focus{
+            &::before {box-shadow: #fff 0 0 0 3px;}
           }
         }
       }
-    
     }
-
   }
 
   @media screen and (min-width: $wwMaximum){

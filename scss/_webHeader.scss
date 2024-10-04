@@ -28,7 +28,7 @@
             transition: .2s;
           }
 
-          &:hover{
+          &:hover, &:focus{
             &::after{ left: 0; width: 100%;}
           }
           

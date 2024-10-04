@@ -53,13 +53,56 @@
       <p>櫃檯受理服務時間：星期一至星期五 08:00-17:00中午不休息</p>
       <p>內政部移民署 版權所有 © NATIONAL IMMIGRATION AGENCY 100213 臺北市廣州街15號</p>
     </div>
-    <ul>
+    <ul class="claim">
       <li><a href="#">隱私權保護服務及宣告</a></li>
       <li><a href="#">安全防護與回復機制</a></li>
       <li><a href="#">資訊安全宣告</a></li>
     </ul>
 
   </footer>
+
+  <section class="loginHere">
+    <div class="msg">
+      <p><strong>尚未登入會員</strong>請先登入會員才可進行預約</p>
+    </div>
+
+    <h3>會員登入</h3>
+    <form action="">
+      <label>帳號<input type="text" placeholder="請輸入帳號"></label>
+      <label>密碼<input type="password" placeholder="請輸入密碼"></label>
+      <a class="firget" href="#">忘記密碼？</a>
+      <p>還不是會員？<button type="button">註冊成為會員</button></p>
+
+      <div class="captcha">
+        <img src="" alt="">
+        <input type="text" placeholder="請輸入圖檔所顯示的數字">
+        <button class="voice" type="button" title="朗讀驗證碼"></button>
+        <button class="refresh" type="button" title="重新產生驗證碼"></button>
+      </div>
+      <button type="button">登入</button>
+    </form>
+  </section>
+
+  <section class="twoFactorVerify">
+    電子郵件驗證
+    <input type="text">
+    已發送驗證碼
+
+    <p>請輸入已發送至 yin****@gmail.com  的6位數驗證碼</p>
+
+  </section>
+
+  <section class="register">
+    <h3>註冊成為新會員</h3>
+    <form action="">
+      <label>設定帳號<input type="text"></label>
+      <label>設定密碼<input type="password"></label>
+      <label>再次輸入密碼<input type="password"></label>
+      <label>電子郵件<input type="mail"></label>
+      <button type="submit">送出註冊</button>
+    </form>
+    <p>請至信箱收驗證信，通過後方可正式啟用帳號。</p>
+  </section>
   
 </body>
 </html>

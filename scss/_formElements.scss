@@ -1,114 +1,280 @@
-form{ display: block; margin: 0; padding: 0; font-size: inherit;}
+// ------------------------------------------------------ //
+// 表單元件基本樣式 ------------------------------------- //
+// ------------------------------------------------------ //
 
-input, button, textarea, select { outline: none;font-size: inherit;}
-button{border: none;}
+form {margin: 0;padding: 0;}
 
-input[type="radio"], input[type="checkbox"], button, select {
+input, textarea, select, button, datalist, label {
+  font-size:inherit; font-family: inherit; outline: none;
+  &:focus{ outline: none;}
+}
+label {
+  display: inline-block;
+  font-weight: normal; cursor: pointer;
+}
+
+
+
+// scss 變數
+// ------------------------------------------------------ //
+$inputBg: #fff;
+$inputColor: #{$primaryColor};
+$inputBdr: #{$primaryColor};
+
+// disabled
+$disColor: #888;
+$disBg: #f0f0f0;
+$disBdr: #ddd;
+
+// readonly
+$roColor: #555;
+$roBg: #{$bgLight};
+$roBdr: #{$borderColor};
+
+
+$btnColor: #fff;
+
+
+// disabled
+$btnDisColor: #888;
+$btnDisBg: #cfcfcf;
+// ------------------------------------------------------ //
+
+
+// css 變數
+// ------------------------------------------------------ //
+:root {
+  --inputHeight : 2.6em;
+  --inputLineHeight : 2.7;
+
+  // color
+  --inputColor: #{$fontColor};
+  --inputBg: #fff;
+  --inputBgHover: #{$assistantColor1};
+  --inputBdr: #{$borderColor};
+
+  --btnBg: #fff;
+  --btnColor: #{$primaryColor};
+}
+// ------------------------------------------------------ //
+
+
+
+// 文字輸入匡 input 樣式 
+// ------------------------------------------------------ //
+%textInput {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+
+  height: var(--inputHeight); 
+  padding: 0 10px; margin: 5px;
+  vertical-align: middle;border-radius: 0;
+
+  border: 1px solid $borderColor;
+  background-color: #fff;
+  color: var(--inputColor);
+  border-radius: 5px;
+  transition: .2s;
+  
+  &:hover { 
+    border-color: transparent;
+    box-shadow: $borderColorDark 0 0 0 1px;
+  }
+  &:focus {
+    border-color: transparent;
+    box-shadow: $assistantColor1 0 0 0 2px;
+  }
+
+
+  &[disabled]{ 
+    --inputColor: #{$disColor}; --inputBg:#{$disBg}; --inputBdr: #{$disBdr}; 
+    border-style: dashed;
+    cursor: not-allowed;
+  }
+  &[readonly]{ 
+    --inputColor: #{$roColor}; 
+    --inputBg:#{$roBg};
+    --inputBdr: #{$roBdr};
+    box-shadow: none;
+    cursor: default;
+    &:hover, &:focus{ 
+      background-color: var(--inputBg);
+    }
+    &:focus{border-color:  $borderColorDark;}
+  }
+}
+// ------------------------------------------------------ //
+
+
+// 文字、數字型態的 input 樣式 
+// ------------------------------------------------------ //
+input[type="text"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"], // type="datetime" 已廢棄
+input[type="email"],
+input[type="file"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"] { 
+  @extend %textInput;
+
+  &.fullWidth{ width: calc(100% - 10px);}
+  &.halfWidth{ width: calc(50% - 10px);}
+}
+// ------------------------------------------------------ //
+
+
+
+// 多行文字輸入
+// ------------------------------------------------------ //
+textarea {
+  @extend %textInput;
+  display: block;
+  padding:9px 10px 7px;line-height: 1.8;
+  height: 10em;width: calc(100% - 10px);
+  resize: vertical;
+// ------------------------------------------------------ //
+}
+
+
+// 下拉選單樣式 
+// ------------------------------------------------------ //
+%selectStyle {
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 5px;
+  padding: 0 32px 0 10px;vertical-align: middle;border-radius: 0;
+  height: var(--inputHeight); 
+  // line-height: var(--inputLineHeight);
+
+  border: 1px solid $borderColor;
+  border-radius: 5px;
+  color: $fontColor;
+  background: #fff url(../images/selectArrow.svg) no-repeat right 6px top .8em;
+  background-size: 24px auto;
+  transition: .2s;
 
   cursor: pointer;
-}
-input[type="radio"], input[type="checkbox"]{
-  width: 1.25em; height: 1.25em; vertical-align: -.25em;
-  background: $bgLight;
-}
-input[type="radio"]{ border-radius: 50%;}
-input[type="checkbox"]{ border-radius: 4px;}
 
-
-select{
-  padding: .9em 40px .9em 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: $borderColor 0 0 0 2px inset;
-
-}
-
-
-.optionGroup{
-  label{
-    display: block;
-    padding: .9em 20px; margin:5px 0 15px;
-    border-radius: 5px; cursor: pointer;
-    box-shadow: var(--border-color) 0 0 0 2px inset;
-
-    input[type="radio"], input[type="checkbox"] { 
-      margin-right: .5em;
-    }
-
-    &.checked{
-      color: #fff;
-      box-shadow: none;
-      @extend %gradientBlue;
-
-      input[type="radio"]{
-        background-color: #fff;
-      }
-    }
+  &:hover, &:focus {}
+  &:focus {
+    box-shadow: $inputBdr 0 0 0 2px;
+    border-color: #fff;
   }
-  
-  @media screen and (min-width: $wwNormal){
-    &.types3{
-      display: flex; justify-content: space-between;
-      label{ flex: 0 0 calc(33.33% - 12px); }
-      
-    }
+  &[disabled]{ 
+    --inputColor: #{$disColor}; --inputBg:#{$inputBg}; --inputBdr: #{$disBdr};
+    box-shadow: none;
+    cursor: not-allowed;
   }
 }
+// ------------------------------------------------------ //
 
-button.arrow{
-  position: relative;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background-color: #5c5c5c;
-  &::after{
-    content: ''; position: absolute; top: calc(50% - 8px); 
-    width: 14px; height: 14px;
-    border: 2px solid #fff;border-right: none; border-top: none;
+
+// 下拉選單 select
+// ------------------------------------------------------ //
+select {
+  @extend %selectStyle;
+  &.fullWidth{ width: calc(100% - 10px);}
+  &.halfWidth{ width: calc(50% - 10px);}
+}
+// ------------------------------------------------------ //
+
+
+
+// 按鈕元件樣式
+// ------------------------------------------------------ //
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
     
+  border: none;
+  padding:0 1em; margin:5px;
+  vertical-align: middle;
+  cursor: pointer; transition: .2s;
+
+  height: var(--inputHeight); 
+  // line-height: var(--inputHeight);
+
+  background-color: $primaryColor; color: #fff;
+  border-radius: 5px;
+
+  // &:hover, &:focus {
+  //   background-color: $assistantColor1;
+  //   border-color: $primaryColor;
+  //   color: $primaryColor;
+  // }
+  // &:focus{ box-shadow: $assistantColor1 0 0 0 3px;}
+
+  &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;}
+}
+
+// input[type="submit"]{ 
+//   --btnBg: #{$btnBg2};
+//   &:hover, &:focus { --btnBg: #{$btnBg2Hover}; }
+//   &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; }
+// }
+// ------------------------------------------------------ //
+
+
+
+// radio 和 checkbox 
+// ------------------------------------------------------ //
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  margin:-.1em 7px 0 4px; 
+  line-height: 1; 
+  border: 1px solid var(--inputBdr);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+// radio
+input[type="radio"] {
+  width: 1.2em; height: 1.2em; 
+  border-radius: 50%;
+  &:hover, &:focus { border-width: 2px;}
+  &:checked{
+    border-width: 2px;
+    box-shadow: #fff 0 0 0 3px inset, $primaryColor 0 0 0 10px inset;
+    &:focus {
+      box-shadow: #fff 0 0 0 5px inset, $primaryColor 0 0 0 10px inset;
+    }
+  }
+}
+
+// checkbox
+input[type="checkbox"] {
+  width: 1em; height: 1em; 
+  border-radius: 2px;
+  &:hover, &:focus { box-shadow: $primaryColor 0 0 0 1px;}
+  &:checked{
+    background: var(--btnColor) url(../images/icon_check.svg) no-repeat center .06em;
+    background-size: 88%;
+    box-shadow: $primaryColor 0 0 0 2px; border-color: transparent;
+    &:focus {box-shadow: $primaryColor 0 0 0 3px;border-color: #fff;}
   }
 
-  &.left::after{rotate: 45deg;left: calc(50% - 4px);}
-  &.right::after{rotate: 225deg;right: calc(50% - 5px);}
-
 }
+// ------------------------------------------------------ //
 
-button.btnStyle1{
-  height: 2.4em; padding: 0 1.5em;
-  border-radius: 6px;
-  @extend %gradientBlue;
-  color: #fff;
-}
-
-abbr{
-  text-decoration: none;
-  color: #c00;
-}
-
-// ---------------------------------------------------------------- //
-// ---------------------------------------------------------------- //
-
-// a, button {
-//   display: block; width: 100%;
-//   line-height: 1;margin:0 0 10px;
-//   &.btnLook{
-//     text-align: center;
-//     padding: .8em .5em;
-//     border-radius: 6px;
-//     background-color: transparent;
-//     @extend %gradientBlue;
-//     color: #fff;
-//     text-decoration: none;
-//   }
-
-// }
 
 .btnLook:is(a, button) {
   display: inline-block;
   text-align: center;
-  height: 2.6em; line-height: 2.6;
+  height: var(--inputHeight);
   padding: 0 1em;
   margin: 5px;
   border-radius: 6px;
@@ -126,11 +292,18 @@ abbr{
 
   &:hover{
     translate: 0 -4px;
-    box-shadow: rgb(0 0 0 / .3) 0 10px 16px -8px;
+    box-shadow:#fff 0 0 0 3px, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 6px 16px;
+  }
+  &:focus{
+    translate: 0 -1px;
+    &:is(.st1) {box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
+    &:is(.st2) {box-shadow:#fff 0 0 0 1px, $secondaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
+
   }
 
 }
 
+// 
 .btnDiv{
   text-align: center; padding: 20px;
   .btnLook:is(a, button){

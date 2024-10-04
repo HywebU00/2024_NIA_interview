@@ -1,0 +1,72 @@
+// RWD 斷點 
+// ---------------------------------------------------------------- //
+$wwSlim: 400px;
+$wwMedium: 700px;
+$wwNormal: 1000px;
+$wwMaximum: 1440px;
+// ---------------------------------------------------------------- //
+
+
+// 顏色變數
+// ---------------------------------------------------------------- //
+$primaryColor: #004c93;
+$secondaryColor: #0a7c1d;
+$assistantColor1: #0086ff;
+$assistantColor2: #79c501;
+$assistantColor: #9b6c21;
+
+$fontColor: #333;
+$fontColorLight: #666;
+$fontColorDark: #000;
+
+$borderColor: #d5d5d5;
+$borderColorLight: #e6e6e6;
+$borderColorDark:#aaa;
+
+$bgLight: #d5d5d5;
+$bgPale: #e6e6e6;
+// ---------------------------------------------------------------- //
+
+
+// 漸層
+// ---------------------------------------------------------------- //
+%gradientBlue {
+  background-image: linear-gradient(134deg, #0097e5, #004c93);
+}
+%gradientGreen {
+  background-image: linear-gradient(134deg, #5db741, #0a7c1d);
+}
+// ---------------------------------------------------------------- //
+
+
+
+// 大區塊寬度
+// ---------------------------------------------------------------- //
+%primSection{
+  width: 90%; margin-left: auto;  margin-right: auto;
+  padding: 60px 5%;
+  @media screen and (min-width: $wwMaximum ){
+    width: $wwMaximum * .9;
+    // padding-left: $wwMaximum * .05;
+    // padding-right: $wwMaximum * .05;
+  }
+}
+
+%primSectionFull{
+  width: 100%; padding-left: 5%; padding-right: 5%;
+  @media screen and (min-width: $wwMaximum ){
+    padding-left: calc(50% - $wwMaximum*.45); 
+    padding-right: calc(50% - $wwMaximum*.45);
+  }
+}
+// ---------------------------------------------------------------- //
+
+
+// 區塊樣式：圓角、陰影
+// ---------------------------------------------------------------- //
+%frame {
+  border-radius: 16px;
+  background-color: rgb(255 255 255 / .5);
+  box-shadow: rgb(0 0 0 / .2) 0 0 20px;
+}
+// ---------------------------------------------------------------- //
