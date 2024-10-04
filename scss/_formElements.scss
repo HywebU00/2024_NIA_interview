@@ -274,7 +274,7 @@ input[type="checkbox"] {
 .btnLook:is(a, button) {
   display: inline-block;
   text-align: center;
-  height: var(--inputHeight);
+  height: var(--inputHeight); line-height: var(--inputHeight);
   padding: 0 1em;
   margin: 5px;
   border-radius: 6px;
