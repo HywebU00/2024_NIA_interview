@@ -9,7 +9,7 @@
 <body>
   <header class="webHeader">
     <h1>中華民國內政部移民署 面(訪)談線上預約系統</h1>
-    <nav>
+    <nav class="menu">
       <ul>
         <li class="home here"><a href="#">回首頁</a></li>
         <li><a href="#">預約面(訪)談</a></li>
@@ -17,7 +17,22 @@
         <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
       </ul>
     </nav>
+    
+    <button class="memberCtrl" title="會員" type="button"></button>
+    <button class="sidebarCtrl" title="側欄開關" type="button"></button>
   </header>
+
+  <aside class="sidebar">
+    <button type="button" class="closeThis"></button>
+    <nav class="menu">
+      <ul>
+        <li class="home here"><a href="#">回首頁</a></li>
+        <li><a href="#">預約面(訪)談</a></li>
+        <li><a href="#">預約紀錄查詢與變更</a></li>
+        <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
+      </ul>
+    </nav>
+  </aside>
 
   <main class="main">
     <section class="mainFunction">
@@ -40,6 +55,7 @@
         <li>每日受面(訪)談之件數不定，如尖峰時段抵達，需耗費較多時間等候面(訪)談，如時間許可，請勿安排年節、假日及假日前之時間抵達(臺)，<em>如有變更預定時間，請務必上網再作更正</em>。</li>
         <li>面談案件為行政調查程序，正常無疑慮案件，每案行政調查時間約為1小時，如有疑慮案件，視調查情形延長面(訪)談時間。</li>
         <li><em>為利於面(訪)談案件順利執行，登機返臺前請先告知所搭乘之運輸業者，您入境本國時須接受面談，俾便本署前期作業，另於面談時準備與結婚有關之佐證資料</em>，並帶著愉快的心情。</li>
+        <li><a href="#">使用手冊</a></li>
       </ol>
     </article>
 
@@ -61,6 +77,8 @@
 
   </footer>
 
+  <!-- 以下是燈箱 -->
+<!-- 
   <section class="loginHere">
     <div class="msg">
       <p><strong>尚未登入會員</strong>請先登入會員才可進行預約</p>
@@ -102,7 +120,7 @@
       <button type="submit">送出註冊</button>
     </form>
     <p>請至信箱收驗證信，通過後方可正式啟用帳號。</p>
-  </section>
+  </section> -->
   
 </body>
 </html>
