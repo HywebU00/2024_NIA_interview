@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>移民署面(訪)談線上預約服務</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <!-- <script src="slick/slick.min.js"></script>
+  <script src="js/jquery.touchSwipe.min.js"></script> -->
+  <script src="js/uieffect.js"></script>
 </head>
 <body>
   <header class="webHeader">
@@ -23,15 +28,6 @@
   </header>
 
   <aside class="sidebar">
-    <button type="button" class="closeThis"></button>
-    <nav class="menu">
-      <ul>
-        <li class="home here"><a href="#">回首頁</a></li>
-        <li><a href="#">預約面(訪)談</a></li>
-        <li><a href="#">預約紀錄查詢與變更</a></li>
-        <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
-      </ul>
-    </nav>
   </aside>
 
   <main class="main">
@@ -65,11 +61,11 @@
     <div class="logo"><img src="images/logo.png" alt="移民署 logo"></div>
     <div class="center">
       <p>國境事務大隊</p>
-      <p>電腦系統諮詢專線：02-27967162，服務時間為週一至週五08:30-17:30</p>
-      <p>櫃檯受理服務時間：星期一至星期五 08:00-17:00中午不休息</p>
+      <p>電腦系統諮詢專線：02-27967162，服務時間為週一至週五 <time>08:30-17:30</time></p>
+      <p>櫃檯受理服務時間：星期一 至 星期五 <time>08:00-17:00</time>，中午不休息</p>
       <p>內政部移民署 版權所有 © NATIONAL IMMIGRATION AGENCY 100213 臺北市廣州街15號</p>
     </div>
-    <ul class="claim">
+    <ul class="links">
       <li><a href="#">隱私權保護服務及宣告</a></li>
       <li><a href="#">安全防護與回復機制</a></li>
       <li><a href="#">資訊安全宣告</a></li>
@@ -77,11 +73,13 @@
 
   </footer>
 
+
   <!-- 以下是燈箱 -->
-<!-- 
-  <section class="loginHere">
+  <section class="popSection loginHere">
+    <button class="closeThis" title="關閉"></button>
     <div class="msg">
-      <p><strong>尚未登入會員</strong>請先登入會員才可進行預約</p>
+      <p>請先登入會員才可進行預約。</p>
+      <p>如您還不是會員，請先 <button type="button">註冊成為會員</button></p>
     </div>
 
     <h3>會員登入</h3>
@@ -89,7 +87,6 @@
       <label>帳號<input type="text" placeholder="請輸入帳號"></label>
       <label>密碼<input type="password" placeholder="請輸入密碼"></label>
       <a class="firget" href="#">忘記密碼？</a>
-      <p>還不是會員？<button type="button">註冊成為會員</button></p>
 
       <div class="captcha">
         <img src="" alt="">
@@ -97,11 +94,15 @@
         <button class="voice" type="button" title="朗讀驗證碼"></button>
         <button class="refresh" type="button" title="重新產生驗證碼"></button>
       </div>
-      <button type="button">登入</button>
+
+      <div class="btnDiv">
+        <button type="button">登入</button>
+      </div>
     </form>
   </section>
 
-  <section class="twoFactorVerify">
+  <section class="popSection twoFactorVerify">
+    <button class="closeThis" title="關閉"></button>
     電子郵件驗證
     <input type="text">
     已發送驗證碼
@@ -110,7 +111,8 @@
 
   </section>
 
-  <section class="register">
+  <section class="popSection register">
+    <button class="closeThis" title="關閉"></button>
     <h3>註冊成為新會員</h3>
     <form action="">
       <label>設定帳號<input type="text"></label>
@@ -120,7 +122,7 @@
       <button type="submit">送出註冊</button>
     </form>
     <p>請至信箱收驗證信，通過後方可正式啟用帳號。</p>
-  </section> -->
+  </section>
   
 </body>
 </html>

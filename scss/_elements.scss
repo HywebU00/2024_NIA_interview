@@ -1,0 +1,134 @@
+button:is(.sidebarCtrl, .memberCtrl){
+  position: relative;
+  width: 48px; height: 48px; margin: 0 0 0 8px;
+
+  // 側欄開關
+  &:is(.sidebarCtrl){
+    --speed : .3s;
+    --shadowShift: 8px;
+    --tinge: #000;
+    
+    right: 0; z-index: 98;
+    background: #fff;
+    transition: all .2s, right .5s;
+
+    &::before, &::after {
+      content: ''; position: absolute; left: calc(50% - 12px);
+      width: 24px; height: 2px; 
+    }
+    &::before {
+      background-color:var(--tinge);
+      box-shadow:var(--tinge) 0 calc(-1 * var(--shadowShift)) 0,var(--tinge) 0 var(--shadowShift) 0;
+    }
+    &::after{ 
+      display: none;
+      background-color: var(--tinge);
+      transition:rotate var(--speed);
+    }
+
+    &:hover, &:focus{ 
+      --tinge: #fff;
+      background-color: $assistantColor1;
+    }
+    
+    // 側欄開啟時
+    &.closeIt {
+      --tinge: #fff;
+      background-color: $assistantColor1;
+      &:hover, &:focus{
+        box-shadow: #fff 0 0 0 1px, $assistantColor1 0 0 0 4px;
+      }
+      &::before{rotate: -45deg; box-shadow: none;}
+      &::after{rotate: 45deg; display: block;}
+    }
+  }
+
+
+  // 會員圖示
+  &:is(.memberCtrl){
+    background-color: transparent;
+    &::before  {
+      content: ''; position: absolute; left: calc(50% - 15px); top: calc(50% - 15px);
+      width: 30px; height: 30px;
+      background: url(../images/icon_avatar.svg) no-repeat center center;
+      background-size: contain;
+      filter: brightness(-100%);
+    }
+
+    &:hover, &:focus{
+      background-color: $assistantColor1;
+      &::before{
+        filter: brightness(300%);
+      }
+    }
+  }
+}
+
+
+// 關閉 button
+.closeThis{
+  position: relative;
+  width: 44px; height: 44px; margin: 0;
+  background-color: $primaryColor;
+  &::before, &::after {
+    content: ''; position: absolute;
+    left: calc(50% - 10px); top: calc(50% - 1px);
+    width: 20px; height: 2px;
+    background: #fff;
+  }
+  &::before { rotate: 45deg;}
+  &::after { rotate: -45deg;}
+
+  &:hover, &:focus {
+    background-color: $assistantColor1;
+  }
+  &:focus{box-shadow:#fff 0 0 0 1px, $assistantColor1 0 0 0 4px;}
+
+}
+
+// ------------------------------------------------------ //
+// --------------------- 模組 --------------------------- //
+// ------------------------------------------------------ //
+
+// 彈出區塊
+// ------------------------------------------------------ //
+.popSection {
+  display: none;;
+  z-index: 110;
+  position: fixed; left: 50%; top: 70px;
+  translate: -50% 0;
+  padding: 30px;
+  width: clamp(320px, 80vw, 520px);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / .3) 0 0 24px;
+  border-radius: 16px;
+
+  .closeThis{
+    position: absolute; right: 6px;top: 6px;
+    border-radius: 50%;
+  }
+
+}
+// ------------------------------------------------------ //
+
+
+
+// 登入
+// ------------------------------------------------------ //
+.loginHere{
+
+}
+// ------------------------------------------------------ //
+
+
+
+
+
+
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //
+// ------------------------------------------------------ //

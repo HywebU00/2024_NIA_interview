@@ -1,10 +1,11 @@
 // ＊＊＊ 移民署:面(訪)談線上預約系統 ＊＊＊
 @import "_variables"; // 顏色與長度變數
 @import "_default"; // HTML tags 預設樣式
-@import "_formElements"; // 
-@import "_webHeader"; // 
-@import "_webFooter"; // 
-@import "_sidebar"; // 
-@import "_mp"; // 
-@import "_apply"; // 
-@import "_list"; // 
+@import "_elements"; // 一般元件與模組
+@import "_formElements"; // 表單元件
+@import "_webHeader"; // 全站版頭
+@import "_webFooter"; // 全站頁尾
+@import "_sidebar"; // 行動版側欄
+@import "_mp"; // 首頁
+@import "_apply"; // 填寫表單
+@import "_list"; // 條列
