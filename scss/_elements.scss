@@ -58,7 +58,7 @@ button:is(.sidebarCtrl, .memberCtrl){
     &:hover, &:focus{
       background-color: $assistantColor1;
       &::before{
-        filter: brightness(300%);
+        filter: brightness(800%);
       }
     }
   }
@@ -93,8 +93,7 @@ button:is(.sidebarCtrl, .memberCtrl){
 // 彈出區塊
 // ------------------------------------------------------ //
 .popSection {
-  display: none;;
-  z-index: 110;
+  display: none;; z-index: 110;
   position: fixed; left: 50%; top: 70px;
   translate: -50% 0;
   padding: 30px;

@@ -25,12 +25,6 @@ $(function(){
   const _sidebarMask = $('.sidebarMask');
   // --------------------------------------------------------------- //
 
-  // 製作燈箱遮罩
-  // --------------------------------------------------------------- //
-  _body.append('<div class="coverAll"></div>');
-  const _coverAll = $('.coverAll');
-  // --------------------------------------------------------------- //
-
 
   // 行動版側欄
   // --------------------------------------------------------------- //
@@ -45,7 +39,6 @@ $(function(){
   // 行動版側欄，顯示／隱藏
   // --------------------------------------------------------------- //
   var _sidebarA = _sidebar.find('a, button');
-  // const sbA_lastIndex = _sidebarA.length - 1;
   var _sidebarA_first = _sidebarA.eq(0);
   var _sidebarA_last = _sidebarA.eq(_sidebarA.length - 1);
 
@@ -299,56 +292,102 @@ $(function(){
 
   // 燈箱 
   // --------------------------------------------------------------- //
-  var _lightbox = $('.lightbox');
-  var _hideLightbox = _lightbox.find('.closeThis');
-  const lbxSpeed = 400;
+  // var _lightbox = $('.lightbox');
+  // var _hideLightbox = _lightbox.find('.closeThis');
+  // const lbxSpeed = 400;
 
-  _lightbox.before('<div class="coverAll"></div>');
-  _lightbox.append('<button type="button" class="skip">焦點移到 "關閉此燈箱"</button>');
-  var _cover = $('.coverAll');
-  var _skipToClose = _lightbox.find('.skip');
+  // _lightbox.before('<div class="coverAll"></div>');
+  // _lightbox.append('<button type="button" class="skip">焦點移到 "關閉此燈箱"</button>');
+  // var _cover = $('.coverAll');
+  // var _skipToClose = _lightbox.find('.skip');
 
-  _skipToClose.focus( function () {
-    _hideLightbox.focus();
-  })
+  // _skipToClose.focus( function () {
+  //   _hideLightbox.focus();
+  // })
 
-  // 關燈箱
-  _hideLightbox.click(function(){
-    let _targetLbx = $(this).parents('.lightbox');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-      function(){
-        _cpBigPhoto.find('.flowList').find('li').hide();
+  // // 關燈箱
+  // _hideLightbox.click(function(){
+  //   let _targetLbx = $(this).parents('.lightbox');
+  //   _targetLbx.stop(true, false).fadeOut(lbxSpeed,
+  //     function(){
+  //       _cpBigPhoto.find('.flowList').find('li').hide();
+  //     }
+  //   );
+  //   _targetLbx.prev(_cover).fadeOut(lbxSpeed);
+  //   _body.removeClass('noScroll');
+  // })
+
+  // _cover.click(function(){
+  //   let _targetLbx = $(this).next('.lightbox');
+  //   $(this).fadeOut(lbxSpeed);
+  //   _body.removeClass('noScroll');
+  //   _targetLbx.stop(true, false).fadeOut(lbxSpeed,
+  //     function(){
+  //       _cpBigPhoto.find('.flowList').find('li').hide();
+  //     }
+  //   );
+  // })
+
+  // _lightbox.on('keydown', function(e){
+  //   if ( e.keyCode == 27) {
+  //     _hideLightbox.trigger('click');
+  //   }
+  // })
+
+
+
+
+
+  // 彈出區塊
+  // --------------------------------------------------------------- //
+  var _popSection = $('.popSection');
+  _popSection.before('<div class="coverAll"></div>'); // 製作燈箱遮罩
+  _popSection.each(function(){
+    let _this = $(this);
+    let _coverAll = _this.prev('.coverAll');
+    let _closePop = _this.find('.closeThis');
+
+    _closePop.on('click', function(){
+      _this.fadeOut(300);
+      _coverAll.fadeOut(300);
+      _body.removeClass('noScroll');
+
+      if ( _closePop.parents('.register').length > 0) {
+        $('.coverAll:visible').fadeOut(300);
       }
-    );
-    _targetLbx.prev(_cover).fadeOut(lbxSpeed);
-    _body.removeClass('noScroll');
+    })
+
+    _coverAll.on('click', function(){
+      $(this).add(_popSection.filter(':visible')).fadeOut(200);
+      _body.removeClass('noScroll');
+    })
+    
+
   })
 
-  _cover.click(function(){
-    let _targetLbx = $(this).next('.lightbox');
-    $(this).fadeOut(lbxSpeed);
-    _body.removeClass('noScroll');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-      function(){
-        _cpBigPhoto.find('.flowList').find('li').hide();
-      }
-    );
-  })
 
-  _lightbox.on('keydown', function(e){
-    if ( e.keyCode == 27) {
-      _hideLightbox.trigger('click');
-    }
+  // 顯示[會員登入]
+  // --------------------------------------------------------------- //
+  const _memberCtrl = $('.memberCtrl');
+  _memberCtrl.on('click', function(){
+    $('.loginHere').show().prev('.coverAll').fadeIn(200);
+    _body.addClass('noScroll');
   })
+  // --------------------------------------------------------------- //
 
+
+  // 顯示[註冊成為會員]
+  // --------------------------------------------------------------- //
+  const _membReg = $('.membReg');
+  _membReg.on('click', function(){
+    $('.loginHere').fadeOut(200);
+    _popSection.filter('.register').fadeIn(300);
+  })
 
   // --------------------------------------------------------------- //
 
-  const _memberCtrl = $('.memberCtrl');
-  _memberCtrl.on('click', function(){
-    $('.loginHere').show();
 
-  })
+
 
 
 

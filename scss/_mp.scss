@@ -130,6 +130,10 @@
     margin: 0 0 30px;padding: 0 0 18px;
     border-bottom: 2px solid $borderColor;
   }
+  a{ color: $primaryColor;
+    &:hover, &:focus { text-decoration: none;color: $assistantColor1;}
+    &:focus{ outline: 1px solid $assistantColor1;}
+  }
   ul, ol{margin: 0; padding: 0;line-height:1.8;}
   ul{
     list-style: none;
