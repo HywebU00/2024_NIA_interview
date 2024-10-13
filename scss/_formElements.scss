@@ -210,12 +210,9 @@ input[type="reset"] {
   background-color: $primaryColor; color: #fff;
   border-radius: 5px;
 
-  // &:hover, &:focus {
-  //   background-color: $assistantColor1;
-  //   border-color: $primaryColor;
-  //   color: $primaryColor;
-  // }
-  // &:focus{ box-shadow: $assistantColor1 0 0 0 3px;}
+  &:hover, &:focus {background-color: $assistantColor1;}
+  &:hover{box-shadow:transparent 0 0 0 0, $assistantColor1 0 0 0 2px;}
+  &:focus{box-shadow:#fff 0 0 0 1px, $assistantColor1 0 0 0 4px;}
 
   &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;}
 }
@@ -309,4 +306,62 @@ input[type="checkbox"] {
   .btnLook:is(a, button){
     min-width: 280px; margin-left: 8px; margin-right: 8px;
   }
+}
+
+
+.optionGroup{
+  label{
+    display: block;
+    padding: .9em 20px; margin:5px 0 15px;
+    border-radius: 5px; cursor: pointer;
+    box-shadow: $borderColor 0 0 0 2px inset;
+
+    input[type="radio"], input[type="checkbox"] { 
+      margin-right: .5em;
+    }
+
+    &.checked{
+      color: #fff;
+      box-shadow: none;
+      @extend %gradientBlue;
+
+      input[type="radio"]{
+        background-color: #fff;
+      }
+    }
+  }
+  
+  @media screen and (min-width: $wwNormal){
+    display: flex; justify-content: space-between;
+    label{ flex: 0 0 calc(33.33% - 12px); }
+
+  }
+}
+
+button.arrow{
+  position: relative;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  // background-color: #5c5c5c;
+  &::after{
+    content: ''; position: absolute; top: calc(50% - 8px); 
+    width: 14px; height: 14px;
+    border: 2px solid #fff;border-right: none; border-top: none;
+  }
+
+  &.left::after{rotate: 45deg;left: calc(50% - 4px);}
+  &.right::after{rotate: 225deg;right: calc(50% - 5px);}
+
+}
+
+button.btnStyle1{
+  height: 2.4em; padding: 0 1.5em;
+  border-radius: 6px;
+  @extend %gradientBlue;
+  color: #fff;
+}
+
+abbr{
+  text-decoration: none;
+  color: #c00;
 }

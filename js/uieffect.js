@@ -86,23 +86,18 @@ $(function(){
 
 
 
-  // 行動版側欄「主選單」開合
+  // 會員選單
   // --------------------------------------------------------------- //
-  // _hasChildMobile.on( 'click', function(e){
-  //   e.preventDefault();
-    
-  //   let _this = $(this);
-  //   let _subMenu = _this.next('ul');
+  const _ismember = _webHeader.find('.member');
+  const _memberCenter = $('.memberCenter');
+  _ismember.on('click', function(){
+    if( _memberCenter.is(':hidden') ){
+      _memberCenter.slideDown(200);
+    } else {
+      _memberCenter.slideUp(200);
+    }
+  })
 
-  //   if (_subMenu.is(':hidden')) {
-  //     _subMenu.stop(true, false).slideDown();
-  //     _this.attr('aria-expanded', true).parent().addClass('closeIt').siblings().removeClass('closeIt').find('ul:visible').slideUp().parent().removeClass('closeIt').children('a').attr('aria-expanded', false);
-  //   } else {
-  //     _subMenu.stop(true, false).slideUp().find('ul:visible').slideUp();
-  //     _subMenu.find('.closeIt').removeClass('closeIt').children('a').attr('aria-expanded', false);
-  //     _this.attr('aria-expanded', false).parent().removeClass('closeIt');
-  //   }
-  // })
   // --------------------------------------------------------------- //
 
 
@@ -117,30 +112,32 @@ $(function(){
 
   // 固定版頭 
   // --------------------------------------------------------------- //
-  // var fixHeadThreshold;
-  // var hh = _webHeader.innerHeight();
+  var fixHeadThreshold;
+  var hh = _webHeader.innerHeight();
 
-  // if ( ww >= wwNormal) {
-  //   fixHeadThreshold = hh;
-  // } else {
-  //   fixHeadThreshold = 0;
-  // }
+  console.log(hh);
 
-  // _window.scroll(function(){
-  //   if (_window.scrollTop() > fixHeadThreshold ) {
-  //     _webHeader.addClass('fixed');
-  //     _body.offset({top: hh});
-  //     $('.goCenter').trigger('blur');
-  //   } else {
-  //     _webHeader.removeClass('fixed');
-  //     _body.removeAttr('style');
-  //   }
+  if ( ww >= wwNormal) {
+    fixHeadThreshold = hh;
+  } else {
+    fixHeadThreshold = 0;
+  }
 
-  //   // goTop button 顯示、隱藏
-  //   // ----------------------------------------------- //
-  //   _window.scrollTop() > 200 ? _goTop.addClass('show') :  _goTop.removeClass('show');
-  // })
-  // _window.trigger('scroll');
+  _window.scroll(function(){
+    if (_window.scrollTop() > fixHeadThreshold ) {
+      _webHeader.addClass('fixed');
+      _body.offset({top: hh});
+      $('.goCenter').trigger('blur');
+    } else {
+      _webHeader.removeClass('fixed');
+      _body.removeAttr('style');
+    }
+
+    // goTop button 顯示、隱藏
+    // ----------------------------------------------- //
+    _window.scrollTop() > 200 ? _goTop.addClass('show') :  _goTop.removeClass('show');
+  })
+  _window.trigger('scroll');
   // --------------------------------------------------------------- //
 
 
@@ -351,7 +348,6 @@ $(function(){
       _this.fadeOut(300);
       _coverAll.fadeOut(300);
       _body.removeClass('noScroll');
-
       if ( _closePop.parents('.register').length > 0) {
         $('.coverAll:visible').fadeOut(300);
       }
@@ -361,16 +357,15 @@ $(function(){
       $(this).add(_popSection.filter(':visible')).fadeOut(200);
       _body.removeClass('noScroll');
     })
-    
 
   })
 
 
   // 顯示[會員登入]
   // --------------------------------------------------------------- //
-  const _memberCtrl = $('.memberCtrl');
-  _memberCtrl.on('click', function(){
-    $('.loginHere').show().prev('.coverAll').fadeIn(200);
+  const _loginBtn = $('.loginBtn');
+  _loginBtn.on('click', function(){
+    $('.login').show().prev('.coverAll').fadeIn(200);
     _body.addClass('noScroll');
   })
   // --------------------------------------------------------------- //
@@ -380,7 +375,7 @@ $(function(){
   // --------------------------------------------------------------- //
   const _membReg = $('.membReg');
   _membReg.on('click', function(){
-    $('.loginHere').fadeOut(200);
+    $('.login').fadeOut(200);
     _popSection.filter('.register').fadeIn(300);
   })
 

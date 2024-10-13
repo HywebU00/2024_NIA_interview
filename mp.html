@@ -12,25 +12,29 @@
   <script src="js/uieffect.js"></script>
 </head>
 <body>
+  <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
+
   <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="版頭區">:::</a>
+
     <h1>中華民國內政部移民署 面(訪)談線上預約系統</h1>
     <nav class="menu">
       <ul>
         <li class="home here"><a href="#">回首頁</a></li>
         <li><a href="#">預約面(訪)談</a></li>
         <li><a href="#">預約紀錄查詢與變更</a></li>
-        <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
       </ul>
     </nav>
-    
-    <button class="memberCtrl" title="會員" type="button"></button>
-    <button class="sidebarCtrl" title="側欄開關" type="button"></button>
+    <button class="loginBtn" type="button">會員登入／註冊</button>
+    <button class="sidebarCtrl" type="button" title="側欄開關"></button>
   </header>
 
   <aside class="sidebar">
   </aside>
 
   <main class="main">
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+
     <section class="mainFunction">
       <hgroup>
         <h2>移民署面(訪)談線上預約服務</h2>
@@ -58,6 +62,8 @@
   </main>
 
   <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
     <div class="logo"><img src="images/logo.png" alt="移民署 logo"></div>
     <div class="center">
       <p>國境事務大隊</p>
@@ -70,37 +76,65 @@
       <li><a href="#">安全防護與回復機制</a></li>
       <li><a href="#">資訊安全宣告</a></li>
     </ul>
-
   </footer>
+
+  <button class="goTop" type="button" title="回頁面頂端">回頁首</button>
 
 
   <!-- 以下是燈箱 -->
 
   <!-- 會員登入 -->
-  <section class="popSection loginHere">
+  <section class="popSection login">
     <button class="closeThis" title="關閉"></button>
-    <div class="msg">
-      <p>請先登入會員才可進行預約。</p>
-      <p>如您還不是會員，請先 <button class="membReg" type="button">註冊成為會員</button></p>
+
+    <div class="message">
+      <p>請先登入會員才可進行預約。如您還不是會員，請先 
+        <button class="membReg" type="button">註冊成為會員</button>
+      </p>
     </div>
 
-    <h3>會員登入</h3>
-    <form action="">
-      <label>帳號<input type="text" placeholder="請輸入帳號"></label>
-      <label>密碼<input type="password" placeholder="請輸入密碼"></label>
-      <a class="firget" href="#">忘記密碼？</a>
+    <div class="loginHere">
+      <h3>會員登入</h3>
+      <form action="">
+        <label>
+          <span class="labelText">帳號</span>
+          <input type="text" placeholder="請輸入帳號">
+        </label>
+        <label>
+          <span class="labelText">密碼</span>
+          <input type="password" placeholder="請輸入密碼">
+        </label>
+        <a class="forget" href="#">忘記密碼</a>
+  
+        <div class="captcha">
+          <img src="images/captchaImg.png" alt="驗證碼">
+          <input type="text" placeholder="請輸入圖檔所顯示的數字">
+          <button class="voice" type="button" title="朗讀驗證碼"></button>
+          <button class="refresh" type="button" title="重新產生驗證碼"></button>
+        </div>
+  
+        <div class="btnDiv">
+          <button type="button">登入</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-      <div class="captcha">
-        <img src="" alt="">
-        <input type="text" placeholder="請輸入圖檔所顯示的數字">
-        <button class="voice" type="button" title="朗讀驗證碼"></button>
-        <button class="refresh" type="button" title="重新產生驗證碼"></button>
-      </div>
+  <!-- 註冊成為新會員 -->
+  <section class="popSection register">
+    <button class="closeThis" title="關閉"></button>
 
-      <div class="btnDiv">
-        <button type="button">登入</button>
-      </div>
-    </form>
+    <div class="regiHere">
+      <h3>註冊成為新會員</h3>
+      <form action="">
+        <label>設定帳號<input type="text"></label>
+        <label>設定密碼<input type="password"></label>
+        <label>再次輸入密碼<input type="password"></label>
+        <label>電子郵件<input type="email"></label>
+        <div class="btnDiv"><button type="submit">送出註冊</button></div>
+      </form>
+      <p>請至信箱收驗證信，通過後方可正式啟用帳號。</p>
+    </div>
   </section>
 
   <!-- 輸入驗證碼 -->
@@ -112,20 +146,6 @@
 
     <p>請輸入已發送至 yin****@gmail.com  的6位數驗證碼</p>
 
-  </section>
-
-  <!-- 註冊成為新會員 -->
-  <section class="popSection register">
-    <button class="closeThis" title="關閉"></button>
-    <h3>註冊成為新會員</h3>
-    <form action="">
-      <label>設定帳號<input type="text"></label>
-      <label>設定密碼<input type="password"></label>
-      <label>再次輸入密碼<input type="password"></label>
-      <label>電子郵件<input type="mail"></label>
-      <button type="submit">送出註冊</button>
-    </form>
-    <p>請至信箱收驗證信，通過後方可正式啟用帳號。</p>
   </section>
   
 </body>

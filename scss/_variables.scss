@@ -14,10 +14,12 @@ $secondaryColor: #0a7c1d;
 $assistantColor1: #0097e5;
 $assistantColor2: #5db741;
 $assistantColor: #9b6c21;
+$warningColor: #d14b1a;
 
 $fontColor: #333;
 $fontColorLight: #666;
 $fontColorDark: #000;
+$linkColor: #004c93;
 
 $borderColor: #d5d5d5;
 $borderColorLight: #e6e6e6;
@@ -43,8 +45,11 @@ $bgPale: #e6e6e6;
 // 大區塊寬度
 // ---------------------------------------------------------------- //
 %primSection{
-  width: 90%; margin-left: auto;  margin-right: auto;
-  padding: 60px 5%;
+  width: 96%; margin-left: auto;  margin-right: auto;
+  padding: 60px 2%;
+  @media screen and (min-width: $wwNormal){
+    width: 90%;padding: 60px 5%;
+  }
   @media screen and (min-width: $wwMaximum ){
     width: $wwMaximum * .9;
     // padding-left: $wwMaximum * .05;

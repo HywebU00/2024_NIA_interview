@@ -1,5 +1,12 @@
 .webHeader{
-  display: flex;  padding:8px;
+  display: flex;  padding:5px 8px;
+  z-index: 100;
+  
+  &.fixed{
+    position: fixed; left: 0;right: 0;top: 0;
+    background-color: rgb(255 255 255 / .92);
+    box-shadow: rgb(0 0 0 / .4) 0 2px 6px;
+  }
 
   h1{
     flex: 1 1 auto;
@@ -9,6 +16,24 @@
     background-size: auto 100%;
   }
 
+  // 會員圖示
+  button.loginBtn, button.member {
+    position: relative;
+    width: 48px; height: 48px; margin: 0;
+    text-indent: -10em; overflow: hidden;
+    background-color: transparent;
+    &::before  {
+      content: ''; position: absolute; left: calc(50% - 15px); top: calc(50% - 15px);
+      width: 30px; height: 30px;
+      background: url(../images/icon_avatar.svg) no-repeat center center;
+      background-size: contain;
+      filter: brightness(-100%);
+    }
+    &:hover, &:focus{
+      background-color: $assistantColor1;
+      &::before{ filter: brightness(800%); }
+    }
+  }
 
 
   // 主選單
@@ -18,28 +43,39 @@
     &>ul{
       list-style: none; margin: 0 auto; padding: 0;
       line-height: 1.2;
-      &>li{
-        &.memberLogin{
-          button{@extend %gradientBlue;}
-        }
-      }
+    }
+  }
+
+
+  // 會員中心
+  ul.memberCenter{
+    display: none;
+    list-style: none; margin: 0;padding: 0;
+    box-shadow: rgb(0 0 0 / .3) 0 0 12px;
+
+    position: fixed; right: 56px; top: 60px; z-index: 99;
+    text-align: center;
+    min-width: 10em; padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    li{
+      margin: 0; padding:.5em 0;
+      &:has(button){padding: 0;}
+      &>button{height: 2.2em; line-height: 2.2; margin: 0; width: 100%;}
+      &+li{margin-top: 4px;}
     }
   }
 
   @media screen and (min-width: $wwNormal){
-    margin: 0 5%; padding: 30px 0 35px;
+    margin: 0 5%; padding: 30px 0 35px; margin: 0;
     display: flex; flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 
-    &>button:is(.sidebarCtrl, .memberCtrl){display: none;}
-
     h1{
-      flex: 0 0 340px;height: 70px;margin: 10px 0;
+      flex: 0 0 340px;height: 70px;margin: 10px 0 10px 5%;
       background-position: 0 0;
     }
-
-
     .menu{
       display: block;flex: 1 1 auto;
       &>ul{
@@ -48,27 +84,28 @@
         &>li{
           margin: 0 0 0 20px; padding: 0;
           &>a{ 
-            position: relative;color: #000;
-            padding: 0 0 4px;
+            position: relative;color: #000;padding: 0 0 4px;
             &::after{
               content: ''; position: absolute; left: 50%; bottom: 0;
               height: 2px;width: 0;
-              background: #004c93;
+              background: $primaryColor;
               transition: .2s;
             }
-  
             &:hover, &:focus{
               &::after{ left: 0; width: 100%;}
             }
             
           }
-          &>a, &>button{
-            white-space: nowrap;
-          }
+          &>a, &>button{white-space: nowrap;}
   
           &.here{
             &>a{
-              &::after{left: 0; width: 100%;}
+              &::after{left: 0; width: 100%; }
+              &:focus{ 
+                outline: 1px solid $primaryColor;
+                outline-offset: -1px;
+                &::after{ height: 3px;}
+              }
             }
           }
   
@@ -112,20 +149,43 @@
         }
       }
     }
-  
 
-    // nav{
-    //   flex: 1 1  auto;
-    //   &>ul{
-    //     justify-content: flex-end;
-    //     &>li{ margin-left: 1.2em;}
-    //   }
-    // }
+    &.fixed{
+      padding: 1px 0;
+    }
 
+    button.loginBtn, button.member{
+      font-size: inherit; text-indent: 0;
+      height: 2.8em; width: auto;
+      margin: 0 0 0 20px; padding: 0 1.2em; margin-right: 5%;
+      border: none; border-radius: 2em;
+      background-image: linear-gradient(134deg, #0097e5, #004c93);
+      color: #fff;
+      box-shadow: rgb(0 0 0 / .3) 0 3px 8px;
+      transition: .2s;
+      &::before{
+        content: ''; display: inline-block; position: static;
+        vertical-align: middle; margin-right: 6px; margin-top: -2px;
+        width: 28px;height: 28px;border-radius: 50%;
+        background: url(../images/icon_avatar.svg) no-repeat center top;
+        background-size: contain;
+        filter: brightness(800%);
+      }
+
+      &:hover{box-shadow: #fff 0 0 0 3px, rgb(0 0 0 / .3) 0 2px 12px 3px;}
+      &:focus{box-shadow: #fff 0 0 0 2px, #004c93 0 0 0 5px, rgb(0 0 0 / .3) 0 0 8px 5px;}
+    }
+    button.sidebarCtrl {display: none;}
+
+    // 會員中心
+    ul.memberCenter{ top: 110px; right: 5vw; }
   }
 
   @media screen and (min-width: $wwMaximum){
-    width: 1296px; margin: 0 auto;
+    // width: 1296px; margin: 0 auto;
+    h1{ margin-left: calc(50% - $wwMaximum*.45);}
+    button.loginBtn, button.member{ margin-right: calc(50% - $wwMaximum*.45);}
+    ul.memberCenter{ right: calc(50vw - $wwMaximum*.45); }
   }
 }
 

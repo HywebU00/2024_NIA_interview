@@ -1,132 +1,297 @@
-button:is(.sidebarCtrl, .memberCtrl){
+// 無障礙定位點
+// --------------------------------------------------------------- //
+.accesskey{
+  position: absolute; display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; top: 0; z-index: 199;
+    line-height: 1; padding: 2px;
+    text-decoration: none; color: $fontColorLight;
+    &:focus, &:hover{outline: 1px solid $linkColor;}
+  }
+}
+@media screen and (min-width: $wwNormal){
+  .webHeader .accesskey,
+  .main .accesskey,
+  .webFooter .accesskey {left: 1px;  outline-offset: -1px;}
+}
+@media screen and (min-width: calc($wwMaximum + 2em)){
+  .webHeader .accesskey,
+  .main .accesskey, 
+  .webFooter .accesskey { left: calc(50% - $wwMaximum*.5 - 1em);}
+  .main .accesskey{
+    color: $fontColorLight;
+    &:focus, &:hover{outline-color: $linkColor;}
+  }
+
+}
+
+
+// 跳至內容區 
+// --------------------------------------------------------------- //
+.goCenter{
+  --bg:#{$primaryColor};
+  --color:#fff;
+
+  display: none;
+  @media screen and (min-width: $wwNormal) {
+    display: block; z-index: 880;
+    position: fixed; top: -2.2em; left: 50px;
+    padding: 0 .5em; border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    height: 1.8em; line-height: 1.9;
+    text-decoration: none; outline: none; cursor: pointer;
+    background-color: var(--bg); color: var(--color);
+    transition:top .3s; 
+    &:focus{ --bg: #{$primaryColor}; top: 0;}
+  }
+  @media screen and (min-width: $wwMaximum) {
+    left: calc( 50vw  - #{$wwMaximum}*.5 + 50px );
+  }
+}
+// --------------------------------------------------------------- //
+
+
+
+// 回頁面最上方 
+// --------------------------------------------------------------- //
+.goTop{
+  --tinge: #fff;
+  --bg: #{$primaryColor};
+  --size: 64px;
+  --arrowSize : 20px;
+
+  position: fixed;right: 16px; bottom: -80px; z-index: 90; 
+  width: var(--size); height: var(--size);
+  text-indent: -15em;overflow: hidden;
+  padding:0;margin: 0;
+  border: none; border-radius: 50%; 
+  background-color: var(--bg);
+  box-shadow: rgb(255 255 255 / .3) 0 0 10px;
+  transition: all .2s, bottom 1s;
+  &::before{
+    content: ''; position: absolute;
+    box-sizing: border-box;
+    width: var(--arrowSize); height: var(--arrowSize);
+    left: calc( ( var(--size) - var(--arrowSize) )/2 ); top: calc( var(--size)/2 - var(--arrowSize)/4 );
+    border: 3px solid var(--tinge); 
+    border-bottom: none; border-right: none;
+    transform: rotate(45deg);
+  }
+
+  &:hover, &:focus {
+    --bg: #{$assistantColor1};
+  }
+  // &:focus{box-shadow: var(--tinge) 0 0 0 3px;}
+
+  &.show{ bottom: 16px;}
+
+  @media screen and ( min-width: calc($wwMaximum + 408px) ){
+    right: calc(50% - $wwMaximum*.5 - var(--size) - 100px - 16px );
+  }
+
+}
+// --------------------------------------------------------------- //
+
+
+// 側欄開關
+// --------------------------------------------------------------- //
+button.sidebarCtrl{
+  --speed : .3s;
+  --shadowShift: 8px;
+  --tinge: #000;
+
   position: relative;
   width: 48px; height: 48px; margin: 0 0 0 8px;
+  
+  right: 0; z-index: 98;
+  background: #fff;
+  transition: all .2s, right .5s;
 
-  // 側欄開關
-  &:is(.sidebarCtrl){
-    --speed : .3s;
-    --shadowShift: 8px;
-    --tinge: #000;
-    
-    right: 0; z-index: 98;
-    background: #fff;
-    transition: all .2s, right .5s;
-
-    &::before, &::after {
-      content: ''; position: absolute; left: calc(50% - 12px);
-      width: 24px; height: 2px; 
-    }
-    &::before {
-      background-color:var(--tinge);
-      box-shadow:var(--tinge) 0 calc(-1 * var(--shadowShift)) 0,var(--tinge) 0 var(--shadowShift) 0;
-    }
-    &::after{ 
-      display: none;
-      background-color: var(--tinge);
-      transition:rotate var(--speed);
-    }
-
-    &:hover, &:focus{ 
-      --tinge: #fff;
-      background-color: $assistantColor1;
-    }
-    
-    // 側欄開啟時
-    &.closeIt {
-      --tinge: #fff;
-      background-color: $assistantColor1;
-      &:hover, &:focus{
-        box-shadow: #fff 0 0 0 1px, $assistantColor1 0 0 0 4px;
-      }
-      &::before{rotate: -45deg; box-shadow: none;}
-      &::after{rotate: 45deg; display: block;}
-    }
+  &::before, &::after {
+    content: ''; position: absolute; left: calc(50% - 12px);
+    width: 24px; height: 2px; 
+  }
+  &::before {
+    background-color:var(--tinge);
+    box-shadow:var(--tinge) 0 calc(-1 * var(--shadowShift)) 0,var(--tinge) 0 var(--shadowShift) 0;
+  }
+  &::after{ 
+    display: none;
+    background-color: var(--tinge);
+    transition:rotate var(--speed);
   }
 
-
-  // 會員圖示
-  &:is(.memberCtrl){
-    background-color: transparent;
-    &::before  {
-      content: ''; position: absolute; left: calc(50% - 15px); top: calc(50% - 15px);
-      width: 30px; height: 30px;
-      background: url(../images/icon_avatar.svg) no-repeat center center;
-      background-size: contain;
-      filter: brightness(-100%);
-    }
-
+  &:hover, &:focus{ 
+    --tinge: #fff;
+    background-color: $assistantColor1;
+  }
+  
+  // 側欄開啟時
+  &.closeIt {
+    --tinge: #fff;
+    background-color: $assistantColor1;
     &:hover, &:focus{
-      background-color: $assistantColor1;
-      &::before{
-        filter: brightness(800%);
-      }
+      box-shadow: #fff 0 0 0 1px, $assistantColor1 0 0 0 4px;
     }
+    &::before{rotate: -45deg; box-shadow: none;}
+    &::after{rotate: 45deg; display: block;}
   }
+
+
+
+  // // 會員圖示
+  // &:is(.memberCtrl){
+  //   background-color: transparent;
+  //   &::before  {
+  //     content: ''; position: absolute; left: calc(50% - 15px); top: calc(50% - 15px);
+  //     width: 30px; height: 30px;
+  //     background: url(../images/icon_avatar.svg) no-repeat center center;
+  //     background-size: contain;
+  //     filter: brightness(-100%);
+  //   }
+
+  //   &:hover, &:focus{
+  //     background-color: $assistantColor1;
+  //     &::before{
+  //       filter: brightness(800%);
+  //     }
+  //   }
+  // }
 }
 
 
 // 關閉 button
 .closeThis{
+  --bgc: transparent;
+  --tinge:#{$fontColor};
+
   position: relative;
   width: 44px; height: 44px; margin: 0;
-  background-color: $primaryColor;
+  background-color: var(--bgc);
   &::before, &::after {
     content: ''; position: absolute;
-    left: calc(50% - 10px); top: calc(50% - 1px);
-    width: 20px; height: 2px;
-    background: #fff;
+    left: calc(50% - 12px); top: calc(50% - 1px);
+    width: 24px; height: 2px;
+    background: var(--tinge);
   }
   &::before { rotate: 45deg;}
   &::after { rotate: -45deg;}
 
-  &:hover, &:focus {
-    background-color: $assistantColor1;
-  }
-  &:focus{box-shadow:#fff 0 0 0 1px, $assistantColor1 0 0 0 4px;}
-
+  &:hover, &:focus{--tinge: #fff;--bgc: #{$assistantColor1};}
+  &:hover { --bgc: #{$bgPale}; }
 }
 
 // ------------------------------------------------------ //
 // --------------------- 模組 --------------------------- //
 // ------------------------------------------------------ //
 
-// 彈出區塊
-// ------------------------------------------------------ //
-.popSection {
-  display: none;; z-index: 110;
-  position: fixed; left: 50%; top: 70px;
-  translate: -50% 0;
-  padding: 30px;
-  width: clamp(320px, 80vw, 520px);
-  max-height: calc(100vh - 100px);
-  overflow-y: auto;
-  background-color: #fff;
-  box-shadow: rgb(0 0 0 / .3) 0 0 24px;
-  border-radius: 16px;
 
-  .closeThis{
-    position: absolute; right: 6px;top: 6px;
-    border-radius: 50%;
-  }
+// // 彈出區塊
+// // ------------------------------------------------------ //
+// .popSection {
+//   display: none;; z-index: 300;
+//   position: fixed; left: 50%; top: 70px;
+//   translate: -50% 0;
+//   width: 90vw;
+//   padding: 50px 0 0;
+//   overflow-y: auto;
+//   background-color: #fff;
+//   box-shadow: rgb(0 0 0 / .3) 0 0 24px;
+//   border-radius: 16px;
 
-}
-// ------------------------------------------------------ //
+//   .closeThis{
+//     position: absolute; right: 6px;top: 6px;
+//     border-radius: 50%;
+//   }
+
+//   // 會員登入、註冊
+//   &.login, &.register {
+//     width: clamp(280px, 88vw, 440px);
+//     max-height: calc(100vh - 100px);
+//     .message{
+//       margin: 0 auto; width: 90%;
+//       button{
+//         height: 2.2em;margin: .5em auto;
+//         border-radius: 2em;
+//       }
+//     }
+//   }
+
+// }
+// // ------------------------------------------------------ //
 
 
 
-// 登入
-// ------------------------------------------------------ //
-.loginHere{
+// // 會員登入、註冊
+// // ------------------------------------------------------ //
+// .loginHere, .regiHere{
+//   margin: 0 auto; padding: 25px 5% 20px;
+//   h3{ margin: 0 auto 20px;}
+//   label{
+//     display: block;
+//     & + label{ margin-top: 15px;}
+//     .labelText{ margin-left: 10px;}
+//     input{ width: 100%; margin:4px 0;}
+//   }
+//   a.forget {
+//     float: right; position: relative;
+//     padding: 0; margin: 5px 0 10px 0;
+//     color: $fontColor; text-decoration: none;
+//     transition: .2s;
+//     border-bottom: 2px solid $primaryColor;
+//     &:hover, &:focus{border-color: $assistantColor1; border-bottom-width: 3px;}
+//     &:focus{ box-shadow:$assistantColor1 0 0 0 1px;}
 
-}
-// ------------------------------------------------------ //
+//     & + *{ clear: both;}
+//   }
+
+//   .captcha{clear: both; margin: 10px 0; display: block;}
+
+//   .btnDiv{
+//     padding: 0;
+//     button{width: 100%; margin: 30px auto 3px;}
+//   }
+// }
+// .loginHere { 
+//   margin: 0 10px 10px; border-radius: 8px;
+//   box-shadow: rgb(0 0 0 / .4) 0 0 5px;
+// }
+// // ------------------------------------------------------ //
 
 
+// // 驗證碼
+// // ------------------------------------------------------ //
+// .captcha{
+//   display: flex; flex-wrap: wrap;
+//   img{ 
+//     flex: 1 1 100%;
+//     width: 100%; max-width: 220px; margin: 3px;
+//   }
+
+//   input[type="text"]{
+//     flex: 0 0 calc(100% - 5.2em - 40px);
+//     width: calc(100% - 5.2em - 40px);
+//   }
+
+//   .voice, .refresh {
+//     flex: 0 0 auto;
+//     height: 2.6em; width: 2.6em;
+//     margin: 3px;
+//     border-radius: 50%;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     background-size: 64%;
+//     &:is(.voice){ background-image: url(../images/icon_capVoice.png);}
+//     &:is(.refresh){background-image: url(../images/icon_capRefresh.png);}
+//   }
+
+//   @media screen and (min-width: $wwNormal){
+//     justify-content: space-between;
+//     img{flex: 0 0  200px; width: 200px;}
+//   }
+// }
 
 
-
-
-// ------------------------------------------------------ //
 // ------------------------------------------------------ //
 // ------------------------------------------------------ //
 // ------------------------------------------------------ //

@@ -5,19 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>移民署面(訪)談線上預約服務</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/uieffect.js"></script>
+
 </head>
 <body>
+
   <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="版頭區">:::</a>
+
     <h1>中華民國內政部移民署 面(訪)談線上預約系統</h1>
-    <nav>
+    <nav class="menu">
       <ul>
-        <li class="home here"><a href="#">回首頁</a></li>
-        <li><a href="#">預約面(訪)談</a></li>
+        <li class="home"><a href="#">回首頁</a></li>
+        <li class="here"><a href="#">預約面(訪)談</a></li>
         <li><a href="#">預約紀錄查詢與變更</a></li>
-        <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
       </ul>
     </nav>
+    <button class="member" type="button">會員中心</button>
+    <ul class="memberCenter">
+      <li>acco****</li>
+      <li><button type="button">登出</button></li>
+    </ul>
+    <button class="sidebarCtrl" type="button" title="側欄開關"></button>
   </header>
+
+  <aside class="sidebar">
+  </aside>
+
 
   <main class="main">
     <hgroup class="pageHeading">
@@ -29,12 +45,11 @@
       <form action="">
         <div class="formRow">
           <span class="labelName">面(訪)談預約類別</span>
-          <div class="optionGroup types3">
-            <label class="checked"><input type="radio">國境面(訪)談</label>
-            <label><input type="radio">入境前面(訪)談</label>
-            <label><input type="radio">入境後面(訪)談</label>
+          <div class="optionGroup">
+            <label class="checked"><input type="radio" name="aaa" checked>國境面(訪)談</label>
+            <label><input type="radio" name="aaa">入境前面(訪)談</label>
+            <label><input type="radio" name="aaa">入境後面(訪)談</label>
           </div>
-
         </div>
         <div class="formRow">
           <span class="labelName">面(訪)談地點</span>
@@ -51,11 +66,96 @@
           </select>
           
         </div>
+
         <div class="formRow">
-          <span class="labelName">面(訪)談日期</span>
+          <span class="labelName">面(訪)談日期及時段</span>
           <p>請點選可預約面談的日期及時段</p>
 
+          <!-- 選日期 -->
           <section class="bookingCalendar">
+            <nav>
+              <button type="button" class="arrow left"></button>
+              <div class="year">
+                <button type="button" class="now">2024</button>
+              </div>
+              <div class="month">
+                <button type="button" class="now">10</button>
+              </div>
+              <button type="button" class="arrow right"></button>
+            </nav>
+            <table class="calendarTable">
+              <thead>
+                <tr>
+                  <th>日</th>
+                  <th>一</th>
+                  <th>二</th>
+                  <th>三</th>
+                  <th>四</th>
+                  <th>五</th>
+                  <th>六</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="weekend off" >25</td>
+                  <td class="off" >26</td>
+                  <td class="off" >27</td>
+                  <td class="off" >28</td>
+                  <td class="off" >29</td>
+                  <td class="off" >30</td>
+                  <td class="weekend off" >31</td>
+                </tr>
+                <tr>
+                  <td class="weekend" >1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td class="weekend" >7</td>
+                </tr>
+                <tr>
+                  <td class="weekend" >8</td>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                  <td class="weekend" >14</td>
+                </tr>
+                <tr>
+                  <td class="weekend">15</td>
+                  <td class="today">16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td class="weekend">21</td>
+                </tr>
+                <tr>
+                  <td class="weekend">22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                  <td>27</td>
+                  <td class="weekend">28</td>
+                </tr>
+                <tr>
+                  <td class="weekend">29</td>
+                  <td>30</td>
+                  <td class="off">1</td>
+                  <td class="off">2</td>
+                  <td class="off">3</td>
+                  <td class="off">4</td>
+                  <td class="weekend off">5</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- 選時段 -->
+          <section class="bookingSchedule">
             <div class="year-month"><em>2024</em>年<em>07</em>月</div>
             <div class="schedule">
               <button type="button" class="arrow left"></button>
@@ -94,7 +194,7 @@
                     <li><button type="button">餘2</button></li>
                     <li><button type="button" disabled>額滿</button></li>
                     <li><button type="button">餘2</button></li>
-                    <li><button type="button">餘2</button></li>
+                    <li><button type="button">餘88</button></li>
                     <li><button type="button" disabled>額滿</button></li>
                   </ul>
                 </li>
@@ -186,7 +286,7 @@
         </div>
 
       </form>
-      <button class="btnStyle1" type="button">返回行事曆</button>
+      <!-- <button class="btnStyle1" type="button">返回行事曆</button> -->
 
       <article class="notices">
         <h3>說明事項</h3>
