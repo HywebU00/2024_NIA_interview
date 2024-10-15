@@ -5,21 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>移民署面(訪)談線上預約服務</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/uieffect.js"></script>
 </head>
 <body>
+  <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
+
   <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="版頭區">:::</a>
+
     <h1>中華民國內政部移民署 面(訪)談線上預約系統</h1>
-    <nav>
+    <nav class="menu">
       <ul>
-        <li class="home"><a href="mp.html">回首頁</a></li>
+        <li class="home"><a href="#">回首頁</a></li>
         <li class="here"><a href="#">預約面(訪)談</a></li>
         <li><a href="#">預約紀錄查詢與變更</a></li>
-        <li class="memberLogin"><button type="button">會員登入／註冊</button></li>
       </ul>
     </nav>
+    <button class="member" type="button">會員中心</button>
+    <ul class="memberCenter">
+      <li>acco****</li>
+      <li><button type="button">登出</button></li>
+    </ul>
+    <button class="sidebarCtrl" type="button" title="側欄開關"></button>
   </header>
 
+  <aside class="sidebar">
+  </aside>
+
   <main class="main">
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
+
     <hgroup class="pageHeading">
       <h2>您已完成本次的面談預約！</h2>
     </hgroup>
@@ -48,6 +64,8 @@
   </main>
 
   <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
     <div class="logo"><img src="images/logo.png" alt="移民署 logo"></div>
     <div class="center">
       <p>國境事務大隊</p>
@@ -63,5 +81,7 @@
 
   </footer>
   
+  <button class="goTop" type="button" title="回頁面頂端">回頁首</button>
+
 </body>
 </html>
