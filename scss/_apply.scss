@@ -97,7 +97,7 @@
 .apply{
   @extend %primSection;
   @extend %frame;
-  margin-top: 50px; margin-bottom: 50px;
+  // margin-top: 40px; margin-bottom: 50px;
   // font-size: 1.3rem;
   // width: 90%;
   // border-radius: 16px;
@@ -126,18 +126,7 @@
   
   }
 
-  .labelName{
-    display: block; position: relative;
-    margin: 50px 0 30px; padding: 0 0 0 28px;
-    font-size: 1.25em; line-height: 1.1; font-weight: bold;
-    &::before{
-      content: ''; position: absolute; left: 0; top: 0;
-      width: 7px; height: 1.1em;
-      background-color: $assistantColor1;
-    }
-  }
 
-  &>.labelName:first-child, &>form>.labelName:first-child{margin-top: 0;}
 
   @media screen and (min-width: $wwNormal){
     padding: 60px 5vw;
@@ -151,75 +140,20 @@
 
 
 
+.labelName{
+  display: block; position: relative;
+  margin: 50px 0 30px; padding: 0 0 0 28px;
+  font-size: 1.25em; line-height: 1.1; font-weight: bold;
+  &::before{
+    content: ''; position: absolute; left: 0; top: 0;
+    width: 7px; height: 1.1em;
+    background-color: $assistantColor1;
+  }
+}
 
-// ---------------------------------------------------------------- //
-// dl.dataReady{
-//   margin-left: 28px;
-//   display: flex; flex-flow: row wrap;
-//   gap: 20px;
-//   line-height: 1.5;
-//   &>div{
-//     flex: 0 0 calc(25% - 15px);
-//     margin: 0 0 30px;
-//   }
-
-//   dt{
-//     color: #707070; font-size: .88em;
-//   }
-//   dd{
-//     margin: 0; font-weight: bold;
-//   }
-// }
-
-
-// // 已填寫的資料
-// // ---------------------------------------------------------------- //
-// .formFilled{
-//   padding: 50px;
-//   border-radius: 12px;
-//   background: $primaryColor;
-//   color: #fff;
-//   line-height: 1.5;
-  
-//   display: flex; flex-flow: row wrap;
-//   gap: 20px;
-  
-//   &>div{
-//     flex: 0 0 calc(25% - 15px);
-//   }
-
-//   dt, dd { margin: 0;}
-//   dt{
-//     font-size: .88em; margin-bottom: .4em;
-//   }
-//   dd{ font-weight: bold;}
-// }
-
-
-// // 
-// .entryInfo {
-//   display: flex;
-//   justify-content: space-between;
-//   margin: 40px 0 50px 28px;
-
-//   // &>*{
-//   //   outline: 1px dashed #f008;
-//   //   outline-offset: -1px;
-//   // }
-
-//   label{
-//     flex: 0 0 30%;
-//     input[type="text"]{ 
-//       width: 100%;
-//       margin: 12px 0 0;
-//       font-size: 1.2em;
-//       border-radius: 0;
-//       border: none;
-//       border-bottom: 2px solid #bbb;
-//     }
-//   }
-
-// }
+.apply, .confirm {
+  &>.labelName:first-child, &>form>.labelName:first-child{margin-top: 0;}
+}
 
 // ---------------------------------------------------------------- //
 .secHeading{
@@ -236,137 +170,137 @@
 
 
 
-// 已完成訊息『您已完成本次的面談預約！』
-// ---------------------------------------------------------------- //
-.messageDone {
-  @extend %primSection;
-  padding-top: 0;
+// // 已完成訊息『您已完成本次的面談預約！』
+// // ---------------------------------------------------------------- //
+// .messageDone {
+//   @extend %primSection;
+//   padding-top: 0;
 
-  outline: 1px dashed #f008;
-  outline-offset: -1px;
+//   outline: 1px dashed #f008;
+//   outline-offset: -1px;
 
-  article{
-    line-height: 1.8; text-align: center;
-    padding:50px 4% 40px; margin: 0 -5% 50px; 
-    border-radius: 8px;
-    background: #f4f4f4;
-    &::before{
-       content: ''; display: block; margin: 0 auto;
-       width: 84px; height: 84px; border-radius: 50%;
-      //  @extend %gradientGreen;
-       background-image: url(../images/icon_check.png), linear-gradient(134deg, #5db741, #0a7c1d);
-       background-repeat: no-repeat;
-       background-position: center top 60%, 0 0;
-       background-size: 64%, 100%;
-    }
+//   article{
+//     line-height: 1.8; text-align: center;
+//     padding:50px 4% 40px; margin: 0 -5% 50px; 
+//     border-radius: 8px;
+//     background: #f4f4f4;
+//     &::before{
+//        content: ''; display: block; margin: 0 auto;
+//        width: 84px; height: 84px; border-radius: 50%;
+//       //  @extend %gradientGreen;
+//        background-image: url(../images/icon_check.png), linear-gradient(134deg, #5db741, #0a7c1d);
+//        background-repeat: no-repeat;
+//        background-position: center top 60%, 0 0;
+//        background-size: 64%, 100%;
+//     }
 
-    time{ font-size: 1.6em; font-weight: bold; display: inline-block;margin-left: .3em;}
-  }
+//     time{ font-size: 1.6em; font-weight: bold; display: inline-block;margin-left: .3em;}
+//   }
 
 
-  // 文件下載列印
-  ul.downloadfiles{
-    list-style: none; margin: 20px -5% 40px; padding: 0;
-    line-height: 1; font-size: 1.1em;
+//   // 文件下載列印
+//   ul.downloadfiles{
+//     list-style: none; margin: 20px -5% 40px; padding: 0;
+//     line-height: 1; font-size: 1.1em;
 
-    ul{list-style: none; margin: 0; padding: 0;}
+//     ul{list-style: none; margin: 0; padding: 0;}
 
-    &>li{
-      outline: 1px dashed #f008;
-      outline-offset: -1px;
-      margin: 20px 0;
-      &>ul{
-        &>li{margin: 18px 0 0; padding: 0;}
+//     &>li{
+//       outline: 1px dashed #f008;
+//       outline-offset: -1px;
+//       margin: 20px 0;
+//       &>ul{
+//         &>li{margin: 18px 0 0; padding: 0;}
       
-      }
+//       }
 
 
-      a{
-        display: block; width: 100%; margin: 0;
-        // margin: 18px 0 0;
-        // text-align: center;
-        // border-radius: 6px;
-        // text-decoration: none; color: #fff;
-        // @extend %gradientBlue;
+//       a{
+//         display: block; width: 100%; margin: 0;
+//         // margin: 18px 0 0;
+//         // text-align: center;
+//         // border-radius: 6px;
+//         // text-decoration: none; color: #fff;
+//         // @extend %gradientBlue;
 
-        &:after{
-          content: ''; display: inline-block; width: 24px; height: 24px;margin-left: 12px;
-          vertical-align: middle;
-          background: url(../images/icon_download.png) no-repeat center top;
-          background-size: 100%;
-        }
+//         &:after{
+//           content: ''; display: inline-block; width: 24px; height: 24px;margin-left: 12px;
+//           vertical-align: middle;
+//           background: url(../images/icon_download.png) no-repeat center top;
+//           background-size: 100%;
+//         }
 
-      }
+//       }
 
-      &:last-child{
-        margin-top: 50px;
-        a{@extend %gradientGreen;}
-      } 
-    }
-  }
+//       &:last-child{
+//         margin-top: 50px;
+//         a{@extend %gradientGreen;}
+//       } 
+//     }
+//   }
 
-  // 
-  .hint{
-    padding: 50px 0;  margin: 0 -5%;
-    line-height: 1.8;
-    border-top: 2px solid $borderColor;
-    color: #d14b1a;
-  }
+//   // 
+//   .hint{
+//     padding: 50px 0;  margin: 0 -5%;
+//     line-height: 1.8;
+//     border-top: 2px solid $borderColor;
+//     color: #d14b1a;
+//   }
 
-  @media screen and (min-width: $wwMedium){
+//   @media screen and (min-width: $wwMedium){
 
-    ul.downloadfiles{
-      margin-bottom: 50px;
-      display: flex;justify-content: space-between;
-      align-items:  flex-start;
+//     ul.downloadfiles{
+//       margin-bottom: 50px;
+//       display: flex;justify-content: space-between;
+//       align-items:  flex-start;
 
-      &>li{
-        margin: 0;
-        &>ul{
-          &>li:only-child{ width: 100%;}
-        }
-        &:first-child{flex: 0 0 66%;
-          &>ul{
-            display: flex; justify-content: space-between;
-            gap: 8px;
-            &>li{ flex:0 0 calc(50% - 4px);}
-          }
-        }
-        &:last-child{ flex: 1 1 auto; margin: 0 0 0 2%;}
-      }
+//       &>li{
+//         margin: 0;
+//         &>ul{
+//           &>li:only-child{ width: 100%;}
+//         }
+//         &:first-child{flex: 0 0 66%;
+//           &>ul{
+//             display: flex; justify-content: space-between;
+//             gap: 8px;
+//             &>li{ flex:0 0 calc(50% - 4px);}
+//           }
+//         }
+//         &:last-child{ flex: 1 1 auto; margin: 0 0 0 2%;}
+//       }
 
-    }
-  }
-  @media screen and (min-width: $wwNormal){
+//     }
+//   }
+//   @media screen and (min-width: $wwNormal){
 
-    &>article{margin: 0 auto 50px;}
+//     &>article{margin: 0 auto 50px;}
     
-    ul.downloadfiles{
-      margin: 20px auto 50px;
+//     ul.downloadfiles{
+//       margin: 20px auto 50px;
 
-      &>li{
-        margin: 0;
-        &>ul{
-          &>li:only-child{ width: 100%;}
-        }
-        &:first-child{flex: 0 0 66%;
-          &>ul{
-            display: flex; justify-content: space-between;
-            gap: 8px;
-            &>li{ flex:0 0 calc(50% - 4px);}
-          }
-        }
-        &:last-child{ flex: 1 1 auto; margin: 0 0 0 2%;}
-      }
+//       &>li{
+//         margin: 0;
+//         &>ul{
+//           &>li:only-child{ width: 100%;}
+//         }
+//         &:first-child{flex: 0 0 66%;
+//           &>ul{
+//             display: flex; justify-content: space-between;
+//             gap: 8px;
+//             &>li{ flex:0 0 calc(50% - 4px);}
+//           }
+//         }
+//         &:last-child{ flex: 1 1 auto; margin: 0 0 0 2%;}
+//       }
 
-    }
+//     }
 
-    .hint{
-      margin: 0 auto;
-    }
-  }
-}
-// ---------------------------------------------------------------- //
+//     .hint{
+//       margin: 0 auto;
+//     }
+//   }
+// }
+// // ---------------------------------------------------------------- //
 
 
 

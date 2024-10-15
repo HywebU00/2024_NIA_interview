@@ -25,8 +25,8 @@ $borderColor: #d5d5d5;
 $borderColorLight: #e6e6e6;
 $borderColorDark:#aaa;
 
-$bgLight: #d5d5d5;
-$bgPale: #e6e6e6;
+$bgLight: #cfdcdb;
+$bgPale: #e7edee;
 // ---------------------------------------------------------------- //
 
 
@@ -45,8 +45,8 @@ $bgPale: #e6e6e6;
 // 大區塊寬度
 // ---------------------------------------------------------------- //
 %primSection{
-  width: 96%; margin-left: auto;  margin-right: auto;
-  padding: 60px 2%;
+  width: 94%; margin-left: auto;  margin-right: auto;
+  padding: 60px 3%;
   @media screen and (min-width: $wwNormal){
     width: 90%;padding: 60px 5%;
   }
@@ -58,7 +58,10 @@ $bgPale: #e6e6e6;
 }
 
 %primSectionFull{
-  width: 100%; padding-left: 5%; padding-right: 5%;
+  width: 100%; padding-left: 2%; padding-right: 2%;
+  @media screen and (min-width: $wwNormal){
+    padding-left: 5%; padding-right: 5%;
+  }
   @media screen and (min-width: $wwMaximum ){
     padding-left: calc(50% - $wwMaximum*.45); 
     padding-right: calc(50% - $wwMaximum*.45);

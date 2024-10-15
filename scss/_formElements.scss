@@ -110,9 +110,9 @@ $btnDisBg: #cfcfcf;
 // 文字、數字型態的 input 樣式 
 // ------------------------------------------------------ //
 input[type="text"],
-input[type="date"],
 input[type="datetime-local"],
 input[type="datetime"], // type="datetime" 已廢棄
+input[type="date"],
 input[type="email"],
 input[type="file"],
 input[type="month"],
@@ -269,14 +269,12 @@ input[type="checkbox"] {
 
 
 .btnLook:is(a, button) {
-  display: inline-block; font-size: 1em;
-  text-align: center; vertical-align: middle;
+  display: inline-block; vertical-align: middle;
+  font-size: 1em; text-align: center; text-decoration: none;
   height: var(--inputHeight); line-height: var(--inputHeight);
-  padding: 0 1em; margin: 5px;
-  border-radius: 6px;
-  background-color: $bgPale;
-  color: #000;
-  text-decoration: none;
+  padding: 0 1em; margin: 5px; border-radius: 6px;
+  background-color: $bgPale; color: $fontColorDark;
+  box-shadow: rgb(0 0 0 / .3) 0 1px 5px;
   transition: .2s;
   
   &.st1 {
@@ -287,14 +285,13 @@ input[type="checkbox"] {
   }
 
   &:hover{
-    translate: 0 -4px;
+    translate: 0 -3px;
     box-shadow:#fff 0 0 0 3px, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 6px 16px;
   }
   &:focus{
-    translate: 0 -1px;
+    translate: 0 1px;
     &:is(.st1) {box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
     &:is(.st2) {box-shadow:#fff 0 0 0 1px, $secondaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
-
   }
 
 }

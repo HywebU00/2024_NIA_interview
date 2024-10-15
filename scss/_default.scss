@@ -1,68 +1,3 @@
-// // RWD 斷點 
-// // ---------------------------------------------------------------- //
-// $wwSlim: 400px;
-// $wwMedium: 700px;
-// $wwNormal: 1000px;
-// $wwMaximum: 1440px;
-// // ---------------------------------------------------------------- //
-
-// // 大區塊寬度
-// // ---------------------------------------------------------------- //
-// %primSection{
-//   width: 90%; margin-left: auto;  margin-right: auto;
-//   padding: 60px 5vw;
-//   @media screen and (min-width: $wwMaximum ){
-//     width: $wwMaximum * .9;
-//   }
-// }
-// %primSectionFull{
-//   width: 100%; padding-left: 5%; padding-right: 5%;
-//   @media screen and (min-width: $wwMaximum ){
-//     padding-left: calc(50% - $wwMaximum*.45); 
-//     padding-right: calc(50% - $wwMaximum*.45);
-//   }
-// }
-// // ---------------------------------------------------------------- //
-
-// // 區塊樣式：圓角、陰影
-// // ---------------------------------------------------------------- //
-// %frame {
-//   border-radius: 16px;
-//   background-color: rgb(255 255 255 / .5);
-//   box-shadow: rgb(0 0 0 / .2) 0 0 20px;
-// }
-// // ---------------------------------------------------------------- //
-
-
-
-
-// // 顏色變數
-// // ---------------------------------------------------------------- //
-// $borderColor: #d5d5d5;
-// $borderColorLight: #e6e6e6;
-// $borderColorDark:#aaa;
-
-// $bgLight: #d5d5d5;
-// $bgPale: #e6e6e6;
-// // ---------------------------------------------------------------- //
-
-
-
-// // 漸層
-// // ---------------------------------------------------------------- //
-// %gradientBlue {
-//   background-image: linear-gradient(134deg, #0097e5, #004c93);
-// }
-// %gradientGreen {
-//   background-image: linear-gradient(134deg, #5db741, #0a7c1d);
-// }
-
-// ---------------------------------------------------------------- //
-// ---------------------------------------------------------------- //
-// ---------------------------------------------------------------- //
-
-
-
 :root{
   font-size:1.25em;
 }
@@ -90,13 +25,19 @@ table{border-collapse: collapse; width: 100%;margin: 0;}
 
 .main{
   position: relative;
-  }
+}
+
+
 // 內頁標題
 .pageHeading{
-  width: 90%;margin: 50px auto;
+  @extend %primSection; margin: 50px auto 30px; padding: 0;
   text-align: center;
-  h2{ font-size: 2em; margin: 0; line-height: 1.2; color: $primaryColor;}
+  h2{ font-size: 1.6em; margin: 0; line-height: 1.2; color: $primaryColor;}
   .description { line-height: 1.6; margin: 1em 0 0;}
+
+  @media screen and (min-width: $wwNormal){
+    h2{ font-size: 2em;}
+  }
 
 }
 
