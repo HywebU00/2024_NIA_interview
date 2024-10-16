@@ -268,44 +268,52 @@ input[type="checkbox"] {
 // ------------------------------------------------------ //
 
 
-.btnLook:is(a, button) {
+.btnLook:is(a, button, input) {
   display: inline-block; vertical-align: middle;
-  font-size: 1em; text-align: center; text-decoration: none;
+  font-size: 1.125em; text-align: center; text-decoration: none;
   height: var(--inputHeight); line-height: var(--inputHeight);
   padding: 0 1em; margin: 5px; border-radius: 6px;
   background-color: $bgPale; color: $fontColorDark;
-  box-shadow: rgb(0 0 0 / .3) 0 1px 5px;
+  box-shadow:#fff 0 0 0 0, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 1px 5px;
   transition: .2s;
   
   &.st1 {
-    @extend %gradientBlue;color: #fff;
+    @extend %gradientBlue; color: #fff;
   }
   &.st2 {
-    @extend %gradientGreen;color: #fff;
+    @extend %gradientGreen; color: #fff;
   }
 
   &:hover{
     translate: 0 -3px;
     box-shadow:#fff 0 0 0 3px, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 6px 16px;
+    // &:is(a){background-color: $bgLight;}
   }
   &:focus{
     translate: 0 1px;
     &:is(.st1) {box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
     &:is(.st2) {box-shadow:#fff 0 0 0 1px, $secondaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
+    &:is(a){
+      box-shadow:#fff 0 0 0 1px, $bgDark 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;
+    }
   }
 
 }
 
-// 
+// 表單下方的按鈕群
 .btnDiv{
-  text-align: center; padding: 20px; vertical-align: top;
-  .btnLook:is(a, button){
-    margin-left: 8px; margin-right: 8px;
+  display:flex; flex-flow:row nowrap; 
+  justify-content:center; gap:8px;
+  .btnLook:is(a, button, input){
+    flex:0 1 auto;
+    &:only-child{flex-basis: 80%; max-width: 16em;}
   }
 
   @media screen and (min-width: $wwNormal){
+    gap:16px;
     .btnLook:is(a, button){
-      min-width: 280px;
+      min-width: 6em; max-width: 12em;
+      &:only-child{ max-width: 16em;}
     }
   }
 }
