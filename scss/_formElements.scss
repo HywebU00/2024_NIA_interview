@@ -233,7 +233,7 @@ input[type="checkbox"] {
   -webkit-appearance: none; -moz-appearance: none; appearance: none;
   margin:-.1em 7px 0 4px; 
   line-height: 1; 
-  border: 1px solid var(--inputBdr);
+  border: 1px solid $primaryColor;
   vertical-align: middle;
   cursor: pointer;
 }
