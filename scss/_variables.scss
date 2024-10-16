@@ -27,7 +27,7 @@ $borderColorDark:#aaa;
 
 $bgDark: #909396;
 $bgLight: #ccd6d7;
-$bgPale: #e7edee;
+$bgPale: #eef2f3;
 // ---------------------------------------------------------------- //
 
 
@@ -53,8 +53,6 @@ $bgPale: #e7edee;
   }
   @media screen and (min-width: $wwMaximum ){
     width: $wwMaximum * .9;
-    // padding-left: $wwMaximum * .05;
-    // padding-right: $wwMaximum * .05;
   }
 }
 

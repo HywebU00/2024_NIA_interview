@@ -1,0 +1,82 @@
+// 條款聲明及資格審核
+// ---------------------------------------------------------------- //
+.claim{
+  @extend %primSection;
+
+  position:relative; padding: 50px 25px;
+  border-radius: 16px;
+  background-color: $bgPale;
+  box-shadow: rgb(0 50 50 / .35) 0 0 8px inset;
+
+  &.scroll{
+    height: calc(100vh - 120px - 20em); overflow-y: auto;
+    min-height: 20em;
+  }
+
+  &>ol{
+    line-height:1.6; margin-top: 0; padding-bottom: 30px;
+    border-bottom: 1px solid $borderColorDark;
+    &>li+li{ margin-top:1.2em;}
+    &>li>ol{ margin-top:.3em;}
+    &>li>ol{list-style:cjk-decimal;}
+  }
+
+  // 我已詳閱並同意
+  .agreeCheck{
+    position:relative; left:50%; translate:-50% 0;
+    display:inline-block; margin:15px auto 0;padding:15px 25px; 
+    border-radius:2em; font-size: 1.1em;
+    background-color: lighten( $bgPale , 4%);
+    transition: .2s;
+    &:hover{ background-color: #fff; box-shadow: #fff 0 0 0 4px;}
+    &:has(input:focus) {background-color: #fff; box-shadow: #fff 0 0 0 4px; }
+  }
+}
+
+// 填寫「入出境許可證號」和「大陸配偶出生日期」
+.fillForm{
+  @extend %primSection;
+  @extend %frame;
+  padding:30px 2%; margin: 20px auto; 
+
+  label{
+    display:block; margin:0 auto 20px;
+    .labelText{
+      display:block; margin:0 15px;
+      abbr{ margin-left:5px; font-size:larger;}
+    }
+    input[type="text"], input[type="date"]{
+      width:calc(100% - 10px);
+    }
+  }
+
+  .btnDiv{ margin-top:15px;}
+
+  @media screen and (min-width:$wwMedium){
+
+    padding:50px 0; 
+    label{
+      display:flex; justify-content:center; align-items:center;
+      margin-bottom:12px;
+      .labelText{
+        flex:0 1 12em;  margin:0 5px 0 0;
+        white-space:nowrap; text-align:right;
+      }
+      input{ flex:0 1 calc(100% - 10px - 15em); max-width:20em;}
+    }
+  
+  }
+
+  @media screen and (min-width:$wwNormal){
+
+    margin-bottom:60px;
+
+    label{
+      .labelText{ flex:0 0 30%; max-width:12em; text-align:right;}
+      input{ flex:0 0 20em; }
+    }
+    .btnDiv{ margin-top:30px;}
+
+  }
+
+}

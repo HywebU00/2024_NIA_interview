@@ -47,32 +47,35 @@ dl.dataReady{
 // 已填寫的資料
 // ---------------------------------------------------------------- //
 .youFilled{
-  padding:20px;
+  padding:20px; line-height:1.5;
   border-radius:12px;
-  background:$primaryColor;
-  color:#fff;
-  line-height:1.5;
+  background:$primaryColor; color:#fff;
   
-  display:flex; flex-flow:row wrap;
-  gap:20px;
+  display:flex; flex-flow:row wrap; gap:20px;
   
   &>div{
-    flex:0 0 calc(50% - 10px);
+    flex:0 0 calc(50% - 10px); 
+    &:nth-child(n + 3) {margin-top: 15px; }
   }
 
   dt, dd { margin:0;}
-  dt{font-size:.88em; margin-bottom:.2em;}
-  dd{ font-weight:bold; font-size:1.1em;}
+  dt{ font-size:1em; margin-bottom:.2em;}
+  dd{ font-weight:bold; font-size:1.12em;}
 
-  @media screen and (min-width:700px){
-    gap:16px;
-    &>div{flex:0 0 calc(25% - 12px);}
+  @media screen and (min-width:760px){
+
+    flex-wrap: nowrap;
+    &>div{flex:1 1 calc(25% - 12px);
+      &:nth-child(n + 3) { margin-top: 0; }
+    }
   
   }
 
   @media screen and (min-width:$wwNormal){
-    padding:50px 40px;
-
+  
+    gap:24px;
+    padding:40px;
+  
   }
 }
 // ---------------------------------------------------------------- //
