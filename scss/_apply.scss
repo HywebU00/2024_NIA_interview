@@ -24,71 +24,71 @@
 
 
 // 預約紀錄
-// ---------------------------------------------------------------- //
-.records{
-  @extend %primSection;
-  @extend %frame;
+// // ---------------------------------------------------------------- //
+// .records{
+//   @extend %primSection;
+//   @extend %frame;
 
-  margin-bottom: 60px;
+//   margin-bottom: 60px;
 
-  .tabItems{
-    &>button{ flex: 1 0 33.33%}
-  }
+//   .tabItems{
+//     &>button{ flex: 1 0 33.33%}
+//   }
 
-  .colx3{
-    display: flex; justify-content: space-between;
+//   .colx3{
+//     display: flex; justify-content: space-between;
 
-    // &>*{
-    //   outline: 1px dashed #f008;
-    //   outline-offset: -1px;
-    // }
+//     // &>*{
+//     //   outline: 1px dashed #f008;
+//     //   outline-offset: -1px;
+//     // }
 
-    .status{
-      flex: 0 0 200px; height: 200px; line-height: 200px;
-      text-align: center;
-      border-radius: 12px;
-      background-color: #ecf9ff;
-      color: #004c93;
-    }
+//     .status{
+//       flex: 0 0 200px; height: 200px; line-height: 200px;
+//       text-align: center;
+//       border-radius: 12px;
+//       background-color: #ecf9ff;
+//       color: #004c93;
+//     }
 
-    dl{
-      flex: 1 1 auto;
-      margin: 0 3%;
+//     dl{
+//       flex: 1 1 auto;
+//       margin: 0 3%;
 
-      display: flex; flex-flow: row wrap;
+//       display: flex; flex-flow: row wrap;
 
-      &>div{
-        // outline: 1px dashed #f008;
-        // outline-offset: -1px;
+//       &>div{
+//         // outline: 1px dashed #f008;
+//         // outline-offset: -1px;
 
-        flex: 1 1 60%;
+//         flex: 1 1 60%;
 
-        &:nth-child(odd){
-          flex-basis: 40%;
-        }
-      }
+//         &:nth-child(odd){
+//           flex-basis: 40%;
+//         }
+//       }
 
-      dt, dd{margin: 0;
+//       dt, dd{margin: 0;
         
-      }
-    }
+//       }
+//     }
 
-    .buttonGroup{
-      flex: 0 0 20%;
-      .btnLook:is(a, button) {
-        display: block; width: 100%;
-        margin:0 0 10px;
-      }
+//     .buttonGroup{
+//       flex: 0 0 20%;
+//       .btnLook:is(a, button) {
+//         display: block; width: 100%;
+//         margin:0 0 10px;
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  .list{
-    margin-top: 60px; padding-top: 60px;
-    border-top: 2px solid $borderColor;
-    h3{margin: 0 0 30px;}
-  }
-}
+//   .list{
+//     margin-top: 60px; padding-top: 60px;
+//     border-top: 2px solid $borderColor;
+//     h3{margin: 0 0 30px;}
+//   }
+// }
 
 
 // 預約面(訪)談

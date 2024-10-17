@@ -1,0 +1,194 @@
+// 預約紀錄
+// ---------------------------------------------------------------- //
+.records{
+  @extend %primSection;
+  @extend %frame;
+
+  margin-bottom: 60px;
+
+  .tabItems{
+    &>button{
+      flex: 0 1 calc(33.33% - 4px); 
+    }
+  }
+
+  .colx3{
+
+    .status{
+      padding: 20px;
+      font-size: 1.5em; font-weight: bold;
+      text-align: center;
+      border-radius: 12px;
+      background-color: #ecf9ff; color: $primaryColor;
+    }
+
+    dl{
+
+      line-height: 1.5; margin-bottom: 30px;
+      &>div{
+        border-bottom: 1px solid $borderColor;
+        margin: 0 0 18px; padding: 6px;
+
+        &:nth-child(odd){
+          flex-basis: 40%;
+        }
+      }
+
+      dt, dd{margin:0;}
+      dt{color: $fontColorLight; min-width: 8em;}
+      dd{
+        font-weight: bold; margin-top: .1em;
+        &.strong{ font-size: 1.25em;  color: $primaryColor;}
+      }
+    }
+
+    .buttonGroup{
+      flex: 0 0 20%;
+      .btnLook:is(a, button) {
+        display: block; width: 100%;
+        margin:0 0 10px;
+
+        //「下載文件」
+        &.slideCtrl {
+          position: relative;
+          &::after{
+            content: ''; position: absolute; top: calc(50% - 3px); 
+            left: auto; margin-left: .8em;
+            width: 0; height: 0; border-style: solid;
+            border-width: 9px 8px 0 8px;
+            border-color: #fff transparent transparent transparent;
+          }
+        }
+      }
+
+
+    }
+
+    // 下載文件
+    .download{
+      .files{
+        display: none;
+        list-style: none; margin: -10px 8px 12px;padding: 6px;
+        line-height: 1.5;
+        background: #fff;
+        box-shadow: rgb(0 0 0 / .3) 0 1px 5px;
+        border-radius: 0 0 12px 12px;
+        li{
+          margin:2px 0;padding: 0;
+          &:last-child{ margin-bottom: 0;}
+          a{ 
+            display: block; position: relative;
+            padding: .6em 30px .5em .5em;
+            text-decoration: none; border-radius: 6px;
+            color: $fontColor;
+            transition: .25s;
+            &::after {
+              content: ''; position: absolute; right: 12px; top: calc(50% - 10px);
+              width: 20px; height: 20px;
+              background: url(../images/icon_download.svg) no-repeat 0 0;
+              background-size: contain;
+              filter: brightness(-800%);
+            }
+            &:hover{background-color: $bgPale;}
+            &:focus{background-color: $assistantColor2; color: #fff;
+              &::after{filter: none}
+            }
+          }
+        }
+      }
+    
+    }
+  }
+
+  .list{
+    margin-top: 60px; padding-top: 60px;
+    border-top: 2px solid $borderColor;
+    h3{margin: 0 0 30px;}
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+  
+    .colx3{
+      display: flex; justify-content: space-between;
+      align-items: flex-start;  
+      .status{
+        flex: 0 0 6em; height: 6em; line-height: 6em;
+        padding: 0 10px;
+      }
+  
+      dl{
+        flex: 1 1 auto;
+        margin: 0 3%;
+      }
+  
+      .buttonGroup{
+        flex: 0 0 25%; min-width: calc(9em + 40px);
+        .btnLook:is(a, button) {
+          display: block; width: 100%;
+          margin:0 0 10px;
+        }
+      }
+    }
+  
+  }
+
+  @media screen and (min-width: 1340px){
+    .colx3{
+      dl{  
+        display: flex; flex-flow: row wrap;
+  
+        &>div{
+          flex: 1 1 auto;
+          &:nth-child(odd){flex-basis: min-content;}
+          &:nth-child(even){
+            flex-basis: 62%;
+          }
+        }
+        dt{ padding-top: 8px;}
+      }
+    }
+  }
+}
+
+
+
+// 頁籤項
+// ---------------------------------------------------------------- //
+.tabItems{
+  position: relative; display: flex; flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 6px;
+  // outline: 1px dashed #f008;
+  margin: 0 auto;;
+  // outline-offset: -1px;
+  &::after {
+    content: ''; position: absolute; left: 0;right: 0;
+    bottom: 0; height: 2px; z-index: 10;
+    background-color: $borderColor;
+  }
+  &>button{
+
+    position: relative; height: auto;
+    margin: 0; padding: .7em .4em .6em;
+    font-size: 1em; white-space: nowrap; 
+    overflow: hidden; text-overflow: ellipsis;
+    border-radius: 6px 6px 0 0;
+    background-color:$bgPale; color: $fontColor;
+    box-shadow: none;
+    &.active{
+      @extend %gradientBlue;
+      color: #fff;
+      z-index: 19;
+    }
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    &>button{
+      font-size: 1.2em;
+      margin: 0;padding: .7em 1em;
+    }
+  }
+}
+

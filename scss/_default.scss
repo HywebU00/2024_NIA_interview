@@ -30,12 +30,13 @@ table{border-collapse: collapse; width: 100%;margin: 0;}
 
 // 內頁標題
 .pageHeading{
-  @extend %primSection; margin: 50px auto 30px; padding: 0;
+  @extend %primSection; margin: 30px auto 15px; padding: 0;
   text-align: center;
   h2{ font-size: 1.6em; margin: 0; line-height: 1.2; color: $primaryColor;}
   .description { line-height: 1.6; margin: 1em 0 0;}
 
   @media screen and (min-width: $wwNormal){
+    margin: 50px auto 30px;
     h2{ font-size: 2em;}
   }
 
