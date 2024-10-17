@@ -94,15 +94,9 @@
 // 預約面(訪)談
 // ---------------------------------------------------------------- //
 
-.apply{
+.booking {
   @extend %primSection;
   @extend %frame;
-  // margin-top: 40px; margin-bottom: 50px;
-  // font-size: 1.3rem;
-  // width: 90%;
-  // border-radius: 16px;
-  // background-color: rgb(255 255 255 / .5);
-  // box-shadow: rgb(0 0 0 / .2) 0 0 20px;
 
 
   .notices{
@@ -114,6 +108,10 @@
 
   input, textarea, select{
     
+  }
+
+  .secHeading:has(~.bookingCalendar){
+    &::before {background-color: $assistantColor2;}
   }
 
   .formRow{
@@ -140,30 +138,18 @@
 
 
 
-.labelName{
-  display: block; position: relative;
-  margin: 50px 0 30px; padding: 0 0 0 28px;
-  font-size: 1.25em; line-height: 1.1; font-weight: bold;
-  &::before{
-    content: ''; position: absolute; left: 0; top: 0;
-    width: 7px; height: 1.1em;
-    background-color: $assistantColor1;
-  }
-}
+// .labelName{
+//   display: block; position: relative;
+//   margin: 50px 0 30px; padding: 0 0 0 28px;
+//   font-size: 1.25em; line-height: 1.1; font-weight: bold;
+//   &::before{
+//     content: ''; position: absolute; left: 0; top: 0;
+//     width: 7px; height: 1.1em;
+//     background-color: $assistantColor1;
+//   }
+// }
 
-.apply, .confirm {
-  &>.labelName:first-child, &>form>.labelName:first-child{margin-top: 0;}
-}
+// .apply, .confirm {
+//   &>.labelName:first-child, &>form>.labelName:first-child{margin-top: 0;}
+// }
 
-// ---------------------------------------------------------------- //
-.secHeading{
-  position: relative;
-  font-size: 1.4em; line-height: 1; font-weight: bold;
-  padding: 2px 0 2px 22px;
-  &::before{
-    content: ""; position: absolute; 
-    left: 0; top: 0; bottom: 0;width: 7px;
-    background-color: $assistantColor2;
-  }
-}
-// ---------------------------------------------------------------- //

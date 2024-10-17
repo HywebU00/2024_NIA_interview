@@ -6,7 +6,7 @@
   &>article{
     line-height:1.8; text-align:center;
     padding:50px 2vw 40px; margin:0 0 50px; 
-    border-radius:8px;
+    border-radius:16px;
     background:$bgPale;
     &::before{ content:''; display:block; 
       margin:0 auto 15px;
@@ -19,7 +19,9 @@
     p{ margin:0;
       &+p{margin-top:1em;}
     }
-    time, em{ font-size:1.3em; font-weight:bold; display:inline-block;
+    time, em{ 
+      font-size:1.3em; font-weight:bold; display:inline-block;
+      color: $fontColorDark;
       &:is(time){ margin-left:.3em;}
       &:is(em){ font-style:normal; margin:0 .2em; }
     }
@@ -83,7 +85,10 @@
     &>article, ul.downloadfiles, .hint{ 
       max-width:1020px; padding-left:4.8%; padding-right:4.8%;
     }
-    &>article{ margin:0 auto 50px;}
+    &>article{ 
+      margin:0 auto 50px; padding:60px 20px 55px;
+      time, em{ font-size: 1.6em;}
+    }
   
   }
 }

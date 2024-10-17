@@ -103,19 +103,11 @@ $(function(){
 
 
 
-  // 寬版「主選單」
-  // --------------------------------------------------------------- //
-
-
-
-
 
   // 固定版頭 
   // --------------------------------------------------------------- //
   var fixHeadThreshold;
-  var hh = _webHeader.innerHeight();
-
-  console.log(hh);
+  var hh = _webHeader.outerHeight();
 
   if ( ww >= wwNormal) {
     fixHeadThreshold = hh;
@@ -128,7 +120,8 @@ $(function(){
       _webHeader.addClass('fixed');
       _body.offset({top: hh});
       $('.goCenter').trigger('blur');
-    } else {
+    }
+    if (_window.scrollTop() == 0 ) {
       _webHeader.removeClass('fixed');
       _body.removeAttr('style');
     }
@@ -142,40 +135,6 @@ $(function(){
 
 
 
-
-  // 版頭查詢區開合（手機版）
-  // --------------------------------------------------------------- //
-  // var _searchCtrl = $('.searchCtrl');
-  // var _search = $('.search');
-  // _search.append('<button class="skip" type="button">回到控制開關</button>');
-  // var _skipSearch = _search.find('.skip');
-  // const srSpeed = 320;
-
-  // if (_search.is(':hidden')) {
-  //   _searchCtrl.removeClass('closeIt').attr('aria-expanded', false);
-  // } else {
-  //   _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
-  // }
-
-  // _searchCtrl.on( 'click', function(){
-  //   if( _search.hasClass('reveal')) {
-  //     _search.slideUp(srSpeed, function(){
-  //       _search.removeClass('reveal').hide();
-  //     })
-  //     _searchCtrl.removeClass('closeIt').attr('aria-expanded', false);
-  //   } else {
-  //     _search.slideDown(srSpeed, function(){
-  //       _search.addClass('reveal').find('input[type="text"]').trigger('focus');
-  //       _searchCtrl.addClass('closeIt').attr('aria-expanded', true);
-  //     });
-  //   }
-  // })
-
-  // // skip, 回到查詢控制開關
-  // _skipSearch.on( 'focus', function(){
-  //   _searchCtrl.trigger('focus');
-  // })
-  // --------------------------------------------------------------- //
 
 
 
@@ -287,52 +246,6 @@ $(function(){
 
 
 
-  // 燈箱 
-  // --------------------------------------------------------------- //
-  // var _lightbox = $('.lightbox');
-  // var _hideLightbox = _lightbox.find('.closeThis');
-  // const lbxSpeed = 400;
-
-  // _lightbox.before('<div class="coverAll"></div>');
-  // _lightbox.append('<button type="button" class="skip">焦點移到 "關閉此燈箱"</button>');
-  // var _cover = $('.coverAll');
-  // var _skipToClose = _lightbox.find('.skip');
-
-  // _skipToClose.focus( function () {
-  //   _hideLightbox.focus();
-  // })
-
-  // // 關燈箱
-  // _hideLightbox.click(function(){
-  //   let _targetLbx = $(this).parents('.lightbox');
-  //   _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-  //     function(){
-  //       _cpBigPhoto.find('.flowList').find('li').hide();
-  //     }
-  //   );
-  //   _targetLbx.prev(_cover).fadeOut(lbxSpeed);
-  //   _body.removeClass('noScroll');
-  // })
-
-  // _cover.click(function(){
-  //   let _targetLbx = $(this).next('.lightbox');
-  //   $(this).fadeOut(lbxSpeed);
-  //   _body.removeClass('noScroll');
-  //   _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-  //     function(){
-  //       _cpBigPhoto.find('.flowList').find('li').hide();
-  //     }
-  //   );
-  // })
-
-  // _lightbox.on('keydown', function(e){
-  //   if ( e.keyCode == 27) {
-  //     _hideLightbox.trigger('click');
-  //   }
-  // })
-
-
-
 
 
   // 彈出區塊
@@ -413,31 +326,30 @@ $(function(){
       wwNew = _window.width();
       
       // 由小螢幕到寬螢幕
-      // if( ww < wwNormal && wwNew >= wwNormal ) {
-      //   if (_sidebar.hasClass('reveal')) {
-      //     _sidebar.removeClass('reveal');
-      //     _sidebarCtrl.removeClass('closeIt');
-      //     _sidebarMask.hide();
-      //     _body.removeClass('noScroll');
-      //   }
+      if( ww < wwNormal && wwNew >= wwNormal ) {
+        if (_sidebar.hasClass('reveal')) {
+          _sidebar.removeClass('reveal');
+          _sidebarCtrl.removeClass('closeIt');
+          _sidebarMask.hide();
+          _body.removeClass('noScroll');
+        }
 
-      //   _body.removeAttr('style');
-      //   _webHeader.removeClass('fixed');
-      //   _search.removeClass('reveal').removeAttr('style')
-      //   hh = _webHeader.outerHeight();
-      //   fixHeadThreshold =  hh - _menu.innerHeight();
-      //   _window.trigger('scroll');
-      // }
+        _body.removeAttr('style');
+        _webHeader.removeClass('fixed');
+        hh = _webHeader.outerHeight();
+        fixHeadThreshold =  hh;
+        _window.trigger('scroll');
+      }
 
       // 由寬螢幕到小螢幕
-      // if( ww >= wwNormal && wwNew < wwNormal ){
-      //   hh = _webHeader.outerHeight();
-      //   fixHeadThreshold = 0;
-      //   _body.removeAttr('style');
-      //   if ( ! _webHeader.hasClass('mp') ) {
-      //     _window.trigger('scroll');
-      //   }
-      // }
+      if( ww >= wwNormal && wwNew < wwNormal ){
+        hh = _webHeader.outerHeight();
+        fixHeadThreshold = 0;
+        _body.removeAttr('style');
+        if ( ! _webHeader.hasClass('mp') ) {
+          _window.trigger('scroll');
+        }
+      }
       ww = wwNew;
     }, 200);
   });

@@ -2,12 +2,6 @@
   display:flex;  padding:5px 8px;
   z-index:100;
   
-  &.fixed{
-    position:fixed; left:0;right:0;top:0;
-    background-color:rgb(255 255 255 / .96);
-    box-shadow:rgb(0 0 0 / .4) 0 2px 6px;
-  }
-
   h1{
     flex:1 1 auto;
     margin:0 10px; padding:0; height:48px;
@@ -73,11 +67,19 @@
     }
   }
 
+  // 固定版頭
+  &.fixed{
+    position:fixed; left:0;right:0;top:0;
+    background-color:rgb(255 255 255 / .96);
+    box-shadow:rgb(0 0 0 / .4) 0 2px 6px;
+  }
+  transition: .2s;
+
   @media screen and (min-width:$wwNormal){
 
     margin:0 auto; padding:20px 5%; margin:0;
     display:flex; flex-flow:row nowrap;
-    justify-content:space-between; align-items:center;    
+    justify-content:space-between; align-items:center;
 
     h1{
       flex:0 1 340px; height:70px; margin:0; padding:0;
@@ -158,10 +160,17 @@
         
     button.sidebarCtrl {display:none;}
 
+
     // 固定版頭
-    &.fixed{padding:6px 4%;
+    &.fixed{
+      z-index: 980; padding:6px 4%;
+      box-shadow:rgb(0 0 0 / .3) 0 2px 12px;
+      animation: fixHeadAni .5s 1 ease-out;
+
+      h1{ height: 60px;background-size:contain;}
       ul.memberCenter{ top: 74px;}
     }
+  
   }
 
   @media screen and (min-width:$wwMaximum){
@@ -177,3 +186,7 @@
   }
 }
 
+@keyframes fixHeadAni {
+  0% {transform: translateY( -100% );}
+  100% {transform: translateY(0);}
+}

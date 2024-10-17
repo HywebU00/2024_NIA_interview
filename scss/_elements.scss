@@ -30,17 +30,17 @@
   display:none;
   @media screen and (min-width:$wwNormal) {
     display:block; z-index:880;
-    position:fixed; top:-2.2em; left:50px;
+    position:fixed; top:-2.2em; left:calc(76px + 5vw); 
     padding:0 .5em; border-radius:0 0 4px 4px;
     overflow:hidden;
-    font-size:.8em; height:1.8em; line-height:1.9;
+    font-size:.8em; height:1.6em; line-height:1.7;
     text-decoration:none; outline:none; cursor:pointer;
     background-color:var(--bg); color:var(--color);
     transition:top .3s; 
     &:focus{ top:0;}
   }
   @media screen and (min-width:$wwMaximum) {
-    left:calc( 50vw  - #{$wwMaximum}*.5 + 50px );
+    left:calc( 50vw  - #{$wwMaximum}*.45 + 76px );
   }
 }
 // --------------------------------------------------------------- //
@@ -54,7 +54,7 @@ button.goTop{
   --size:64px;
   --arrowSize :20px;
 
-  position:fixed; right:16px; bottom:-80px; z-index:90; 
+  position:fixed; right:calc(50% - var(--size)*.5); bottom:-80px; z-index:90; 
   width:var(--size); height:var(--size);
   text-indent:-15em; overflow:hidden;
   padding:0; margin:0;
@@ -80,7 +80,12 @@ button.goTop{
     background-color:$primaryColor;
   }
 
-  &.show{ bottom:16px;}
+  &.show{ bottom:6px;}
+
+  @media screen and (min-width: $wwNormal){
+    right:16px;
+    &.show{ bottom:16px;}
+  }
 
   @media screen and ( min-width:calc( $wwMaximum + 48px) ){
     right:calc(50vw - $wwMaximum*.45 - var(--size) - 16px );
@@ -158,6 +163,7 @@ button.sidebarCtrl{
 
 
 // 關閉 button
+// ---------------------------------------------------------------- //
 .closeThis{
   --bgc:transparent;
   --tinge:#{$fontColor};
@@ -177,6 +183,29 @@ button.sidebarCtrl{
   &:hover, &:focus{--tinge:#fff;--bgc:#{$assistantColor1};}
   &:hover { --bgc:#{$bgPale}; }
 }
+
+
+// 區塊標題
+// ---------------------------------------------------------------- //
+.secHeading{
+  position: relative;
+  font-size: 1.4em; line-height: 1; font-weight: bold;
+  padding: 2px 0 2px 22px;
+  &::before{
+    content: ""; position: absolute; 
+    left: 0; top: 0; bottom: 0;width: 7px;
+    background-color: $assistantColor1;
+  }
+
+  .symbolStar{
+    display: inline-block; margin-left: 1em;
+    font-weight: normal; font-size: .7em;
+    color: $warningColor;
+    abbr{ font-size: larger; }
+  }
+}
+// ---------------------------------------------------------------- //
+
 
 // ------------------------------------------------------ //
 // --------------------- 模組 --------------------------- //

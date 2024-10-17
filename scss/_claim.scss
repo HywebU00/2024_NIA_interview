@@ -6,7 +6,7 @@
   position:relative; padding: 50px 25px;
   border-radius: 16px;
   background-color: $bgPale;
-  box-shadow: rgb(0 50 50 / .35) 0 0 8px inset;
+  // box-shadow: rgb(0 50 50 / .35) 0 0 8px inset;
 
   &.scroll{
     height: calc(100vh - 40px - 10em); overflow-y: auto;

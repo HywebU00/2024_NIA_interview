@@ -43,7 +43,9 @@
 
     <section class="confirm">
       <form action="">
-        <span class="labelName">確認預約資訊</span>
+        <!-- <span class="labelName">確認預約資訊</span> -->
+        <h3 class="secHeading">確認預約資訊</h3>
+        
         <dl class="dataReady">
           <div>
             <dt>入出境許可證號</dt>
@@ -90,18 +92,20 @@
           </div>
         </dl>
     
-        <span class="labelName">填寫入境資料</span>
+        <h3 class="secHeading">填寫入境資料
+          <span class="symbolStar"><abbr class="required" title="必填">*</abbr> 必填</span>
+        </h3>
         <div class="arrivalInfo">
           <label>
-            <span class="labelText">入境日期<abbr title="必填">*</abbr></span>
+            <span class="labelText">入境日期<abbr class="required" title="必填">*</abbr></span>
             <input type="date" placeholder="YYYY/MM/DD" name="" id="">
           </label>
           <label>
-            <span class="labelText">入境班機編號<abbr title="必填">*</abbr></span>
+            <span class="labelText">入境班機編號<abbr class="required" title="必填">*</abbr></span>
             <input type="text" placeholder="例如：AA123" name="" id="">
           </label>
           <label>
-            <span class="labelText">班機表定抵達時間<abbr title="必填">*</abbr></span>
+            <span class="labelText">班機表定抵達時間<abbr class="required" title="必填">*</abbr></span>
             <input type="time" placeholder="例如：11:30" name="" id="">
           </label>
         </div>
