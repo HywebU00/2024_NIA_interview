@@ -70,7 +70,6 @@
       box-shadow:rgb(0 0 0 / .3) 0 0 12px;
       h2{ color:#fff;}
       .e{ color:#cccdcd;}
-
     }
     ul{
       display:block;
@@ -103,9 +102,9 @@
   }
   
   @media screen and (min-width:$wwMaximum){
-    height:666px; width:$wwMaximum * .9;
-    hgroup{flex-basis:666px; width:666px;}
-    ul{ flex-basis:610px; width:610px;}
+    height:auto; width:$wwMaximum * .9;
+    hgroup{flex-basis:666px; width:666px; height: 666px;}
+    ul{ flex-basis:610px; width:610px; height: 666px; }
   }
 }
 
