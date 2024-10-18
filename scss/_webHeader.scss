@@ -48,22 +48,36 @@
   }
 
 
-  // 會員中心
+  // 會員中心選單
   ul.memberCenter{
     display:none;
     list-style:none; margin:0;padding:0;
     box-shadow:rgb(0 0 0 / .3) 0 0 12px;
 
     position:fixed; right:56px; top:60px; z-index:99;
-    text-align:center;
+    text-align:center; line-height: 1.2;
     min-width:10em; padding:5px;
     background-color:#fff;
     border-radius:10px;
     li{
-      margin:0; padding:.5em 0;
-      &:has(button){padding:0;}
-      &>button{height:2.2em; line-height:2.2; margin:0; width:100%;}
-      &+li{margin-top:4px;}
+      margin:0; padding: 0;
+      &.account{ padding: .7em 10px;}
+      &>a, &>button { 
+        display: block;height:2.4em; line-height:2.4; width:100%;
+        border-radius: 6px;
+        background-color: $primaryColor; color: #fff;
+        box-shadow: none;
+        transition: .2s;
+        &:hover, &:focus { background-color: $assistantColor1;}
+        &:focus{
+          box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 2px;
+        }
+      }
+      &>a{
+        text-decoration: none; 
+      }
+      &>button{margin:0;}
+      &+li{margin-top:5px;}
     }
   }
 

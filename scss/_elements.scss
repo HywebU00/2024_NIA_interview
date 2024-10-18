@@ -165,16 +165,16 @@ button.sidebarCtrl{
 // 關閉 button
 // ---------------------------------------------------------------- //
 .closeThis{
-  --bgc:transparent;
+  --bgc: rgb(220 220 220 / .5);
   --tinge:#{$fontColor};
 
   position:relative;
-  width:44px; height:44px; margin:0;
+  width:56px; height:56px; margin:0;
   background-color:var(--bgc);
   &::before, &::after {
     content:''; position:absolute;
-    left:calc(50% - 12px); top:calc(50% - 1px);
-    width:24px; height:2px;
+    left:calc(50% - 15px); top:calc(50% - 1px);
+    width:30px; height:2px;
     background:var(--tinge);
   }
   &::before { rotate:45deg;}
@@ -211,111 +211,6 @@ button.sidebarCtrl{
 // --------------------- 模組 --------------------------- //
 // ------------------------------------------------------ //
 
-
-// // 彈出區塊
-// // ------------------------------------------------------ //
-// .popSection {
-//   display:none;; z-index:300;
-//   position:fixed; left:50%; top:70px;
-//   translate:-50% 0;
-//   width:90vw;
-//   padding:50px 0 0;
-//   overflow-y:auto;
-//   background-color:#fff;
-//   box-shadow:rgb(0 0 0 / .3) 0 0 24px;
-//   border-radius:16px;
-
-//   .closeThis{
-//     position:absolute; right:6px;top:6px;
-//     border-radius:50%;
-//   }
-
-//   // 會員登入、註冊
-//   &.login, &.register {
-//     width:clamp(280px, 88vw, 440px);
-//     max-height:calc(100vh - 100px);
-//     .message{
-//       margin:0 auto; width:90%;
-//       button{
-//         height:2.2em;margin:.5em auto;
-//         border-radius:2em;
-//       }
-//     }
-//   }
-
-// }
-// // ------------------------------------------------------ //
-
-
-
-// // 會員登入、註冊
-// // ------------------------------------------------------ //
-// .loginHere, .regiHere{
-//   margin:0 auto; padding:25px 5% 20px;
-//   h3{ margin:0 auto 20px;}
-//   label{
-//     display:block;
-//     & + label{ margin-top:15px;}
-//     .labelText{ margin-left:10px;}
-//     input{ width:100%; margin:4px 0;}
-//   }
-//   a.forget {
-//     float:right; position:relative;
-//     padding:0; margin:5px 0 10px 0;
-//     color:$fontColor; text-decoration:none;
-//     transition:.2s;
-//     border-bottom:2px solid $primaryColor;
-//     &:hover, &:focus{border-color:$assistantColor1; border-bottom-width:3px;}
-//     &:focus{ box-shadow:$assistantColor1 0 0 0 1px;}
-
-//     & + *{ clear:both;}
-//   }
-
-//   .captcha{clear:both; margin:10px 0; display:block;}
-
-//   .btnDiv{
-//     padding:0;
-//     button{width:100%; margin:30px auto 3px;}
-//   }
-// }
-// .loginHere { 
-//   margin:0 10px 10px; border-radius:8px;
-//   box-shadow:rgb(0 0 0 / .4) 0 0 5px;
-// }
-// // ------------------------------------------------------ //
-
-
-// // 驗證碼
-// // ------------------------------------------------------ //
-// .captcha{
-//   display:flex; flex-wrap:wrap;
-//   img{ 
-//     flex:1 1 100%;
-//     width:100%; max-width:220px; margin:3px;
-//   }
-
-//   input[type="text"]{
-//     flex:0 0 calc(100% - 5.2em - 40px);
-//     width:calc(100% - 5.2em - 40px);
-//   }
-
-//   .voice, .refresh {
-//     flex:0 0 auto;
-//     height:2.6em; width:2.6em;
-//     margin:3px;
-//     border-radius:50%;
-//     background-repeat:no-repeat;
-//     background-position:center center;
-//     background-size:64%;
-//     &:is(.voice){ background-image:url(../images/icon_capVoice.png);}
-//     &:is(.refresh){background-image:url(../images/icon_capRefresh.png);}
-//   }
-
-//   @media screen and (min-width:$wwNormal){
-//     justify-content:space-between;
-//     img{flex:0 0  200px; width:200px;}
-//   }
-// }
 
 
 // ------------------------------------------------------ //
