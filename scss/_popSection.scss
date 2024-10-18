@@ -14,7 +14,7 @@
 
   .closeThis{
     position:sticky; left: calc(100% - 62px); top: 0;
-    border-radius:50%; margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   // 會員登入、註冊
@@ -145,7 +145,6 @@
   }
 }
 // ------------------------------------------------------ //
-// ------------------------------------------------------ //
 
 
 
@@ -182,3 +181,41 @@
     img{flex:0 0  200px; width:200px;}
   }
 }
+// ------------------------------------------------------ //
+
+
+// Cookie 說明文
+// ------------------------------------------------------ //
+.cookiesMsg{
+  position: fixed; z-index: 399;
+  bottom: 0; left: 0; right: 0;
+  padding: 64px 5vw 30px;
+  line-height: 1.8;
+  background-color: $bgPale;
+  box-shadow: rgb(0 0 0 / .5) 0 0 32px;
+  .closeThis{
+    position: absolute; right: 8px; top: 8px;
+  }
+  p{
+    margin: 0;
+    &+p{ margin-top: 1.5em;}
+    a{
+      display: inline-block;
+      color: $linkColor;
+    }
+  }
+  .btnDiv{ margin: 40px 0 10px;
+    a, button{ background-color: #fff;}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    padding-left: calc(50vw - $wwMaximum*.45);
+    padding-right: calc(50vw - $wwMaximum*.45);
+
+    .closeThis{
+      right:calc(50vw - $wwMaximum*.45 - 64px);
+      transition: right 0s, background .2s;
+    }
+  }
+}
+// ------------------------------------------------------ //
