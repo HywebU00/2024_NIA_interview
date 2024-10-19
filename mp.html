@@ -76,22 +76,13 @@
     </ul>
   </footer>
 
-  <section class="cookiesMsg">
-    <button class="closeThis" title="拒絕所有 Cookies"></button>
-
-    <p>本網站使用第三方 Cookies 及其他非必要追蹤檔案 （統稱為「Cookie」）進行統計分析、塑造個人化體驗及用作宣傳和社交媒體用途，包括追蹤你使用本網站的情況、提供符合你特定興趣的汛期、改善我們的服務、協助你更高效地瀏覽本網站。你有權接受或拒絕所有 Cookies。</p>
-    <p>如果您想了解更多關於追蹤工具的資訊和您的權益，<a href="#">請閱讀以下資訊</a>。</p>
-    <div class="btnDiv">
-      <button class="btnLook" type="button">全部接受</button>
-      <a class="btnLook" href="#">Cookie 喜好設定</a>
-    </div>
-  </section>
-
   <button class="goTop" type="button" title="回頁面頂端">回頁首</button>
 
 
-  <!-- 以下是燈箱 -->
-
+  <!------------------------------------------------------>
+  <!------------------- 以下是燈箱 ----------------------->
+  <!------------------------------------------------------>
+  
   <!-- 會員登入 -->
   <section class="popSection login">
     <button class="closeThis" title="關閉"></button>
@@ -102,7 +93,7 @@
       </p>
     </div>
 
-    <div class="loginHere">
+    <div class="popBody">
       <h3>會員登入</h3>
       <form action="">
         <label>
@@ -113,7 +104,7 @@
           <span class="labelText">密碼</span>
           <input type="password" placeholder="請輸入密碼">
         </label>
-        <a class="forget" href="#">忘記密碼</a>
+        <span class="forget"><a href="#">忘記密碼</a></span>
   
         <div class="captcha">
           <img src="images/captchaImg.png" alt="驗證碼">
@@ -133,7 +124,7 @@
   <section class="popSection register">
     <button class="closeThis" title="關閉"></button>
 
-    <div class="regiHere">
+    <div class="popBody">
       <h3>註冊成為新會員</h3>
       <form action="">
         <label><span class="labelText">設定帳號</span><input type="text"></label>
@@ -145,25 +136,61 @@
           <button class="btnLook st1" type="submit">送出註冊</button>
         </div>
       </form>
-
+      
       <div class="hints">
-        請至信箱收驗證信，通過後方可正式啟用帳號。
+        請至電子郵件信箱收驗證信，通過後方可正式啟用帳號。
       </div>
+
+
+      <span class="test" style="text-align: center; display: block; color: #ccc;">測試輸入驗證碼</span><!-- 請刪除 -->
+      
     </div>
-
-
   </section>
+
 
   <!-- 輸入驗證碼 -->
   <section class="popSection twoFactorVerify">
     <button class="closeThis" title="關閉"></button>
-    電子郵件驗證
-    <input type="text">
-    已發送驗證碼
 
-    <p>請輸入已發送至 yin****@gmail.com  的6位數驗證碼</p>
+    <div class="message">
+      驗證碼已發送至電子郵件信箱 yin****@gmail.com
+    </div>
 
+    <div class="popBody">
+      <form action="">
+        <label><span class="labelText">請輸入6位數驗證碼</span><input type="text"></label>
+        <div class="btnDiv">
+          <button class="btnLook st1" type="submit">送出</button>
+        </div>
+      </form>
+    </div>
   </section>
+
+  <script>
+    // 測試輸入驗證碼，請刪除
+    $(function(){
+      var _popSectionRegister =  $('.popSection.register');
+      _popSectionRegister.find('.test').on('click', function() {
+        _popSectionRegister.fadeOut();
+        $('.coverAll').filter(':visible').fadeOut();
+        $('.twoFactorVerify').fadeIn().prev('.coverAll').fadeIn();
+      })
+    })
+  </script>
+
+
+  <!-- Cookies 提示訊息 -->
+  <section class="cookiesMsg" style="display: none;">
+    <button class="closeThis" title="拒絕所有 Cookies"></button>
+
+    <p>本網站使用第三方 Cookies 及其他非必要追蹤檔案 （統稱為「Cookie」）進行統計分析、塑造個人化體驗及用作宣傳和社交媒體用途，包括追蹤你使用本網站的情況、提供符合你特定興趣的汛期、改善我們的服務、協助你更高效地瀏覽本網站。你有權接受或拒絕所有 Cookies。</p>
+    <p>如果您想了解更多關於追蹤工具的資訊和您的權益，<a href="#">請閱讀以下資訊</a>。</p>
+    <div class="btnDiv">
+      <button class="btnLook" type="button">全部接受</button>
+      <a class="btnLook" href="#">Cookie 喜好設定</a>
+    </div>
+  </section>
+
   
 </body>
 </html>

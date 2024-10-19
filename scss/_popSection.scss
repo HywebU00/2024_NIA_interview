@@ -1,54 +1,166 @@
 // 彈出區塊
 // ------------------------------------------------------ //
 .popSection {
-  display:none;
-  z-index:300;
-  position:fixed; left:50%; top:70px;
-  translate:-50% 0;
-  width:90vw;
-  padding:6px 0 0;
-  overflow-y:auto;
+  display:none; z-index:300;
+  position:fixed; top:70px; left:50%; translate:-50% 0;
+  width:88vw; padding:6px 0 0;
+  
+  max-height:calc(100vh - 100px); overflow-y:auto;
   background-color:#fff;
   box-shadow:rgb(0 0 0 / .3) 0 0 24px;
-  border-radius:16px;
+  border-radius:12px;
 
   .closeThis{
     position:sticky; left: calc(100% - 62px); top: 0;
     margin-bottom: 10px;
   }
 
-  // 會員登入、註冊
-  &.login, &.register {
-    width:clamp(280px, 88vw, 800px);
-    max-height:calc(100vh - 100px);
-
-    .message{
-      margin:0 auto 20px; padding:5px 5%; max-width:36em;
-      p{ margin: 0;
-        &+p{margin-top: 1em;}
-      }
-      button{
-        height:2.2em; margin:.5em auto;
-        border-radius:2em;
-      }
+  .message {
+    margin: 0 auto; padding: 12px 5% 16px;
+    line-height: 1.7;
+    border-bottom: 2px solid $borderColor;
+    p{ 
+      margin: 0;
+      &+p{margin-top: 1em;}
+    }
+    button{
+      height:2.2em; margin:.5em auto;
+      border-radius:2em;
     }
   }
 
-  &.twoFactorVerify{
+  .popBody{
+    margin:0 auto; padding:20px 5% 40px;
+
+    h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
+
+    label{
+      display:block; margin: 0 auto;
+      & + label{ margin-top:15px;}
+      .labelText{ margin-left:8px; display:block;}
+      input{ width:100%; margin:3px 0;}
+    }
+
+    .btnDiv{ margin:40px auto 3px;}
   }
 
   .hints{ 
-    margin:40px 5% 20px; color:$warningColor;
+    padding:40px 5% 10px; margin: 0 auto;
     line-height:1.6;
+    color:$warningColor;
+  }
+
+  // ------------------------------------------------------ //
+
+  // 會員登入、註冊、email 驗證
+  &.login, &.register, &.twoFactorVerify {
+    width:clamp(280px, 88vw, 800px);
+  }
+  
+  // 會員登入 --------------------------------------------- //
+  &.login{
+    // 忘記密碼
+    .forget {
+      outline: 1px dashed #f008;
+      outline-offset: -1px;
+
+      display: block; margin:2px auto 10px; max-width: 24em; 
+      &>a{
+        float:right; padding:0 .6em;
+        height:2em; line-height:2; border-radius:1em;
+        color:$linkColor; text-decoration:underline;
+        transition:.2s;
+        &:hover, &:focus{ 
+          text-decoration: none;
+          background-color:$assistantColor1; color:#fff;
+        }
+        &:focus { box-shadow: #fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+        
+      }
+      & + *{ clear:both;}
+    }
+
+    .popBody{
+      label { max-width: 24em;}
+    }
+
+    .captcha{
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: flex-start;
+      margin: 0 auto; padding-top: 25px; max-width: 600px;
+      img{ flex: 0 1 calc(50% - 64px); min-width: 200px; }
+      input[type="text"]{ flex: 1 1 calc(50% - 64px); min-width: 8em; max-width: 240px; }
+      button { margin-left: 6px;}
+    }
+
+  }
+
+  // email 驗證碼 --------------------------------------------- //
+  &.twoFactorVerify {
+    .message{ text-align: center;}
+    .popBody{
+      label{
+        display:flex; align-items: center; justify-content: center;
+        flex-wrap: wrap;
+        .labelText{ white-space: nowrap; margin-right: 6px;}
+        input { flex:1 1 auto; min-width:6em; max-width: 8em; }
+      }
+    }
   }
 
   @media screen and (min-width:$wwNormal){
+
     top:120px;
-    &.login, &.register {
+    .hints{ text-align:center;}
+
+    .popBody{
+      label{
+        display:flex; align-items:center; justify-content: center;
+        .labelText{ 
+          margin:0 6px 0 0;
+          white-space:nowrap; text-align: right;
+        }
+        input { flex:0 1 auto; }
+      }
+    }
+
+    &.login, &.register, &.twoFactorVerify {
       max-height:calc(100vh - 150px);
     }
 
-    .hints{ text-align:center;}
+    // 會員登入 --------------------------------------------- //
+    &.login {
+      .message{ text-align: center; }
+      .popBody{
+        label{
+          .labelText{ flex: 0 0 3em; }
+          input { width:calc(100% - 3em - 10px); }
+        }    
+      }
+      .captcha{
+        input[type="text"]{ max-width: none; }
+      }
+    }
+
+    // 註冊成為會員 --------------------------------------------- //
+    &.register {
+      .popBody{
+        label{
+          .labelText{ flex:0 0 7em;}
+          input { flex:0 1 calc(100% - 7em - 10px); }
+        }            
+      }
+    }
+
+    // email 驗證碼 --------------------------------------------- //
+    &.twoFactorVerify {
+      .popBody {
+        label {
+          input { font-size: 1.2em; height: 2em;}
+        }
+      }
+    }
+
   }
 
 }
@@ -59,109 +171,107 @@
 // 會員登入、註冊
 // ------------------------------------------------------ //
 .loginHere, .regiHere {
-  margin:0 auto; padding:5px 5% 50px; max-width:30em;
+  // margin:0 auto; padding:5px 5% 50px; max-width:30em;
 
-  h3{ margin:0 auto 30px; text-align:center; font-size:1.4em;}
-  label{
-    display:block;
-    & + label{ margin-top:15px;}
-    .labelText{ margin-left:8px; display:block;}
-    input{ width:100%; margin:4px 0;}
-  }
+  // h3{ margin:0 auto 30px; text-align:center; font-size:1.4em;}
+  // label{
+  //   display:block;
+  //   & + label{ margin-top:15px;}
+  //   .labelText{ margin-left:8px; display:block;}
+  //   input{ width:100%; margin:4px 0;}
+  // }
 
-  .btnDiv{
-    button{width:100%; margin:30px auto 3px;}
-  }
+  // .btnDiv{
+  //   // margin:30px auto 3px;
+  //   button{width:100%; }
+  // }
 
   @media screen and (min-width:$wwNormal){
-    max-width:34em;
-    label{
-      display:flex; align-items:center; justify-content: center;
-      .labelText{ 
-        margin:0 6px 0 0;
-        white-space:nowrap; text-align: right;
-      }
-      input { flex:0 1 auto; }
-    }
 
-    .btnDiv{
-      margin:30px -30px 0;
-      border-top:1px solid $borderColorDark;
-    }
-    &+.hints{margin-top:0;}
+    // max-width:34em;
+    // label{
+    //   display:flex; align-items:center; justify-content: center;
+    //   .labelText{ 
+    //     margin:0 6px 0 0;
+    //     white-space:nowrap; text-align: right;
+    //   }
+    //   input { flex:0 1 auto; }
+    // }
+
+    // .btnDiv{
+    //   margin:30px -30px 0; padding-top: 25px;
+    //   border-top:1px solid $borderColorDark;
+    // }
+    // &+.hints{margin-top:0;}
+    
   }
 }
 
 // 會員登入 ---------------------
 .loginHere{
 
-  // 忘記密碼
-  a.forget {
-    float:right; position:relative;
-    padding:0 .6em; margin:2px 0 10px 0;
-    height:2em; line-height:2; border-radius:1em;
-    color:$linkColor; text-decoration:underline;
-    transition:.2s;
-    &:hover, &:focus{ 
-      text-decoration: none;
-      background-color:$assistantColor1; color:#fff;
-    }
-    &:focus { box-shadow: #fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
-    & + *{ clear:both;}
-  }
+  // // 忘記密碼
+  // a.forget {
+  //   float:right; position:relative;
+  //   padding:0 .6em; margin:2px 0 10px 0;
+  //   height:2em; line-height:2; border-radius:1em;
+  //   color:$linkColor; text-decoration:underline;
+  //   transition:.2s;
+  //   &:hover, &:focus{ 
+  //     text-decoration: none;
+  //     background-color:$assistantColor1; color:#fff;
+  //   }
+  //   &:focus { box-shadow: #fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+  //   & + *{ clear:both;}
+  // }
 
-  .captcha{ clear:both; margin:0; padding-top: 20px; display:block;}
+  // .captcha{  margin:0; padding-top: 20px; display:block;}
 
-  @media screen and (min-width:$wwNormal){
-    label{
-      .labelText{ flex: 0 0 3em; }
-      input { width:calc(100% - 3em - 10px);}
-    }
+  // @media screen and (min-width:$wwNormal){
+  //   label{
+  //     .labelText{ flex: 0 0 3em; }
+  //     input { width:calc(100% - 3em - 10px);}
+  //   }
 
-    .captcha{
-      display: flex; flex-wrap: nowrap; align-items: center;
-      justify-content: space-between;
-      img{ flex: 0 1 200px;}
-      input[type="text"]{ flex: 1 1 auto;}
-      button { margin-left: 6px;}
-    }
-  }
+  //   .captcha{
+  //     display: flex; flex-wrap: nowrap; align-items: center;
+  //     justify-content: space-between;
+  //     img{ flex: 0 1 200px;}
+  //     input[type="text"]{ flex: 1 1 auto;}
+  //     button { margin-left: 6px;}
+  //   }
+  // }
 }
 
 
 
 // 註冊成為會員 ---------------------
-.regiHere { 
-  @media screen and (min-width: $wwNormal){
-    label{
-      .labelText{ 
-        flex:0 0 7em;
-      }
-      input {
-        flex:0 1 calc(100% - 7em - 10px);
-      }
-    }
+// .regiHere { 
+//   @media screen and (min-width: $wwNormal){
+//     label{
+//       .labelText{ flex:0 0 7em;}
+//       input { flex:0 1 calc(100% - 7em - 10px);}
+//     }
 
-  }
-}
+//   }
+// }
 // ------------------------------------------------------ //
 
 
 
 
-
-// 驗證碼
+// captcha 驗證碼
 // ------------------------------------------------------ //
 .captcha{
-  display:flex; flex-wrap:wrap;
+  display:flex; flex-wrap:wrap; clear: both;
   img{ 
     flex:1 1 100%;
     width:100%; max-width:220px; margin:3px;
   }
 
   input[type="text"]{
-    flex:0 0 calc(100% - 5.2em - 40px);
-    width:calc(100% - 5.2em - 40px);
+    flex:1 1 calc(100% - 5.2em - 40px);
+    width:calc(100% - 5.2em - 40px); min-width: 7em;
   }
 
   .voice, .refresh {
