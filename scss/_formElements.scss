@@ -311,7 +311,7 @@ input[type="checkbox"] {
 
   @media screen and (min-width: $wwNormal){
     gap:16px;
-    .btnLook:is(a, button){
+    .btnLook:is(a, button, input){
       min-width: 6em; max-width: 12em;
       &:only-child{ max-width: 16em;}
     }

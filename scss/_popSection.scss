@@ -34,6 +34,11 @@
 
     h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
 
+    p{
+      margin: 0;
+      &+p{ margin-top: 1em;}
+    }
+
     label{
       display:block; margin: 0 auto;
       & + label{ margin-top:15px;}
@@ -41,13 +46,32 @@
       input{ width:100%; margin:3px 0;}
     }
 
-    .btnDiv{ margin:40px auto 3px;}
+  }
+  .btnDiv{ 
+    margin:0 0% 30px;
+    .btnLook:is(a, button, input){
+      min-width: 0; max-width: 12em;
+      &:only-child{ flex-basis: auto;}
+    }
   }
 
   .hints{ 
     padding:40px 5% 10px; margin: 0 auto;
     line-height:1.6;
     color:$warningColor;
+  }
+
+  // btnDiv 
+  .btnDiv{
+    border-top: 1px solid $borderColor;
+    padding-top: 30px;
+    .btnLook:is(a, button, input){
+      font-size: 1em; border-radius: 2em;
+    }
+  }
+
+  &.alert{
+    max-width: 640px;
   }
 
   // ------------------------------------------------------ //
