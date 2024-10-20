@@ -106,10 +106,6 @@
     }
   }
 
-  input, textarea, select{
-    
-  }
-
   .secHeading:has(~.bookingCalendar){
     &::before {background-color: $assistantColor2;}
   }
@@ -117,9 +113,9 @@
   .formRow{
     margin: 0 0 60px;
 
-    select{
-      width: 100%;
-    }
+    select{width: 100%;}
+
+    &:first-child>.secHeading{ margin-top: 0;}
   
   
   }
@@ -128,6 +124,9 @@
 
   @media screen and (min-width: $wwNormal){
     padding: 60px 5vw; margin-bottom: 80px;
+    .formRow{
+      select { width: 50%;}
+    }
   }
 
   @media screen and (min-width: $wwMaximum){

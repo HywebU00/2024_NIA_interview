@@ -296,6 +296,43 @@ $(function(){
 
 
 
+  // 面(訪)談預約類別
+  // --------------------------------------------------------------- //
+  var _optionGroup = $('.optionGroup');
+  _optionGroup.each(function(){
+    let _this = $(this);
+    let _label = _this.find('label');
+    let _input = _label.children('input');
+
+    _input.on('click', function(){
+      _label.removeClass('checked');
+      $(this).parent().addClass('checked');
+    })
+  })
+  // --------------------------------------------------------------- //
+
+
+
+  // [預約紀錄] 下載文件開合
+  // --------------------------------------------------------------- //
+  var _YMoption = $('.bookingCalendar').find('.year, .month');
+  _YMoption.each(function(){
+    let _this = $(this);
+    let _button = _this.find('button.now');
+    let _optionItems = _this.find('.options>li>a');
+    _button.on('click', function(){
+      let _options = $(this).next('.options');
+      _options.is(':hidden') ? _options.slideDown(300) : _options.slideUp(300) ;
+    })
+    _optionItems.on('click', function(){
+      setTimeout( () => {
+        $(this).parents('.options').slideUp(300);
+      }, 200);
+    })
+  })
+  // --------------------------------------------------------------- //
+
+
 
   // [預約紀錄] 下載文件開合
   // --------------------------------------------------------------- //

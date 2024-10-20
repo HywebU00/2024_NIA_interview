@@ -190,7 +190,7 @@ button.sidebarCtrl{
 .secHeading{
   position: relative;
   font-size: 1.4em; line-height: 1; font-weight: bold;
-  padding: 2px 0 2px 22px;
+  padding: 2px 0 2px 22px; margin: 1em 0 .6em;
   &::before{
     content: ""; position: absolute; 
     left: 0; top: 0; bottom: 0;width: 7px;
@@ -203,6 +203,8 @@ button.sidebarCtrl{
     color: $warningColor;
     abbr{ font-size: larger; }
   }
+
+  &+p{ margin: .5em 0 1em 22px; }
 }
 // ---------------------------------------------------------------- //
 
