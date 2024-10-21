@@ -11,17 +11,17 @@
   border-radius:12px;
 
   .closeThis{
-    position:sticky; left: calc(100% - 62px); top: 0;
-    margin-bottom: 10px;
+    position:sticky; left:calc(100% - 62px); top:0;
+    margin-bottom:10px;
   }
 
   .message {
-    margin: 0 auto; padding: 12px 5% 16px;
-    line-height: 1.7;
-    border-bottom: 2px solid $borderColor;
+    margin:0 auto; padding:12px 5% 16px;
+    line-height:1.7;
+    border-bottom:2px solid $borderColor;
     p{ 
-      margin: 0;
-      &+p{margin-top: 1em;}
+      margin:0;
+      &+p{margin-top:1em;}
     }
     button{
       height:2.2em; margin:.5em auto;
@@ -34,44 +34,37 @@
 
     h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
 
-    p{
-      margin: 0;
-      &+p{ margin-top: 1em;}
+    p{ margin:0;
+      &+p{ margin-top:1em;}
     }
 
     label{
-      display:block; margin: 0 auto;
+      display:block; margin:0 auto;
       & + label{ margin-top:15px;}
       .labelText{ margin-left:8px; display:block;}
       input{ width:100%; margin:3px 0;}
     }
 
-  }
-  .btnDiv{ 
-    margin:0 0% 30px;
-    .btnLook:is(a, button, input){
-      min-width: 0; max-width: 12em;
-      &:only-child{ flex-basis: auto;}
+    .btnDiv{ 
+      margin:20px 0 0; padding:20px 0 0;
+      .btnLook:is(a, button, input){
+        min-width:7em; max-width:12em;
+        &:only-child{ flex-basis:auto;}
+      }
     }
   }
 
   .hints{ 
-    padding:40px 5% 10px; margin: 0 auto;
+    padding:40px 5% 10px; margin:0 auto;
     line-height:1.6;
     color:$warningColor;
   }
 
-  // btnDiv 
-  .btnDiv{
-    border-top: 1px solid $borderColor;
-    padding-top: 30px;
-    .btnLook:is(a, button, input){
-      font-size: 1em; border-radius: 2em;
+  // 確定刪除嗎？
+  &.alert{ max-width:640px;
+    .btnDiv{ border-top:1px solid $borderColor;
+    .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
     }
-  }
-
-  &.alert{
-    max-width: 640px;
   }
 
   // ------------------------------------------------------ //
@@ -85,49 +78,49 @@
   &.login{
     // 忘記密碼
     .forget {
-      outline: 1px dashed #f008;
-      outline-offset: -1px;
+      outline:1px dashed #f008;
+      outline-offset:-1px;
 
-      display: block; margin:2px auto 10px; max-width: 24em; 
+      display:block; margin:2px auto 10px; max-width:24em; 
       &>a{
         float:right; padding:0 .6em;
         height:2em; line-height:2; border-radius:1em;
         color:$linkColor; text-decoration:underline;
         transition:.2s;
         &:hover, &:focus{ 
-          text-decoration: none;
+          text-decoration:none;
           background-color:$assistantColor1; color:#fff;
         }
-        &:focus { box-shadow: #fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+        &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
         
       }
       & + *{ clear:both;}
     }
 
     .popBody{
-      label { max-width: 24em;}
+      label { max-width:24em;}
     }
 
     .captcha{
-      display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: flex-start;
-      margin: 0 auto; padding-top: 25px; max-width: 600px;
-      img{ flex: 0 1 calc(50% - 64px); min-width: 200px; }
-      input[type="text"]{ flex: 1 1 calc(50% - 64px); min-width: 8em; max-width: 240px; }
-      button { margin-left: 6px;}
+      display:flex; flex-wrap:wrap; align-items:center;
+      justify-content:flex-start;
+      margin:0 auto; padding-top:25px; max-width:600px;
+      img{ flex:0 1 calc(50% - 64px); min-width:200px; }
+      input[type="text"]{ flex:1 1 calc(50% - 64px); min-width:8em; max-width:240px; }
+      button { margin-left:6px;}
     }
 
   }
 
   // email 驗證碼 --------------------------------------------- //
   &.twoFactorVerify {
-    .message{ text-align: center;}
+    .message{ text-align:center;}
     .popBody{
       label{
-        display:flex; align-items: center; justify-content: center;
-        flex-wrap: wrap;
-        .labelText{ white-space: nowrap; margin-right: 6px;}
-        input { flex:1 1 auto; min-width:6em; max-width: 8em; }
+        display:flex; align-items:center; justify-content:center;
+        flex-wrap:wrap;
+        .labelText{ white-space:nowrap; margin-right:6px;}
+        input { flex:1 1 auto; min-width:6em; max-width:8em; }
       }
     }
   }
@@ -139,10 +132,10 @@
 
     .popBody{
       label{
-        display:flex; align-items:center; justify-content: center;
+        display:flex; align-items:center; justify-content:center;
         .labelText{ 
           margin:0 6px 0 0;
-          white-space:nowrap; text-align: right;
+          white-space:nowrap; text-align:right;
         }
         input { flex:0 1 auto; }
       }
@@ -154,15 +147,15 @@
 
     // 會員登入 --------------------------------------------- //
     &.login {
-      .message{ text-align: center; }
+      .message{ text-align:center; }
       .popBody{
         label{
-          .labelText{ flex: 0 0 3em; }
+          .labelText{ flex:0 0 3em; }
           input { width:calc(100% - 3em - 10px); }
         }    
       }
       .captcha{
-        input[type="text"]{ max-width: none; }
+        input[type="text"]{ max-width:none; }
       }
     }
 
@@ -180,7 +173,7 @@
     &.twoFactorVerify {
       .popBody {
         label {
-          input { font-size: 1.2em; height: 2em;}
+          input { font-size:1.2em; height:2em;}
         }
       }
     }
@@ -214,16 +207,16 @@
 
     // max-width:34em;
     // label{
-    //   display:flex; align-items:center; justify-content: center;
+    //   display:flex; align-items:center; justify-content:center;
     //   .labelText{ 
     //     margin:0 6px 0 0;
-    //     white-space:nowrap; text-align: right;
+    //     white-space:nowrap; text-align:right;
     //   }
     //   input { flex:0 1 auto; }
     // }
 
     // .btnDiv{
-    //   margin:30px -30px 0; padding-top: 25px;
+    //   margin:30px -30px 0; padding-top:25px;
     //   border-top:1px solid $borderColorDark;
     // }
     // &+.hints{margin-top:0;}
@@ -242,27 +235,27 @@
   //   color:$linkColor; text-decoration:underline;
   //   transition:.2s;
   //   &:hover, &:focus{ 
-  //     text-decoration: none;
+  //     text-decoration:none;
   //     background-color:$assistantColor1; color:#fff;
   //   }
-  //   &:focus { box-shadow: #fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+  //   &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
   //   & + *{ clear:both;}
   // }
 
-  // .captcha{  margin:0; padding-top: 20px; display:block;}
+  // .captcha{  margin:0; padding-top:20px; display:block;}
 
   // @media screen and (min-width:$wwNormal){
   //   label{
-  //     .labelText{ flex: 0 0 3em; }
+  //     .labelText{ flex:0 0 3em; }
   //     input { width:calc(100% - 3em - 10px);}
   //   }
 
   //   .captcha{
-  //     display: flex; flex-wrap: nowrap; align-items: center;
-  //     justify-content: space-between;
-  //     img{ flex: 0 1 200px;}
-  //     input[type="text"]{ flex: 1 1 auto;}
-  //     button { margin-left: 6px;}
+  //     display:flex; flex-wrap:nowrap; align-items:center;
+  //     justify-content:space-between;
+  //     img{ flex:0 1 200px;}
+  //     input[type="text"]{ flex:1 1 auto;}
+  //     button { margin-left:6px;}
   //   }
   // }
 }
@@ -271,7 +264,7 @@
 
 // 註冊成為會員 ---------------------
 // .regiHere { 
-//   @media screen and (min-width: $wwNormal){
+//   @media screen and (min-width:$wwNormal){
 //     label{
 //       .labelText{ flex:0 0 7em;}
 //       input { flex:0 1 calc(100% - 7em - 10px);}
@@ -287,7 +280,7 @@
 // captcha 驗證碼
 // ------------------------------------------------------ //
 .captcha{
-  display:flex; flex-wrap:wrap; clear: both;
+  display:flex; flex-wrap:wrap; clear:both;
   img{ 
     flex:1 1 100%;
     width:100%; max-width:220px; margin:3px;
@@ -295,7 +288,7 @@
 
   input[type="text"]{
     flex:1 1 calc(100% - 5.2em - 40px);
-    width:calc(100% - 5.2em - 40px); min-width: 7em;
+    width:calc(100% - 5.2em - 40px); min-width:7em;
   }
 
   .voice, .refresh {
@@ -321,34 +314,34 @@
 // Cookie 說明文
 // ------------------------------------------------------ //
 .cookiesMsg{
-  position: fixed; z-index: 399;
-  bottom: 0; left: 0; right: 0;
-  padding: 64px 5vw 30px;
-  line-height: 1.8;
-  background-color: $bgPale;
-  box-shadow: rgb(0 0 0 / .5) 0 0 32px;
+  position:fixed; z-index:399;
+  bottom:0; left:0; right:0;
+  padding:64px 5vw 30px;
+  line-height:1.8;
+  background-color:$bgPale;
+  box-shadow:rgb(0 0 0 / .5) 0 0 32px;
   .closeThis{
-    position: absolute; right: 8px; top: 8px;
+    position:absolute; right:8px; top:8px;
   }
   p{
-    margin: 0;
-    &+p{ margin-top: 1.5em;}
+    margin:0;
+    &+p{ margin-top:1.5em;}
     a{
-      display: inline-block;
-      color: $linkColor;
+      display:inline-block;
+      color:$linkColor;
     }
   }
-  .btnDiv{ margin: 40px 0 10px;
-    a, button{ background-color: #fff;}
+  .btnDiv{ margin:40px 0 10px;
+    a, button{ background-color:#fff;}
   }
 
-  @media screen and (min-width: $wwMaximum){
-    padding-left: calc(50vw - $wwMaximum*.45);
-    padding-right: calc(50vw - $wwMaximum*.45);
+  @media screen and (min-width:$wwMaximum){
+    padding-left:calc(50vw - $wwMaximum*.45);
+    padding-right:calc(50vw - $wwMaximum*.45);
 
     .closeThis{
       right:calc(50vw - $wwMaximum*.45 - 64px);
-      transition: right 0s, background .2s;
+      transition:right 0s, background .2s;
     }
   }
 }

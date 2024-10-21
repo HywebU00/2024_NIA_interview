@@ -2,59 +2,59 @@
 // 表單元件基本樣式 ------------------------------------- //
 // ------------------------------------------------------ //
 
-form {margin: 0;padding: 0;}
+form {margin:0;padding:0;}
 
 input, textarea, select, button, datalist, label {
-  font-size:inherit; font-family: inherit; outline: none;
-  &:focus{ outline: none;}
+  font-size:inherit; font-family:inherit; outline:none;
+  &:focus{ outline:none;}
 }
 label {
-  display: inline-block;
-  font-weight: normal; cursor: pointer;
+  display:inline-block;
+  font-weight:normal; cursor:pointer;
 }
 
 
 
 // scss 變數
 // ------------------------------------------------------ //
-$inputBg: #fff;
-$inputColor: #{$primaryColor};
-$inputBdr: #{$primaryColor};
+$inputBg:#fff;
+$inputColor:#{$primaryColor};
+$inputBdr:#{$primaryColor};
 
 // disabled
-$disColor: #888;
-$disBg: #f0f0f0;
-$disBdr: #ddd;
+$disColor:#888;
+$disBg:#f0f0f0;
+$disBdr:#ddd;
 
 // readonly
-$roColor: #555;
-$roBg: #{$bgLight};
-$roBdr: #{$borderColor};
+$roColor:#555;
+$roBg:#{$bgLight};
+$roBdr:#{$borderColor};
 
 
-$btnColor: #fff;
+$btnColor:#fff;
 
 
 // disabled
-$btnDisColor: #888;
-$btnDisBg: #cfcfcf;
+$btnDisColor:#888;
+$btnDisBg:#cfcfcf;
 // ------------------------------------------------------ //
 
 
 // css 變數
 // ------------------------------------------------------ //
 :root {
-  --inputHeight : 2.6em;
-  --inputLineHeight : 2.7;
+  --inputHeight :2.6em;
+  --inputLineHeight :2.7;
 
   // color
-  --inputColor: #{$fontColor};
-  --inputBg: #fff;
-  --inputBgHover: #{$assistantColor1};
-  --inputBdr: #{$borderColor};
+  --inputColor:#{$fontColor};
+  --inputBg:#fff;
+  --inputBgHover:#{$assistantColor1};
+  --inputBdr:#{$borderColor};
 
-  --btnBg: #fff;
-  --btnColor: #{$primaryColor};
+  --btnBg:#fff;
+  --btnColor:#{$primaryColor};
 }
 // ------------------------------------------------------ //
 
@@ -63,45 +63,45 @@ $btnDisBg: #cfcfcf;
 // 文字輸入匡 input 樣式 
 // ------------------------------------------------------ //
 %textInput {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
 
-  height: var(--inputHeight); 
-  padding: 0 10px; margin: 5px;
-  vertical-align: middle;border-radius: 0;
+  height:var(--inputHeight); 
+  padding:0 10px; margin:5px;
+  vertical-align:middle;border-radius:0;
 
-  border: 1px solid $borderColor;
-  background-color: #fff;
-  color: var(--inputColor);
-  border-radius: 5px;
-  transition: .2s;
+  border:1px solid $borderColor;
+  background-color:#fff;
+  color:var(--inputColor);
+  border-radius:5px;
+  transition:.2s;
   
   &:hover { 
-    border-color: transparent;
-    box-shadow: $borderColorDark 0 0 0 1px;
+    border-color:transparent;
+    box-shadow:$borderColorDark 0 0 0 1px;
   }
   &:focus {
-    border-color: transparent;
-    box-shadow: $assistantColor1 0 0 0 2px;
+    border-color:transparent;
+    box-shadow:$assistantColor1 0 0 0 2px;
   }
 
 
   &[disabled]{ 
-    --inputColor: #{$disColor}; --inputBg:#{$disBg}; --inputBdr: #{$disBdr}; 
-    border-style: dashed;
-    cursor: not-allowed;
+    --inputColor:#{$disColor}; --inputBg:#{$disBg}; --inputBdr:#{$disBdr}; 
+    border-style:dashed;
+    cursor:not-allowed;
   }
   &[readonly]{ 
-    --inputColor: #{$roColor}; 
+    --inputColor:#{$roColor}; 
     --inputBg:#{$roBg};
-    --inputBdr: #{$roBdr};
-    box-shadow: none;
-    cursor: default;
+    --inputBdr:#{$roBdr};
+    box-shadow:none;
+    cursor:default;
     &:hover, &:focus{ 
-      background-color: var(--inputBg);
+      background-color:var(--inputBg);
     }
-    &:focus{border-color:  $borderColorDark;}
+    &:focus{border-color: $borderColorDark;}
   }
 }
 // ------------------------------------------------------ //
@@ -125,8 +125,8 @@ input[type="url"],
 input[type="week"] { 
   @extend %textInput;
 
-  &.fullWidth{ width: calc(100% - 10px);}
-  &.halfWidth{ width: calc(50% - 10px);}
+  &.fullWidth{ width:calc(100% - 10px);}
+  &.halfWidth{ width:calc(50% - 10px);}
 }
 // ------------------------------------------------------ //
 
@@ -136,10 +136,10 @@ input[type="week"] {
 // ------------------------------------------------------ //
 textarea {
   @extend %textInput;
-  display: block;
-  padding:9px 10px 7px;line-height: 1.8;
-  height: 10em;width: calc(100% - 10px);
-  resize: vertical;
+  display:block;
+  padding:9px 10px 7px;line-height:1.8;
+  height:10em;width:calc(100% - 10px);
+  resize:vertical;
 // ------------------------------------------------------ //
 }
 
@@ -147,32 +147,31 @@ textarea {
 // 下拉選單樣式 
 // ------------------------------------------------------ //
 %selectStyle {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 5px;
-  padding: 0 32px 0 10px;vertical-align: middle;border-radius: 0;
-  height: var(--inputHeight); 
-  // line-height: var(--inputLineHeight);
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  margin:5px;
+  padding:0 32px 0 10px;vertical-align:middle;border-radius:0;
+  height:var(--inputHeight); 
+  // line-height:var(--inputLineHeight);
 
-  border: 1px solid $borderColor;
-  border-radius: 5px;
-  color: $fontColor;
-  background: #fff url(../images/selectArrow.svg) no-repeat right 6px top .8em;
-  background-size: 24px auto;
-  transition: .2s;
+  border:1px solid $borderColor;
+  border-radius:5px;
+  color:$fontColor;
+  background:#fff url(../images/selectArrow.svg) no-repeat right 6px top .8em;
+  background-size:24px auto;
+  transition:.2s;
 
-  cursor: pointer;
+  cursor:pointer;
 
-  &:hover, &:focus {}
   &:focus {
-    box-shadow: $inputBdr 0 0 0 2px;
-    border-color: #fff;
+    box-shadow:$inputBdr 0 0 0 2px;
+    border-color:#fff;
   }
   &[disabled]{ 
-    --inputColor: #{$disColor}; --inputBg:#{$inputBg}; --inputBdr: #{$disBdr};
-    box-shadow: none;
-    cursor: not-allowed;
+    --inputColor:#{$disColor}; --inputBg:#{$inputBg}; --inputBdr:#{$disBdr};
+    box-shadow:none;
+    cursor:not-allowed;
   }
 }
 // ------------------------------------------------------ //
@@ -182,8 +181,8 @@ textarea {
 // ------------------------------------------------------ //
 select {
   @extend %selectStyle;
-  &.fullWidth{ width: calc(100% - 10px);}
-  &.halfWidth{ width: calc(50% - 10px);}
+  &.fullWidth{ width:calc(100% - 10px);}
+  &.halfWidth{ width:calc(50% - 10px);}
 }
 // ------------------------------------------------------ //
 
@@ -195,33 +194,24 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
     
-  border: none;
   padding:0 1em; margin:5px;
-  vertical-align: middle;
-  cursor: pointer; transition: .2s;
-
-  height: var(--inputHeight); 
-  // line-height: var(--inputHeight);
-
-  background-color: $primaryColor; color: #fff;
-  border-radius: 5px;
-
-  &:hover, &:focus {background-color: $assistantColor1;}
+  height:var(--inputHeight); 
+  vertical-align:middle;
+  background-color:$primaryColor; color:#fff;
+  border:none; border-radius:5px;
+  cursor:pointer; 
+  transition:.2s;
+  &:hover, &:focus {background-color:$assistantColor1;}
   &:hover{box-shadow:transparent 0 0 0 0, $assistantColor1 0 0 0 2px;}
   &:focus{box-shadow:#fff 0 0 0 1px, $assistantColor1 0 0 0 4px;}
 
-  &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; cursor: not-allowed;}
+  &[disabled] { --btnBg:#{$btnDisBg}; --btnColor:#{$btnDisColor}; cursor:not-allowed;}
 }
 
-// input[type="submit"]{ 
-//   --btnBg: #{$btnBg2};
-//   &:hover, &:focus { --btnBg: #{$btnBg2Hover}; }
-//   &[disabled] { --btnBg: #{$btnDisBg}; --btnColor: #{$btnDisColor}; }
-// }
 // ------------------------------------------------------ //
 
 
@@ -230,74 +220,65 @@ input[type="reset"] {
 // ------------------------------------------------------ //
 input[type="radio"],
 input[type="checkbox"] {
-  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  -webkit-appearance:none; -moz-appearance:none; appearance:none;
   margin:-.1em 7px 0 4px; 
-  line-height: 1; 
-  border: 1px solid $primaryColor;
-  vertical-align: middle;
-  cursor: pointer;
+  line-height:1; 
+  border:1px solid $primaryColor;
+  vertical-align:middle;
+  cursor:pointer;
 }
 
 // radio
 input[type="radio"] {
-  width: 1.2em; height: 1.2em; 
-  border-radius: 50%;
-  &:hover, &:focus { border-width: 2px;}
+  width:1.2em; height:1.2em; 
+  border-radius:50%;
+  &:hover, &:focus { border-width:2px;}
   &:checked{
-    border-width: 2px;
-    box-shadow: #fff 0 0 0 3px inset, $primaryColor 0 0 0 10px inset;
+    border-width:2px;
+    box-shadow:#fff 0 0 0 3px inset, $primaryColor 0 0 0 10px inset;
     &:focus {
-      box-shadow: #fff 0 0 0 5px inset, $primaryColor 0 0 0 10px inset;
+      box-shadow:#fff 0 0 0 5px inset, $primaryColor 0 0 0 10px inset;
     }
   }
 }
 
 // checkbox
 input[type="checkbox"] {
-  width: 1em; height: 1em; 
-  border-radius: 2px;
-  &:hover, &:focus { box-shadow: $primaryColor 0 0 0 1px;}
+  width:1em; height:1em; 
+  border-radius:2px;
+  &:hover, &:focus { box-shadow:$primaryColor 0 0 0 1px;}
   &:checked{
-    background: var(--btnColor) url(../images/icon_check.svg) no-repeat center .06em;
-    background-size: 88%;
-    box-shadow: $primaryColor 0 0 0 2px; border-color: transparent;
-    &:focus {box-shadow: $primaryColor 0 0 0 3px;border-color: #fff;}
+    background:var(--btnColor) url(../images/icon_check.svg) no-repeat center .06em;
+    background-size:88%;
+    box-shadow:$primaryColor 0 0 0 2px; border-color:transparent;
+    &:focus {box-shadow:$primaryColor 0 0 0 3px;border-color:#fff;}
   }
-
 }
 // ------------------------------------------------------ //
 
 
 .btnLook:is(a, button, input) {
-  display: inline-block; vertical-align: middle;
-  font-size: 1.125em; text-align: center; text-decoration: none;
-  height: var(--inputHeight); line-height: var(--inputHeight);
-  padding: 0 1em; margin: 5px; border-radius: 6px;
-  background-color: $bgPale; color: $fontColorDark;
+  display:inline-block; vertical-align:middle;
+  font-size:1.125em; text-align:center; text-decoration:none;
+  height:var(--inputHeight); line-height:var(--inputHeight);
+  padding:0 1em; margin:5px; border-radius:6px;
+  background-color:$bgPale; color:$fontColorDark;
   box-shadow:#fff 0 0 0 0, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 1px 5px;
-  transition: .2s;
+  transition:.2s;
   
-  &.st1 {
-    @extend %gradientBlue; color: #fff;
-  }
-  &.st2 {
-    @extend %gradientGreen; color: #fff;
-  }
+  &.st1 {@extend %gradientBlue; color:#fff;}
+  &.st2 {@extend %gradientGreen; color:#fff;}
 
   &:hover{
-    translate: 0 -3px;
+    translate:0 -3px;
     box-shadow:#fff 0 0 0 3px, transparent 0 0 0 0, rgb(0 0 0 / .3) 0 6px 16px;
-    // &:is(a){background-color: $bgLight;}
   }
   &:focus{
-    translate: 0 1px;
+    translate:0 1px;
     &:is(.st1) {box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
     &:is(.st2) {box-shadow:#fff 0 0 0 1px, $secondaryColor 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
-    &:is(a){
-      box-shadow:#fff 0 0 0 1px, $bgDark 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;
-    }
+    &:is(a){box-shadow:#fff 0 0 0 1px, $bgDark 0 0 0 4px, rgb(0 0 0 / .4) 0 6px 10px;}
   }
-
 }
 
 // 表單下方的按鈕群
@@ -306,69 +287,61 @@ input[type="checkbox"] {
   justify-content:center; gap:8px;
   .btnLook:is(a, button, input){
     flex:0 1 auto;
-    &:only-child{flex-basis: 80%; max-width: 16em;}
+    &:only-child{flex-basis:80%; max-width:16em;}
   }
 
-  @media screen and (min-width: $wwNormal){
+  @media screen and (min-width:$wwNormal){
     gap:16px;
     .btnLook:is(a, button, input){
-      min-width: 6em; max-width: 12em;
-      &:only-child{ max-width: 16em;}
+      min-width:6em; max-width:12em;
+      &:only-child{ max-width:16em;}
     }
   }
 }
 
 
+// 多選或單選項
 .optionGroup{
   label{
-    display: block;
-    padding: .9em 20px; margin:5px 0 15px;
-    border-radius: 5px; cursor: pointer;
-    box-shadow: $borderColor 0 0 0 2px inset;
+    display:block;
+    padding:.9em 20px; margin:5px 0 15px;
+    border-radius:5px; cursor:pointer;
+    box-shadow:$borderColor 0 0 0 2px inset;
 
     input[type="radio"], input[type="checkbox"] { 
-      margin-right: .5em;
+      margin-right:.5em;
     }
 
     &.checked{
-      color: #fff;
-      box-shadow: none;
+      color:#fff;
+      box-shadow:none;
       @extend %gradientBlue;
 
       input[type="radio"]{
-        background-color: #fff;
+        background-color:#fff;
       }
     }
   }
   
-  @media screen and (min-width: $wwNormal){
-    display: flex; justify-content: space-between;
-    label{ flex: 0 0 calc(33.33% - 12px); }
+  @media screen and (min-width:$wwNormal){
+    display:flex; justify-content:space-between;
+    label{ flex:0 0 calc(33.33% - 12px); }
 
   }
 }
 
+// 左、右箭頭
 button.arrow{
-  position: relative;
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  // background-color: #5c5c5c;
+  position:relative;
+  width:56px; height:56px;
+  border-radius:50%;
   &::after{
-    content: ''; position: absolute; top: calc(50% - 8px); 
-    width: 14px; height: 14px;
-    border: 2px solid #fff;border-right: none; border-top: none;
+    content:''; position:absolute; top:calc(50% - 8px); 
+    width:14px; height:14px;
+    border:2px solid #fff;border-right:none; border-top:none;
   }
 
-  &.left::after{rotate: 45deg;left: calc(50% - 4px);}
-  &.right::after{rotate: 225deg;right: calc(50% - 5px);}
+  &.left::after{rotate:45deg;left:calc(50% - 4px);}
+  &.right::after{rotate:225deg;right:calc(50% - 5px);}
 
 }
-
-button.btnStyle1{
-  height: 2.4em; padding: 0 1.5em;
-  border-radius: 6px;
-  @extend %gradientBlue;
-  color: #fff;
-}
-
-

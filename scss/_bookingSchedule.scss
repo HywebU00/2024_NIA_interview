@@ -36,7 +36,7 @@
         ul.which{border-right:1px solid $borderColorLight;}
       }
       &:hover{
-        .date{
+        time, .day{
           color:$secondaryColor;
           &::after{background-color:$secondaryColor;}
         }
@@ -83,6 +83,7 @@
           line-height:1.1;
           background-color:$bgPale; color:$fontColor;
           border-radius:5px;
+          transition: .2s;
           &:hover, &:focus{
             @extend %gradientGreen;
             color:#fff;box-shadow:none;
