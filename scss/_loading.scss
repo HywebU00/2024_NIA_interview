@@ -1,0 +1,77 @@
+// 下載中...
+.loading {
+  --front: #{$assistantColor1}; //圓弧前景顏色
+  --bg: #{$bgPale}; //圓弧背景顏色
+  --diameter: 120px; //直徑
+  --ringWidth: 8px; // 外環寬度
+  --speed: 1600ms; // 轉一圈的時間
+  --outerWidth: 180px; //整體寬度
+
+  position: fixed; z-index: 999;
+  left: calc(50vw - var(--outerWidth)/2); top: calc(50vh - var(--outerWidth)/2);
+  width: var(--outerWidth); height: var(--outerWidth);
+  background-color: rgb(255 255 255 / .95);
+  box-shadow: rgb(0 0 0 / .3) 0 0 40px;
+  border-radius: 20px;
+  
+  margin: 0 auto;
+  line-height: var(--diameter);
+  &::before, &::after {content: "";position: absolute;border-radius: 50%;}
+  &::before {
+    top: calc( (var(--outerWidth) - var(--diameter))/2);
+    left: calc( (var(--outerWidth) - var(--diameter))/2);
+    width: var(--diameter);height: var(--diameter);
+    background-image: conic-gradient(
+      var(--front) var(--angle),
+      var(--bg) var(--angle)
+    );
+
+    animation: ring var(--speed) infinite linear, spin var(--speed) infinite linear;
+  }
+  &::after {
+    // left: var(--ringWidth);top: var(--ringWidth);
+
+    top: calc( (var(--outerWidth) - var(--diameter))/2 + var(--ringWidth));
+    left: calc( (var(--outerWidth) - var(--diameter))/2 + var(--ringWidth));
+
+    width: calc(var(--diameter) - var(--ringWidth)*2);
+    height: calc(var(--diameter) - var(--ringWidth)*2);
+    background-color: #fff;
+  }
+
+  // 覆蓋全頁
+  &.full{
+    position: fixed; left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    border-radius: 0;
+    background-color: rgb(255 255 255 / .8 );
+    &::before {
+      left: calc(50% - var(--diameter)/2);
+      top: calc(50% - var(--diameter)/2);
+      box-shadow: rgb(0 0 0 / .3) 0 0 40px;
+    }
+    &::after {
+      left: calc(50% - var(--diameter)/2 + var(--ringWidth));
+      top: calc(50% - var(--diameter)/2 + var(--ringWidth));
+    }
+  }
+}
+
+// 動畫設定
+@keyframes ring {
+  0% {--angle: 0deg;}
+	50% {--angle: 360deg;}
+	100% {--angle: 0deg;}
+}
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@keyframes spin {
+  0%{transform: rotate(0deg);}
+  50%{transform: rotate(270deg);}
+  100%{transform: rotate(720deg);}
+}
