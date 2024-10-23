@@ -1,54 +1,199 @@
 // 選面談日期
-// ---------------------------------------------------------------- //
+// REACT CALENDAR
 .bookingCalendar{
-  margin: 30px -3%; 
-  &>nav {
-    display: flex; justify-content: center;
-    margin: 0 auto;
-    .arrow.left{ margin-right: auto;}
-    .arrow.right{ margin-left: auto;}
+  .react-calendar{
 
-    .year, .month{
-      position: relative;
-      &>button{
+    // 導覽：上個月、下個月
+    .react-calendar__navigation {
+      display: flex; justify-content: space-between;
+      button.react-calendar__navigation__label { 
+        flex-grow: 0 !important;
         position: relative;
-        &::after {content: '';
-          position: absolute; right: 10px; bottom: 14px;
+        &::after {
+          content: '';
+          position: absolute; right: 8px; bottom: 8px;
           width: 0;height: 0;
           border-style: solid; border-width: 4px;
           border-color: transparent #fff #fff transparent;
-        }
+        }        
       }
-      .options{ 
-        display: none;
-        position: absolute; right: 5px; left: 5px; z-index: 9;
-        list-style: none; margin: 0; padding: 6px;
-        text-align: right;
-        background: #fff;
-        box-shadow: rgb(0 0 0 / .4) 0 0 12px;
-        border-radius: 6px;
-        &>li{
-          margin:2px 0; padding: 0;
+      button.react-calendar__navigation__arrow{
+        position: relative;
+        padding: 0; height: 2.6em; width: 2.6em;
+        border-radius: 50%;
+        &::after{
+          content:''; position:absolute; top:calc(50% - 8px); 
+          width:14px; height:14px;
+          border:2px solid #fff;border-right:none; border-top:none;
         }
-        a{
-          display: block; text-decoration: none;
-          height: 2em; line-height: 2;  padding: 0 10px;
-          border-radius: 6px;
-          color: $fontColor;
-          transition: .2s;
-          &:hover { background: $bgPale;}
-          &:focus { background: $assistantColor1; color: #fff;}
+        &[disabled] { background-color: $bgLight;
+          box-shadow: none;
+          &:hover{background-color: $bgPale;}
+        }
+      
+        &.react-calendar__navigation__prev-button {
+          &::after{rotate:45deg;left:calc(50% - 4px);}
+        }
+        
+        &.react-calendar__navigation__next-button{
+          text-indent: -5.6em;
+          &::after{rotate:225deg;right:calc(50% - 5px);}
+        }
+
+        &>div{
+          display: block; white-space: nowrap;
+          font-size: .85em; color: $fontColor;
+          &.prev_btn{ margin-left: 3.4em;}
         }
       }
     }
+
+    .react-calendar__viewContainer{font-size: .85em;}
+
+    // 週ㄧ到週日
+    .react-calendar__month-view__weekdays {
+      border-bottom: $borderColor solid 1px;
+      padding-bottom: 12px; padding-top: 12px; margin-bottom:4px;
+      font-weight: bold; text-align: center;
+      .react-calendar__month-view__weekdays__weekday{
+        &::first-letter { color: transparent; font-size: 0;}
+        
+        // 週六、日
+        &.react-calendar__month-view__weekdays__weekday--weekend {
+          color: $warningColor;
+        }
+      }
+    }
+
+    // 月，日期
+    .react-calendar__month-view__days{
+      button{
+        position: relative;
+        margin: 0; padding:6px 2px; 
+        background-color: transparent; color: $fontColor;
+        line-height: 1; height: auto;box-shadow: none;
+        abbr{
+          position: relative; z-index: 8;
+          display: block; height:2.4em; line-height: 2.5;
+        }
+        &::before{
+          content: ''; position: absolute; top: 6px; left: calc(50% - 1.2em);
+          height: 2.4em; width: 2.4em; border-radius: 50%;
+        }
+        &:hover, &:focus { box-shadow: none; background-color: transparent;}
+        &[disabled]{
+          color: #ccc;
+          &:hover, &:focus {
+            &::before{background-color: $bgPale;}
+          }
+        }
+        &:not([disabled]) {
+          &::before{ transition:background .3s, box-shadow .15s; }
+          abbr{transition: .2s;}
+          &:hover, &:focus{
+            &::before { background-color: $assistantColor1; }
+            abbr{color: #fff;}
+          }
+          &:focus{ 
+            &::before{ box-shadow:#fff 0 0 0 1px, $assistantColor1 0 0 0 4px; }
+          }
+          &.react-calendar__month-view__days__day--weekend{
+            color: $warningColor;
+          }
+        }
+
+
+
+      }
+    }
+
+    @media screen and (min-width: $wwNormal){
+      font-size: 1em;
+
+      // 導覽：上個月、下個月
+      .react-calendar__navigation {
+        button.react-calendar__navigation__arrow{
+          &.react-calendar__navigation__next-button { text-indent: -6.1em;}
+          &>div{ 
+            font-size: 1em; color: $fontColor; 
+            &.prev_btn{ margin-left: 3em;}
+          }
+        }
+      }
+
+      .react-calendar__viewContainer{font-size: 1em;}
+
+      // 週ㄧ到週日
+      .react-calendar__month-view__weekdays {
+        padding-top: 20px;
+        .react-calendar__month-view__weekdays__weekday{
+          &::first-letter { color: inherit; font-size: 1em;}
+        }
+      }
+
+      .react-calendar__month-view__days{
+        button{ padding-top: 12px; padding-bottom: 12px;
+          &::before{ top: 12px;}
+        }
+      }
+    }
+
   }
+}
+
+
+
+// ---------------------------------------------------------------- //
+.bookingCalendar{
+  margin: 30px -3%; 
+  // &>nav {
+  //   display: flex; justify-content: center;
+  //   margin: 0 auto;
+  //   .arrow.left{ margin-right: auto;}
+  //   .arrow.right{ margin-left: auto;}
+
+  //   .year, .month{
+  //     position: relative;
+  //     &>button{
+  //       position: relative;
+  //       &::after {content: '';
+  //         position: absolute; right: 10px; bottom: 14px;
+  //         width: 0;height: 0;
+  //         border-style: solid; border-width: 4px;
+  //         border-color: transparent #fff #fff transparent;
+  //       }
+  //     }
+  //     .options{ 
+  //       display: none;
+  //       position: absolute; right: 5px; left: 5px; z-index: 9;
+  //       list-style: none; margin: 0; padding: 6px;
+  //       text-align: right;
+  //       background: #fff;
+  //       box-shadow: rgb(0 0 0 / .4) 0 0 12px;
+  //       border-radius: 6px;
+  //       &>li{
+  //         margin:2px 0; padding: 0;
+  //       }
+  //       a{
+  //         display: block; text-decoration: none;
+  //         height: 2em; line-height: 2;  padding: 0 10px;
+  //         border-radius: 6px;
+  //         color: $fontColor;
+  //         transition: .2s;
+  //         &:hover { background: $bgPale;}
+  //         &:focus { background: $assistantColor1; color: #fff;}
+  //       }
+  //     }
+  //   }
+  // }
 
   @media screen and (min-width: $wwSlim){
-    margin-left: auto; margin-right: auto; max-width: 34em;
+    margin-left: auto; margin-right: auto; max-width: 36em;
   }
 
   @media screen and (min-width: $wwNormal){
-    margin: 40px auto;
+    box-shadow: rgb(0 0 0 / .2) 0 0 24px; border-radius: 12px;
+    padding:16px 12px; margin: 20px auto 70px;
   }
 }
 // ---------------------------------------------------------------- //
@@ -58,50 +203,49 @@
 
 // 月曆
 // ---------------------------------------------------------------- //
-table.calendarTable{
-  margin: 10px auto 30px; width: 100%; 
-  border-collapse: collapse;
-  font-size: .8em; line-height: 1.3; 
+// table.calendarTable{
+//   margin: 10px auto 30px; width: 100%; 
+//   border-collapse: collapse;
+//   font-size: .8em; line-height: 1.3; 
 
-  th, td { padding: 5px 0; text-align: center;}
-  thead{
-    border-bottom: 1px solid $borderColor;
-    th{padding-bottom: .8em;}
-  }
-  tbody{
-    td{
-      width: calc(100% / 7);
-      transition: .3s;
-      &.today{
-        position: relative;
-        &::after{
-          content: ''; width: 6px; height: 6px; border-radius: 50%;
-          position: absolute; left: 50%; bottom: 8px;
-          translate: -50% -50%;
-          background-color: $assistantColor1;
-          box-shadow: #fff 0 0 0 2px;
-        }
-      }
-      &.off>button{ color: $borderColor;}
-      &.weekend>button { color: $warningColor;}
-      &.selected>button{background-color: $bgLight;}
-      &>button{
-        padding: 0; margin: 0;
-        width: 2.6em;height: 2.6em; line-height: 2.6em;
-        border-radius: 50%;
-        background-color: transparent; color: $fontColor;
-        &:hover, &:focus{
-          background-color: $assistantColor1; color: #fff;
-        }
-      }
+//   th, td { padding: 5px 0; text-align: center;}
+//   thead{
+//     border-bottom: 1px solid $borderColor;
+//     th{padding-bottom: .8em;}
+//   }
+//   tbody{
+//     td{
+//       width: calc(100% / 7);
+//       transition: .3s;
+//       &.today{
+//         position: relative;
+//         &::after{
+//           content: ''; width: 6px; height: 6px; border-radius: 50%;
+//           position: absolute; left: 50%; bottom: 8px;
+//           translate: -50% -50%;
+//           background-color: $assistantColor1;
+//           box-shadow: #fff 0 0 0 2px;
+//         }
+//       }
+//       &.off>button{ color: $borderColor;}
+//       &.weekend>button { color: $warningColor;}
+//       &.selected>button{background-color: $bgLight;}
+//       &>button{
+//         padding: 0; margin: 0;
+//         width: 2.6em;height: 2.6em; line-height: 2.6em;
+//         border-radius: 50%;
+//         background-color: transparent; color: $fontColor;
+//         &:hover, &:focus{
+//           background-color: $assistantColor1; color: #fff;
+//         }
+//       }
+//     }
+//   }
 
-    }
-  }
 
-
-  @media screen and (min-width: $wwNormal){
-    font-size: 1em;
-    th, td { padding: 5px 0;}
-  }
-}
+//   @media screen and (min-width: $wwNormal){
+//     font-size: 1em;
+//     th, td { padding: 5px 0;}
+//   }
+// }
 // ---------------------------------------------------------------- //

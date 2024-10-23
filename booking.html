@@ -75,109 +75,192 @@
         <div class="formRow">
           <h3 class="secHeading">面(訪)談日期及時段</h3>
           <p>請點選可預約面談的日期及時段</p>
-
-          <!-- 選日期 -->
+          
+          <!-- 選日期: react calendar -->
           <section class="bookingCalendar">
-            <nav>
-              <button type="button" class="arrow left"></button>
-              <div class="year">
-                <button type="button" class="now">2024</button>
-                <ul class="options">
-                  <li><a href="javascript:void(0);">2024</a></li>
-                  <li><a href="javascript:void(0);">2025</a></li>
-                  <li><a href="javascript:void(0);">2026</a></li>
-                  <li><a href="javascript:void(0);">2027</a></li>
-                  <li><a href="javascript:void(0);">2028</a></li>
-                </ul>
+            <div class="react-calendar">
+
+              <div class="react-calendar__navigation">
+                <button aria-label=""
+                  class="react-calendar__navigation__arrow react-calendar__navigation__prev-button" disabled="" type="button">
+                  <div class="prev_btn">上個月</div>
+                </button>
+                <button aria-label="" class="react-calendar__navigation__label" style="flex-grow:1" type="button">
+                  <span class="react-calendar__navigation__label__labelText react-calendar__navigation__label__labelText--from">2024年10月</span>
+                </button>
+                <button
+                  aria-label="" class="react-calendar__navigation__arrow react-calendar__navigation__next-button" type="button">
+                  <div class="next_btn">下個月</div>
+                </button>
               </div>
-              <div class="month">
-                <button type="button" class="now">10</button>
-                <ul class="options">
-                  <li><a href="javascript:void(0);">1</a></li>
-                  <li><a href="javascript:void(0);">2</a></li>
-                  <li><a href="javascript:void(0);">3</a></li>
-                  <li><a href="javascript:void(0);">4</a></li>
-                  <li><a href="javascript:void(0);">5</a></li>
-                  <li><a href="javascript:void(0);">6</a></li>
-                  <li><a href="javascript:void(0);">7</a></li>
-                  <li><a href="javascript:void(0);">8</a></li>
-                  <li><a href="javascript:void(0);">9</a></li>
-                  <li><a href="javascript:void(0);">10</a></li>
-                  <li><a href="javascript:void(0);">11</a></li>
-                  <li><a href="javascript:void(0);">12</a></li>
-                </ul>
+
+              <div class="react-calendar__viewContainer">
+                <div class="react-calendar__month-view">
+                  <div style="display:flex;align-items:flex-end">
+                    <div style="flex-grow:1;width:100%">
+
+                      <div class="react-calendar__month-view__weekdays" style="display:flex;flex-wrap:nowrap">
+                        <div class="react-calendar__month-view__weekdays__weekday"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期一" title="星期一">週一</abbr></div>
+                        <div class="react-calendar__month-view__weekdays__weekday react-calendar__month-view__weekdays__weekday--current"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期二" title="星期二">週二</abbr></div>
+                        <div class="react-calendar__month-view__weekdays__weekday"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期三" title="星期三">週三</abbr></div>
+                        <div class="react-calendar__month-view__weekdays__weekday"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期四" title="星期四">週四</abbr></div>
+                        <div class="react-calendar__month-view__weekdays__weekday"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期五" title="星期五">週五</abbr></div>
+                        <div class="react-calendar__month-view__weekdays__weekday react-calendar__month-view__weekdays__weekday--weekend"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期六" title="星期六">週六</abbr></div>
+                        <div
+                          class="react-calendar__month-view__weekdays__weekday react-calendar__month-view__weekdays__weekday--weekend"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0">
+                          <abbr aria-label="星期日" title="星期日">週日</abbr></div>
+                      </div>
+
+                      <div class="react-calendar__month-view__days" style="display:flex;flex-wrap:wrap">
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-left:14.285714285714286%;margin-inline-start:14.285714285714286%;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月1日">1</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月2日">2</abbr></buttonclass=>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月3日">3</abbr></buttonclass=>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月4日">4</abbr></buttonclass=>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月5日">5</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月6日">6</abbr></button>
+                        <button 
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月7日">7</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月8日">8</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月9日">9</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月10日">10</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月11日">11</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月12日">12</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月13日">13</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月14日">14</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月15日">15</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月16日">16</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月17日">17</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月18日">18</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月19日">19</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月20日">20</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day" disabled=""
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月21日">21</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__tile--now react-calendar__tile--active react-calendar__tile--range react-calendar__tile--rangeStart react-calendar__tile--rangeEnd react-calendar__tile--rangeBothEnds react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月22日">22</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月23日">23</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月24日">24</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月25日">25</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月26日">26</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月27日">27</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button" disabled=""><abbr aria-label="2024年10月28日">28</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月29日">29</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月30日">30</abbr></button>
+                        <button
+                          class="react-calendar__tile react-calendar__month-view__days__day"
+                          style="flex-basis:14.285714285714286%;flex-shrink:0;flex-grow:0;overflow:hidden;margin-inline-end:0"
+                          type="button"><abbr aria-label="2024年10月31日">31</abbr></button></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <button type="button" class="arrow right"></button>
-            </nav>
-            <table class="calendarTable">
-              <thead>
-                <tr>
-                  <th>日</th>
-                  <th>一</th>
-                  <th>二</th>
-                  <th>三</th>
-                  <th>四</th>
-                  <th>五</th>
-                  <th>六</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="weekend off"><button type="button">25</button></td>
-                  <td class="off"><button type="button">26</button></td>
-                  <td class="off"><button type="button">27</button></td>
-                  <td class="off"><button type="button">28</button></td>
-                  <td class="off"><button type="button">29</button></td>
-                  <td class="off"><button type="button">30</button></td>
-                  <td class="weekend off"><button type="button">31</button></td>
-                </tr>
-                <tr>
-                  <td class="weekend"><button type="button">1</button></td>
-                  <td><button type="button">2</button></td>
-                  <td><button type="button">3</button></td>
-                  <td><button type="button">4</button></td>
-                  <td><button type="button">5</button></td>
-                  <td><button type="button">6</button></td>
-                  <td class="weekend"><button type="button">7</button></td>
-                </tr>
-                <tr>
-                  <td class="weekend"><button type="button">8</button></td>
-                  <td><button type="button">9</button></td>
-                  <td><button type="button">10</button></td>
-                  <td><button type="button">11</button></td>
-                  <td><button type="button">12</button></td>
-                  <td><button type="button">13</button></td>
-                  <td class="weekend"><button type="button">14</button></td>
-                </tr>
-                <tr>
-                  <td class="weekend"><button type="button">15</button></td>
-                  <td class="today"><button type="button">16</button></td>
-                  <td><button type="button">17</button></td>
-                  <td><button type="button">18</button></td>
-                  <td><button type="button">19</button></td>
-                  <td><button type="button">20</button></td>
-                  <td class="weekend"><button type="button">21</button></td>
-                </tr>
-                <tr>
-                  <td class="weekend"><button type="button">22</button></td>
-                  <td><button type="button">23</button></td>
-                  <td><button type="button">24</button></td>
-                  <td class="selected"><button type="button">25</button></td>
-                  <td><button type="button">26</button></td>
-                  <td><button type="button">27</button></td>
-                  <td class="weekend"><button type="button">28</button></td>
-                </tr>
-                <tr>
-                  <td class="weekend"><button type="button">29</button></td>
-                  <td><button type="button">30</button></td>
-                  <td class="off"><button type="button">1</button></td>
-                  <td class="off"><button type="button">2</button></td>
-                  <td class="off"><button type="button">3</button></td>
-                  <td class="off"><button type="button">4</button></td>
-                  <td class="weekend off"><button type="button">5</button></td>
-                </tr>
-              </tbody>
-            </table>
+            </div>
+          
           </section>
 
           <!-- 選時段 -->
