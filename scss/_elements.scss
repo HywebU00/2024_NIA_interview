@@ -216,15 +216,27 @@ p.hint{
   position: relative; margin: 0; padding:2px 0 0;
   font-size: .9em; line-height: 1.3;
   color: var(--hintColor); 
-  &::before { background-color: var(--hintColor);}
-  &.info, &.check, &.warning, &.error {
+  &::before {
+    content: ''; position: absolute; left: 0; top: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    background-color: var(--hintColor);
+
+  }
+  &.info, &.check, &.error {
     padding-left: 28px;
     &::before {
-      content: ''; position: absolute; left: 0; top: 0;
       width: 24px; height: 24px; border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 18px;
+      background-size: 75%;
+    }
+  }
+  &.warning{
+    padding-left: 28px;
+    &::before {
+      width: 28px; height: 28px;
+      background-size: 80% auto;
+      background-position: top center;
     }
   }
 
@@ -239,7 +251,9 @@ p.hint{
   }
   &.warning{
     --hintColor: #{$warningColor};
-    &::before { background-image: url(../images/icon_msg_warning.svg);}
+    &::before { background-image: url(../images/icon_msg_warning.svg);
+      background-color: transparent;
+    }
   }
   &.error {
     --hintColor: #c00;

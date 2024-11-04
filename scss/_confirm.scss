@@ -106,11 +106,8 @@ dl.dataReady{
       &::after { width:100%;}
     }
     &:has(input:focus)::after{ width:100%; height:3px; background-color:$assistantColor1;}
+    p.hint{ margin-top: 8px; }
 
-    // .labelText{
-    //   display: block;
-    //   abbr{ font-size: larger; margin-left: 3px;}
-    // }
   }
 
   @media screen and (min-width:900px){
