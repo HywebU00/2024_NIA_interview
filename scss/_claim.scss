@@ -45,7 +45,7 @@
 .fillForm{
   @extend %primSection;
   @extend %frame;
-  padding:30px 2%; margin: 20px auto; 
+  padding:30px 2% 10px; margin: 20px auto; 
 
   label{
     display:block; margin:0 auto 20px;
@@ -58,11 +58,11 @@
     }
   }
 
-  .btnDiv{ margin-top:15px;}
+  &+.btnDiv{ margin-top:15px; margin-bottom: 50px;}
 
   @media screen and (min-width:$wwMedium){
 
-    padding:50px 0; 
+    padding:32px 0 20px; 
     label{
       display:flex; justify-content:center; align-items:center;
       margin-bottom:12px;
@@ -77,13 +77,13 @@
 
   @media screen and (min-width:$wwNormal){
 
-    margin-bottom:60px;
+    // margin-bottom:60px;
 
     label{
       .labelText{ flex:0 0 30%; max-width:12em; text-align:right;}
       input{ flex:0 0 20em; }
     }
-    .btnDiv{ margin-top:30px;}
+    &+.btnDiv{ margin-top:30px; margin-bottom: 60px;}
 
   }
 

@@ -208,6 +208,47 @@ button.sidebarCtrl{
 }
 // ---------------------------------------------------------------- //
 
+// 表單輸入欄位的提示訊息
+// ---------------------------------------------------------------- //
+p.hint{
+  --hintColor: #660;
+
+  position: relative; margin: 0; padding:2px 0 0;
+  font-size: .9em; line-height: 1.3;
+  color: var(--hintColor); 
+  &::before { background-color: var(--hintColor);}
+  &.info, &.check, &.warning, &.error {
+    padding-left: 28px;
+    &::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 24px; height: 24px; border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 18px;
+    }
+  }
+
+  &.info{
+    --hintColor: #{$primaryColor};
+    &::before { background-image: url(../images/icon_msg_info.svg);
+    }
+  }
+  &.check{
+    --hintColor: #{$secondaryColor};
+    &::before { background-image: url(../images/icon_msg_check.svg);}
+  }
+  &.warning{
+    --hintColor: #{$warningColor};
+    &::before { background-image: url(../images/icon_msg_warning.svg);}
+  }
+  &.error {
+    --hintColor: #c00;
+    &::before { background-image: url(../images/icon_msg_error.svg);}
+  }
+}
+// ---------------------------------------------------------------- //
+
+
 
 // ------------------------------------------------------ //
 // --------------------- 模組 --------------------------- //
