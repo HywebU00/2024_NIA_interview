@@ -191,6 +191,7 @@ button.sidebarCtrl{
   position: relative;
   font-size: 1.4em; line-height: 1; font-weight: bold;
   padding: 2px 0 2px 22px; margin: 1em 0 .6em;
+  &:first-child{margin-top: 0;}
   &::before{
     content: ""; position: absolute; 
     left: 0; top: 0; bottom: 0;width: 7px;
@@ -211,7 +212,7 @@ button.sidebarCtrl{
 // 表單輸入欄位的提示訊息
 // ---------------------------------------------------------------- //
 p.hint{
-  --hintColor: #660;
+  --hintColor: #{$fontColorLight};
 
   position: relative; margin: 0; padding:2px 0 0;
   font-size: .9em; line-height: 1.3;

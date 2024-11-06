@@ -1,0 +1,20 @@
+<section class="popSection register" style="display: block;">
+    <button class="closeThis" title="關閉"></button>
+    <div class="popBody">
+        <h3>註冊成為新會員</h3>
+        <form action="#">
+            <label><span class="labelText">設定帳號</span><input id="email" type="email" value="" name="email">請輸入email帳號。</label><label><span
+                class="labelText">設定密碼</span><input id="password" type="password" value="" name="password">請輸入密碼。</label><label><span class="labelText">再次輸入密碼</span><input
+                id="passwordAgain" type="password" value="" name="passwordAgain"></label>
+            <div class="captcha">
+                <img src="http://localhost:8081/itvs-frontend/api/captcha?1730708348322" alt="驗證碼">
+                <input id="captcha" placeholder="請輸入圖檔所顯示的數字" type="text" value="" name="captcha">
+                <button class="voice" type="button" title="朗讀驗證碼"></button>
+                <button class="refresh" type="button" title="重新產生驗證碼"></button>
+            </div>
+            <div class="btnDiv">
+                <button class="btnLook st1" type="submit">送出註冊</button>
+            </div>
+        </form>
+    </div>
+</section>

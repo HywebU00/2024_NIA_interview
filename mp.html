@@ -111,6 +111,7 @@
         <div class="captcha">
           <img src="images/captchaImg.png" alt="驗證碼">
           <input type="text" placeholder="請輸入圖檔所顯示的數字">
+          <p class="hint error">驗證碼錯誤</p>
           <button class="voice" type="button" title="朗讀驗證碼"></button>
           <button class="refresh" type="button" title="重新產生驗證碼"></button>
         </div>
@@ -130,7 +131,7 @@
       <h3>註冊成為新會員</h3>
       <form action="">
         <label><span class="labelText">設定帳號</span><input type="text">
-          <p class="hint warning">此帳號已被使用</p>
+          <p class="hint warning">此帳號名稱已被使用</p>
         </label>
         <label><span class="labelText">設定密碼</span><input type="password">
           <p class="hint info">密碼需大於8位數</p>
@@ -144,6 +145,15 @@
         <label><span class="labelText">手機號碼</span><input type="tel">
           <p class="hint">請只輸入數字</p>
         </label>
+        
+        <div class="captcha">
+          <img src="images/captchaImg.png" alt="驗證碼">
+          <input type="text" placeholder="請輸入圖檔所顯示的數字">
+          <p class="hint error">驗證碼錯誤</p>
+          <button class="voice" type="button" title="朗讀驗證碼"></button>
+          <button class="refresh" type="button" title="重新產生驗證碼"></button>
+        </div>
+
         <div class="btnDiv">
           <button class="btnLook st1" type="submit">送出註冊</button>
         </div>

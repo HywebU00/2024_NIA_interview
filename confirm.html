@@ -37,16 +37,17 @@
   <main class="main">
     <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
 
-    <hgroup class="pageHeading">
-      <h2>再次確認資訊</h2>
-      <div class="description">請確認資訊並填寫入境資料，送出完成預約</div>
-    </hgroup>
+    
+    <form action="">
+      <hgroup class="pageHeading">
+        <h2>再次確認資訊</h2>
+        <div class="description">請確認資訊並填寫入境資料，送出完成預約</div>
+      </hgroup>
 
-    <section class="confirm">
-      <form action="">
+      <section class="confirm">
         <!-- <span class="labelName">確認預約資訊</span> -->
         <h3 class="secHeading">確認預約資訊</h3>
-        
+    
         <dl class="dataReady">
           <div>
             <dt>入出境許可證號</dt>
@@ -100,26 +101,26 @@
           <label>
             <span class="labelText">入境日期<abbr class="required" title="必填">*</abbr></span>
             <input type="date" placeholder="YYYY/MM/DD" name="" id="">
-            <p class="hint warning">請填寫入境日期</p>
+            <p class="hint error">請填寫入境日期</p>
           </label>
           <label>
             <span class="labelText">入境班機編號<abbr class="required" title="必填">*</abbr></span>
             <input type="text" placeholder="例如：AA123" name="" id="">
-            <p class="hint warning">請填寫入境班機編號</p>
+            <p class="hint error">請填寫入境班機編號</p>
           </label>
           <label>
             <span class="labelText">班機表定抵達時間<abbr class="required" title="必填">*</abbr></span>
             <input type="time" placeholder="例如：11:30" name="" id="">
-            <p class="hint warning">請填寫班機表定抵達時間</p>
+            <p class="hint error">請填寫班機表定抵達時間</p>
           </label>
         </div>
+      </section>
     
-        <div class="btnDiv">
-          <a class="btnLook" href="#">回前頁</a>
-          <button class="btnLook st1" type="button">確認送出預約</button>
-        </div>
-      </form>
-    </section>
+      <div class="btnDiv">
+        <a class="btnLook" href="#">上一步</a>
+        <button class="btnLook st1" type="button">送出</button>
+      </div>
+    </form>
 
 
   </main>

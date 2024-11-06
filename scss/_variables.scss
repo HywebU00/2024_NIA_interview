@@ -47,9 +47,9 @@ $bgPale: #eef2f3;
 // ---------------------------------------------------------------- //
 %primSection{
   width: 94%; margin-left: auto;  margin-right: auto;
-  padding: 60px 3%;
+  padding: 50px 3%;
   @media screen and (min-width: $wwNormal){
-    width: 90%;padding: 60px 5%;
+    width: 90%;padding: 50px 5%;
   }
   @media screen and (min-width: $wwMaximum ){
     width: $wwMaximum * .9;

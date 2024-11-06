@@ -62,27 +62,21 @@
   @media screen and (min-width:calc($wwMedium + 100px)){
 
     ul.downloadfiles{
-      margin:20px auto 60px;
+      margin:20px auto 60px;max-width: 36em;
       display:flex; justify-content:space-between; align-items:flex-start;
       &>li{
-        margin:0;
-        &:first-child{ 
-          flex:0 0 64%;
-          &>ul{
-            display:flex; justify-content:space-between; gap:8px;
-            &>li{ flex:0 0 calc(50% - 4px);}
-          }
-        }
+        margin:0; flex: 1 1 auto;
         &:last-child{ 
-          flex:1 1 auto; margin-left:4%; margin-top:0;
+          margin-left:3%; margin-top:0;
         }
       }
     }
   
   }
+  
   @media screen and (min-width:$wwNormal){
 
-    &>article, ul.downloadfiles, .hint{ 
+    &>article, .hint{ 
       max-width:1020px; padding-left:4.8%; padding-right:4.8%;
     }
     &>article{ 

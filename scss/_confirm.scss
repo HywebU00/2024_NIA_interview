@@ -1,10 +1,10 @@
 // 再次確認資訊
 // ---------------------------------------------------------------- //
 .confirm{
-  @extend %primSection; margin-bottom:50px;
+  @extend %primSection; 
   @extend %frame;
 
-  --marginH: 30px;
+  --marginH: 24px;
 
   .btnDiv{
     .btnLook:is(a, button, input){ flex: 1 1 50%; }
@@ -85,39 +85,27 @@ dl.dataReady{
 // 填寫入境資料
 // ---------------------------------------------------------------- //
 .arrivalInfo {
-  margin:50px 0;
+  margin:50px 0 0;
   &>label{
     position:relative; display:block; width:100%;
-    margin:0 0 40px;
-    &::after{
-      content:''; position:absolute; left:0; bottom:0;
-      height:2px; width:0;
-      background-color:$primaryColor;
-      transition:.3s;
-    }
+    margin:0 0 36px;
+    abbr{ font-size: 1.2em; margin-left: 3px;}
     input:is([type=text], [type=time], [type=date]){ 
-      width:100%; margin:5px 0 0; padding:0 2px;
+      width:100%; margin:7px 0; padding:2px 1px 0;
       font-size:1.2em; height:2em;
       border-radius:0; border:none;
-      border-bottom:1px solid $primaryColor;
-      box-shadow:none;
+      box-shadow:$primaryColor 0 1px 0;
+      &:hover, &:focus {
+        box-shadow:$primaryColor 0 3px 0;
+      }
     }
-    &:hover {
-      &::after { width:100%;}
-    }
-    &:has(input:focus)::after{ width:100%; height:3px; background-color:$assistantColor1;}
-    p.hint{ margin-top: 8px; }
-
+    p.hint{ margin-top: 5px; }
   }
 
   @media screen and (min-width:900px){
-
     display:flex; justify-content:space-between;
     margin-left:var(--marginH);
-    &>label{
-      flex:0 0 30%;
-      input:is([type="text"] ,[type="time"], [type="date"]){margin:10px 0 0; padding:.4em 2px 0;}
-    }
+    &>label{flex:0 0 30%;}
   }
 
   @media screen and (min-width: $wwNormal){

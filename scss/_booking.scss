@@ -98,12 +98,9 @@
   @extend %primSection;
   @extend %frame;
 
-
   .notices{
     box-shadow: none; margin:70px 0 0;padding: 0;
-    ol{
-      list-style: cjk-decimal;
-    }
+    ol{list-style: cjk-decimal;}
   }
 
   .secHeading:has(~.bookingCalendar){
@@ -112,25 +109,27 @@
 
   .formRow{
     margin: 0 0 60px;
-
-    select{width: 100%;}
-
+    select{width: 100%; margin-left: 0;margin-right: 0;}
     &:first-child>.secHeading{ margin-top: 0;}
-  
-  
+    p.hint{ margin: 5px;}
+    select + p.hint{ margin-top: 10px;}
   }
-
 
 
   @media screen and (min-width: $wwNormal){
     padding: 60px 5vw; margin-bottom: 80px;
     .formRow{
       select { width: 50%;}
+      select + p.hint{ margin-top: 5px;}
+    }
+
+    .optionGroup{
+      justify-content:space-between;
+      label{ flex:0 0 calc(33.33% - 12px); margin-bottom: 5px; }
     }
   }
 
   @media screen and (min-width: $wwMaximum){
-
   }
 
 }

@@ -285,6 +285,9 @@ input[type="checkbox"] {
 .btnDiv{
   display:flex; flex-flow:row nowrap; 
   justify-content:center; gap:8px;
+  margin: 30px auto;
+  &:last-child { margin-bottom: 50px;}
+
   .btnLook:is(a, button, input){
     flex:0 1 auto;
     &:only-child{flex-basis:80%; max-width:16em;}
@@ -292,8 +295,9 @@ input[type="checkbox"] {
 
   @media screen and (min-width:$wwNormal){
     gap:16px;
+    &:last-child{margin-bottom: 80px;}
     .btnLook:is(a, button, input){
-      min-width:6em; max-width:12em;
+      min-width:7em; max-width:12em;
       &:only-child{ max-width:16em;}
     }
   }
@@ -303,10 +307,10 @@ input[type="checkbox"] {
 // 多選或單選項
 .optionGroup{
   label{
-    display:block;
-    padding:.9em 20px; margin:5px 0 15px;
+    display:block; line-height: 1.4;
+    padding:.6em 20px; margin:5px 0 15px;
     border-radius:5px; cursor:pointer;
-    box-shadow:$borderColor 0 0 0 2px inset;
+    box-shadow:$borderColor 0 0 0 1px;
 
     input[type="radio"], input[type="checkbox"] { 
       margin-right:.5em;
@@ -324,9 +328,7 @@ input[type="checkbox"] {
   }
   
   @media screen and (min-width:$wwNormal){
-    display:flex; justify-content:space-between;
-    label{ flex:0 0 calc(33.33% - 12px); }
-
+    display:flex; 
   }
 }
 
