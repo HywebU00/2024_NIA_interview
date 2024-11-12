@@ -5,7 +5,7 @@
   .body{
     @extend %primSection; 
     @extend %frame;
-    max-width: 880px;
+    max-width: 960px;
 
     label{
       display:block; margin:0 auto; max-width:24em;
@@ -27,7 +27,7 @@
   }
 
   // captcha 驗證碼 captcha captcha
-  .captcha{ margin-top: 30px;max-width:640px; }
+  .captcha{ margin-top: 30px; max-width:640px; }
   
 }
 
@@ -41,11 +41,11 @@
 
   // 忘記密碼 a 或 button
   .forget {
-    display:block; margin:2px auto 10px; max-width:24em; 
-    overflow: hidden;
+    display:block; overflow: hidden;
+    margin:-5px auto 5px; padding: 4px; max-width:24em; 
     &>a{
-      float:right; padding:0 .6em;
-      height:2em; line-height:2; border-radius:1em;
+      float:right; padding:0 .7em;
+      height:1.9em; line-height:2; border-radius:1em;
       color:$linkColor; text-decoration:underline;
       transition:.2s;
       &:hover, &:focus{ 
