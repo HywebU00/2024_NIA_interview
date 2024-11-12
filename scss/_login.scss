@@ -1,42 +1,44 @@
 // 會員登入，非彈出視窗
 .loginHere{
 
-  .body{
-    @extend %primSection; 
-    @extend %frame;
-  }
-
   h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
 
   p{ margin:0;
     &+p{ margin-top:1em;}
   }
 
-  label{
-    display:block; margin:0 auto; max-width:24em;
-    & + label{ margin-top:24px;}
-    .labelText{ display:block; margin-left:8px;font-size: 1.15em;}
-    input{ width:100%; margin:3px 0;}
-    .hint {margin-top: 5px;}
+  .body{
+    @extend %primSection; 
+    @extend %frame;
+    max-width: 880px;
+
+    label{
+      display:block; margin:0 auto; max-width:24em;
+      & + label{ margin-top:24px;}
+      .labelText{ display:block; margin-left:8px;font-size: 1.15em;}
+      input{ width:100%; margin:3px 0;}
+      .hint {margin-top: 5px;}
+    }
+    
+    // 忘記密碼
+    .forget {
+      display:block; margin:2px auto 10px; max-width:24em; 
+      &>a{
+        float:right; padding:0 .6em;
+        height:2em; line-height:2; border-radius:1em;
+        color:$linkColor; text-decoration:underline;
+        transition:.2s;
+        &:hover, &:focus{ 
+          text-decoration:none;
+          background-color:$assistantColor1; color:#fff;
+        }
+        &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+      }
+      & + *{ clear:both;}
+    }
+   
   }
 
-  // 忘記密碼
-  .forget {
-    display:block; margin:2px auto 10px; max-width:24em; 
-    &>a{
-      float:right; padding:0 .6em;
-      height:2em; line-height:2; border-radius:1em;
-      color:$linkColor; text-decoration:underline;
-      transition:.2s;
-      &:hover, &:focus{ 
-        text-decoration:none;
-        background-color:$assistantColor1; color:#fff;
-      }
-      &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
-    }
-    & + *{ clear:both;}
-  }
- 
 
   .btnDiv{ 
     margin:30px 0 80px; 
@@ -48,26 +50,9 @@
 
   // captcha 驗證碼 captcha captcha
   .captcha{
-    padding-top:30px;
-    input[type="text"]{width: calc(100% - 10px);}
+    padding-top:30px; max-width:640px;
   }
   
-  
-  @media screen and (min-width: $wwMedium){
-    .captcha{
-      margin:0 auto;  max-width:640px;
-      display:flex; flex-wrap:wrap; justify-content:flex-start;
-      img{ flex:0 1 220px; min-width:200px; }
-      input[type="text"]{ flex:1 1 min-content; min-width:8em; }
-      button { margin-left:6px; }
-      p.hint {
-        order: 5; flex: 0 1 calc(100% - 240px);
-        margin-left: 240px;
-      }
-    }
-  }
-
-
   @media screen and (min-width: $wwNormal){
 
   }

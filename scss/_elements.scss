@@ -277,6 +277,41 @@ p.hint{
 // ------------------------------------------------------ //
 
 
+// captcha 驗證碼
+// ------------------------------------------------------ //
+.captcha{
+  clear:both;
+  img{
+    display: block; 
+    margin:5px 5px 5px 0;
+    height: 52px; width: auto; max-width: calc(100% - 5px);
+  }
+  input[type="text"]{ margin: 5px 0; width: 100%;}
+
+  .voice, .refresh {
+    height:2.6em; width:2.6em; margin:5px 0 5px 8px;
+    border-radius:50%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:64%;
+    &:is(.voice){ background-image:url(../images/icon_capVoice.png);}
+    &:is(.refresh){background-image:url(../images/icon_capRefresh.png);}
+  }
+
+  p.hint{margin: 5px;}
+
+  @media screen and (min-width: $wwMedium){
+    margin:0 auto;  
+    display:flex; flex-wrap:wrap; justify-content:flex-start;
+    img{ flex:0 1 220px; min-width:200px; }
+    input[type="text"]{ flex:1 1 min-content; min-width:8em; }
+    button { margin-left:6px; }
+    p.hint {
+      order: 5; flex: 0 1 calc(100% - 230px);
+      margin-left: 230px;
+    }
+  }
+}
 
 // ------------------------------------------------------ //
 // ------------------------------------------------------ //
