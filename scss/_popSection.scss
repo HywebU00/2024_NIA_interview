@@ -19,14 +19,9 @@
     margin:0 auto; padding:12px 5% 16px;
     line-height:1.7;
     border-bottom:2px solid $borderColor;
-    p{ 
-      margin:0;
+    p{ margin:0;
       &+p{margin-top:1em;}
     }
-    // button.membReg{
-    //   height:2.2em; margin:.5em auto;
-    //   border-radius:2em;
-    // }
   }
 
   .popBody{
@@ -34,19 +29,16 @@
 
     h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
 
-    p{ margin:0;
-      &+p{ margin-top:1em;}
-    }
-
     label{
       display:block; margin:0 auto;
       & + label{ margin-top:15px;}
       .labelText{ margin-left:8px; display:block;}
       input{ width:100%; margin:3px 0;}
+      p.hint {margin-top: 5px;}
     }
 
     .btnDiv{ 
-      margin:20px 0 0; padding:20px 0 0;
+      margin:20px auto 0; padding:20px 0 0;
       .btnLook:is(a, button, input){
         min-width:7em; max-width:12em;
         &:only-child{ flex-basis:auto;}
@@ -70,18 +62,15 @@
   // ------------------------------------------------------ //
 
   // 會員登入、註冊、email 驗證
-  &.login, &.register, &.twoFactorVerify {
+  &.login,  &.forgot, &.register, &.twoFactorVerify {
     width:clamp(280px, 88vw, 800px);
   }
 
   
-  // 會員登入 --------------------------------------------- //
-  &.login{
-    // 忘記密碼
+  // 會員登入--------------------------------------------- //
+  &.login {
+    // 忘記密碼按鈕
     .forget {
-      outline:1px dashed #f008;
-      outline-offset:-1px;
-
       display:block; margin:2px auto 10px; max-width:24em; 
       &>a{
         float:right; padding:0 .6em;
@@ -97,14 +86,14 @@
       }
       & + *{ clear:both;}
     }
+  }
 
+  // 會員登入、忘記密碼--------------------------------------------- //
+  &.login, &.forgot{
     .popBody{
       label { max-width:24em;}
     }
-
     .captcha{ max-width: 600px;}
-
-
   }
 
   // 會員註冊 --------------------------------------------- //
@@ -155,12 +144,9 @@
           justify-content: flex-end;
           .labelText{ flex:0 0 3em; }
           input { width:calc(100% - 3em - 10px); }
-          p.hint{ flex: 0 0 calc(100% - 3em - 20px); margin: 4px 0;}
+          p.hint{ flex: 0 0 calc(100% - 3em - 20px); margin: 5px 0;}
         }    
       }
-      // .captcha{
-      //   input[type="text"]{ max-width:none; }
-      // }
     }
 
     // 註冊成為會員 --------------------------------------------- //
@@ -169,7 +155,7 @@
         label{
           .labelText{ flex:0 0 7em;}
           input { flex:0 1 calc(100% - 7em - 10px); }
-          p.hint{ flex: 0 0 calc(100% - 7em - 28px); margin: 4px 0;}
+          p.hint{ flex: 0 0 calc(100% - 7em - 28px); margin: 5px 0;}
         }            
       }
     }
@@ -196,27 +182,13 @@
 
 
 
-// 登入、註冊會員內的 captcha
-.popSection.login, .popSection.register{
+// 登入、註冊會員、忘記密碼內的 captcha
+.popSection.login, .popSection.forgor, .popSection.register{
 
   .captcha{
-    padding-top:28px;
-    input[type="text"]{width: calc(100% - 10px);}
+    padding-top:30px;
   }
-  
-  // @media screen and (min-width: $wwMedium){
-  //   .captcha{
-  //     margin:0 auto;  max-width:600px;
-  //     display:flex; flex-wrap:wrap; justify-content:flex-start;
-  //     img{ flex:0 1 220px; min-width:200px; }
-  //     input[type="text"]{ flex:1 1 min-content; min-width:8em; }
-  //     button { margin-left:6px; }
-  //     p.hint {
-  //       order: 5; flex: 0 1 calc(100% - 240px);
-  //       margin-left: 240px;
-  //     }
-  //   }
-  // }
+
 
 }
 

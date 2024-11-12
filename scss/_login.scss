@@ -1,11 +1,6 @@
-// 會員登入，非彈出視窗
-.loginHere{
-
-  h3{ margin:0 auto 20px; text-align:center; font-size:1.4em;}
-
-  p{ margin:0;
-    &+p{ margin-top:1em;}
-  }
+// 會員登入／註冊成為新會員／忘記密碼 共用（單獨一頁，非彈出視窗）
+// ------------------------------------------------------------ //
+.loginHere, .registerHere, .resetPassword{
 
   .body{
     @extend %primSection; 
@@ -15,30 +10,13 @@
     label{
       display:block; margin:0 auto; max-width:24em;
       & + label{ margin-top:24px;}
-      .labelText{ display:block; margin-left:8px;font-size: 1.15em;}
+      .labelText{ display:block; margin-left:8px;
+        abbr.required{font-size: 1.3em; margin-left: 4px;}
+      }
       input{ width:100%; margin:3px 0;}
       .hint {margin-top: 5px;}
     }
-    
-    // 忘記密碼
-    .forget {
-      display:block; margin:2px auto 10px; max-width:24em; 
-      &>a{
-        float:right; padding:0 .6em;
-        height:2em; line-height:2; border-radius:1em;
-        color:$linkColor; text-decoration:underline;
-        transition:.2s;
-        &:hover, &:focus{ 
-          text-decoration:none;
-          background-color:$assistantColor1; color:#fff;
-        }
-        &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
-      }
-      & + *{ clear:both;}
-    }
-   
   }
-
 
   .btnDiv{ 
     margin:30px 0 80px; 
@@ -49,12 +27,51 @@
   }
 
   // captcha 驗證碼 captcha captcha
-  .captcha{
-    padding-top:30px; max-width:640px;
-  }
+  .captcha{ margin-top: 30px;max-width:640px; }
   
-  @media screen and (min-width: $wwNormal){
+}
 
+// ------------------------------------------------------------ //
+
+
+// 會員登入
+// ------------------------------------------------------------ //
+.loginHere {
+  .labelText {font-size: 1.125em;}
+
+  // 忘記密碼 a 或 button
+  .forget {
+    display:block; margin:2px auto 10px; max-width:24em; 
+    overflow: hidden;
+    &>a{
+      float:right; padding:0 .6em;
+      height:2em; line-height:2; border-radius:1em;
+      color:$linkColor; text-decoration:underline;
+      transition:.2s;
+      &:hover, &:focus{ 
+        text-decoration:none;
+        background-color:$assistantColor1; color:#fff;
+      }
+      &:focus { box-shadow:#fff 0 0 0 1px inset, $assistantColor1 0 0 0 3px;}
+    }
   }
 
 }
+// ------------------------------------------------------------ //
+
+
+// 註冊成為新會員
+// ------------------------------------------------------------ //
+.registerHere {
+  .captcha{ margin-top: 40px;}
+}
+// ------------------------------------------------------------ //
+
+
+// 重置密碼（忘記密碼）
+// ------------------------------------------------------------ //
+.resetPassword {
+  .labelText {font-size: 1.125em;}
+  .captcha {margin-top: 50px;}
+}
+// ------------------------------------------------------------ //

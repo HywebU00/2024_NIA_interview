@@ -38,28 +38,17 @@
     <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
 
     <hgroup class="pageHeading">
-      <h2>會員登入</h2>
-      <div class="description">
-        請先登入會員才可進行預約。如您還不是會員，請先
-        <button class="membReg" type="button" onclick="location.href='register.html';">註冊成為會員</button>
-      </div>
+      <h2>忘記密碼</h2>
     </hgroup>
 
-    <section class="loginHere">
+    <section class="resetPassword">
       <form action="">
         <div class="body">
           <label>
             <span class="labelText">帳號<abbr class="required" title="必填">*</abbr></span>
             <input type="text" placeholder="請輸入帳號">
-            <p class="hint warning">此帳號不存在</p>
+            <!-- <p class="hint error">此帳號不存在</p> -->
           </label>
-          <label>
-            <span class="labelText">密碼<abbr class="required" title="必填">*</abbr></span>
-            <input type="password" placeholder="請輸入密碼">
-            <p class="hint error">密碼錯誤</p>
-          </label>
-          <span class="forget"><a href="#">忘記密碼</a></span>
-    
           <div class="captcha">
             <img src="images/captchaImg.png" alt="驗證碼">
             <input type="text" placeholder="請輸入圖檔所顯示的數字">
@@ -70,7 +59,7 @@
         </div>
   
         <div class="btnDiv">
-          <button class="btnLook st1" type="submit">登入</button>
+          <button class="btnLook st1" type="button">重置密碼</button>
         </div>
       </form>
     </section>

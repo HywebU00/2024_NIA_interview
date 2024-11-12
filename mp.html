@@ -169,6 +169,34 @@
     </div>
   </section>
 
+    <!-- 忘記密碼 -->
+    <section class="popSection login" style="display: block;">
+      <button class="closeThis" title="關閉"></button>
+  
+      <div class="popBody">
+        <h3>忘記密碼</h3>
+        <form action="">
+          <label>
+            <span class="labelText">帳號</span>
+            <input type="text" placeholder="請輸入帳號">
+            <p class="hint error">此帳號不存在</p>
+          </label>
+    
+          <div class="captcha">
+            <img src="images/captchaImg.png" alt="驗證碼">
+            <input type="text" placeholder="請輸入圖檔所顯示的數字">
+            <p class="hint error">驗證碼錯誤</p>
+            <button class="voice" type="button" title="朗讀驗證碼"></button>
+            <button class="refresh" type="button" title="重新產生驗證碼"></button>
+          </div>
+    
+          <div class="btnDiv">
+            <button class="btnLook st1" type="submit">重置密碼</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  
 
   <!-- 輸入驗證碼 -->
   <section class="popSection twoFactorVerify">

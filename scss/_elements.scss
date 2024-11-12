@@ -298,7 +298,7 @@ p.hint{
     &:is(.refresh){background-image:url(../images/icon_capRefresh.png);}
   }
 
-  p.hint{margin: 5px;}
+  p.hint{margin:5px;}
 
   @media screen and (min-width: $wwMedium){
     margin:0 auto;  
