@@ -10,8 +10,9 @@
     label{
       display:block; margin:0 auto; max-width:24em;
       & + label{ margin-top:24px;}
-      .labelText{ display:block; margin-left:8px;
-        abbr.required{font-size: 1.3em; margin-left: 4px;}
+      .labelText{ 
+        display:block; margin-left:8px;
+        abbr.required{ font-size: 1.2em; margin-left: 4px;}
       }
       input{ width:100%; margin:3px 0;}
       .hint {margin-top: 5px;}
@@ -26,26 +27,42 @@
     }
   }
 
-  // captcha 驗證碼 captcha captcha
-  .captcha{ margin-top: 30px; max-width:640px; }
-  
+  // captcha 驗證碼 captcha captcha ----- //
+  .captcha{ margin-top: 48px; max-width:640px; }
+
+
+  @media screen and (min-width: $wwNormal){
+    .body{
+      label{
+        display:flex; align-items:center; 
+        justify-content:flex-end; flex-wrap: wrap;
+        .labelText{ 
+          font-size: 1.125em;
+          margin:0 8px 0 0; white-space:nowrap; text-align:right;
+          width: min-content;
+        }
+        input { flex:0 1 auto; }
+        .hint{ flex: 0 0 auto;}
+      }
+    }
+  }
 }
 
 // ------------------------------------------------------------ //
 
 
+
 // 會員登入
 // ------------------------------------------------------------ //
 .loginHere {
-  .labelText {font-size: 1.125em;}
-
   // 忘記密碼 a 或 button
   .forget {
     display:block; overflow: hidden;
     margin:-5px auto 5px; padding: 4px; max-width:24em; 
-    &>a{
-      float:right; padding:0 .7em;
-      height:1.9em; line-height:2; border-radius:1em;
+    &>a, &>button{
+      float:right; padding:0 .7em; margin: 0;
+      height:1.8em; line-height:1.9; border-radius:1em;
+      background-color: transparent;
       color:$linkColor; text-decoration:underline;
       transition:.2s;
       &:hover, &:focus{ 
@@ -56,22 +73,46 @@
     }
   }
 
+  @media screen and (min-width: $wwNormal){
+    .body {
+      label {
+        input {flex-basis: calc(100% - 2.7em - 28px);}
+        .hint {flex-basis: calc(100% - 3em - 36px);}
+      }
+    }
+  }
 }
 // ------------------------------------------------------------ //
+
 
 
 // 註冊成為新會員
 // ------------------------------------------------------------ //
 .registerHere {
-  .captcha{ margin-top: 40px;}
+  @media screen and (min-width: $wwNormal){
+    .body {
+      label {
+        max-width:28em;
+        input {flex-basis: calc(100% - 7.2em - 28px);}
+        .hint {flex-basis: calc(100% - 8em - 36px);}
+      }
+    }
+  }
 }
 // ------------------------------------------------------------ //
+
 
 
 // 重置密碼（忘記密碼）
 // ------------------------------------------------------------ //
 .resetPassword {
-  .labelText {font-size: 1.125em;}
-  .captcha {margin-top: 50px;}
+  @media screen and (min-width: $wwNormal){
+    .body {
+      label {
+        input {flex-basis: calc(100% - 2.7em - 28px);}
+        .hint {flex-basis: calc(100% - 3em - 36px);}
+      }
+    }
+  }
 }
 // ------------------------------------------------------------ //
