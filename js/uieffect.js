@@ -248,7 +248,7 @@ $(function(){
 
 
 
-  // 彈出區塊
+  // 彈出對話框
   // --------------------------------------------------------------- //
   var _popSection = $('.popSection');
   _popSection.before('<div class="coverAll"></div>'); // 製作燈箱遮罩
@@ -274,26 +274,36 @@ $(function(){
   })
 
 
-  // 顯示[會員登入]
+  // 顯示[會員登入]對話框
   // --------------------------------------------------------------- //
   const _loginBtn = $('.loginBtn');
   _loginBtn.on('click', function(){
-    $('.login').show().prev('.coverAll').fadeIn(200);
+    let popid = '#' + $(this).attr('data-tgID');
+    _popSection.filter(popid).show().prev('.coverAll').fadeIn(200);
     _body.addClass('noScroll');
   })
   // --------------------------------------------------------------- //
 
 
-  // 顯示[註冊成為會員]
+  // 顯示[註冊成為會員]對話框
   // --------------------------------------------------------------- //
-  const _membReg = $('.membReg');
+  const _membReg = _popSection.find('.membReg');
   _membReg.on('click', function(){
-    $('.login').fadeOut(200);
-    _popSection.filter('.register').fadeIn(300);
+    let popid = '#' + $(this).attr('data-tgID');
+    $(this).parents('.popSection').fadeOut(200).prev('.coverAll').hide();
+    _popSection.filter(popid).fadeIn(200).prev('.coverAll').show();
   })
-
   // --------------------------------------------------------------- //
 
+
+  // 顯示[忘記密碼]對話框
+  const _forgetpw = _popSection.find('.forget').children('a, button');
+  _forgetpw.on('click', function(){
+    let popid = '#' + $(this).attr('data-tgID');
+    $(this).parents('.popSection').fadeOut(200).prev('.coverAll').hide();
+    _popSection.filter(popid).fadeIn(200).prev('.coverAll').show();
+  })
+  // --------------------------------------------------------------- //
 
 
   // 面(訪)談預約類別

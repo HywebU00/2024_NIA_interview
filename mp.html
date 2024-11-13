@@ -23,7 +23,7 @@
         <li><a href="records.html">預約紀錄查詢與變更</a></li>
       </ul>
     </nav>
-    <button class="loginBtn" type="button">會員登入／註冊</button>
+    <button class="loginBtn" type="button" data-tgID="pop-login">會員登入／註冊</button>
     <button class="sidebarCtrl" type="button" title="側欄開關"></button>
   </header>
 
@@ -84,29 +84,31 @@
   <!------------------------------------------------------>
   
   <!-- 會員登入 -->
-  <section class="popSection login">
+  <section class="popSection" id="pop-login" style="display: block;">
     <button class="closeThis" title="關閉"></button>
 
     <div class="message">
       <p>請先登入會員才可進行預約。如您還不是會員，請先 
-        <button class="membReg" type="button">註冊成為會員</button>
+        <button class="membReg" type="button" data-tgID="pop-register">註冊成為會員</button>
       </p>
     </div>
 
-    <div class="popBody">
+    <div class="popBody login">
       <h3>會員登入</h3>
       <form action="">
         <label>
-          <span class="labelText">帳號</span>
+          <span class="labelText">帳號<abbr class="required" title="必填">*</abbr></span>
           <input type="text" placeholder="請輸入帳號">
           <p class="hint warning">此帳號不存在</p>
         </label>
         <label>
-          <span class="labelText">密碼</span>
+          <span class="labelText">密碼<abbr class="required" title="必填">*</abbr></span>
           <input type="password" placeholder="請輸入密碼">
           <p class="hint error">密碼錯誤</p>
         </label>
-        <span class="forget"><a href="#">忘記密碼</a></span>
+        <div class="forget">
+          <button data-tgID="pop-forgotpw" type="button">忘記密碼</button>
+        </div>
   
         <div class="captcha">
           <img src="images/captchaImg.png" alt="驗證碼">
@@ -124,25 +126,35 @@
   </section>
 
   <!-- 註冊成為新會員 -->
-  <section class="popSection register">
+  <section class="popSection" id="pop-register">
     <button class="closeThis" title="關閉"></button>
 
-    <div class="popBody">
+    <div class="popBody register">
       <h3>註冊成為新會員</h3>
       <form action="">
-        <label><span class="labelText">設定帳號</span><input type="text">
+        <label>
+          <span class="labelText">設定帳號<abbr class="required" title="必填">*</abbr></span>
+          <input type="text">
           <p class="hint warning">此帳號名稱已被使用</p>
         </label>
-        <label><span class="labelText">設定密碼</span><input type="password">
+        <label>
+          <span class="labelText">設定密碼<abbr class="required" title="必填">*</abbr></span>
+          <input type="password">
           <p class="hint info">密碼需大於8位數</p>
         </label>
-        <label><span class="labelText">再次輸入密碼</span><input type="password">
+        <label>
+          <span class="labelText">再次輸入密碼<abbr class="required" title="必填">*</abbr></span>
+          <input type="password">
           <p class="hint check">正確</p>
         </label>
-        <label><span class="labelText">電子郵件</span><input type="email">
+        <label>
+          <span class="labelText">電子郵件<abbr class="required" title="必填">*</abbr></span>
+          <input type="email">
           <p class="hint error">格式錯誤</p>
         </label>
-        <label><span class="labelText">手機號碼</span><input type="tel">
+        <label>
+          <span class="labelText">手機號碼<abbr class="required" title="必填">*</abbr></span>
+          <input type="tel">
           <p class="hint">請只輸入數字</p>
         </label>
         
@@ -164,20 +176,21 @@
       </div>
 
 
-      <span class="test" style="text-align: center; display: block; color: #ccc;">測試輸入驗證碼</span><!-- 請刪除 -->
+      <!-- GUI 測試用，套版時請刪除 -->
+      <span class="test_2fv" data-tgID="pop-2fv" style="text-align: center; display: block; color: #ccc;">測試輸入驗證碼</span>
       
     </div>
   </section>
 
   <!-- 忘記密碼 -->
-  <section class="popSection login">
+  <section class="popSection" id="pop-forgotpw">
     <button class="closeThis" title="關閉"></button>
 
-    <div class="popBody">
+    <div class="popBody resetPassword">
       <h3>忘記密碼</h3>
       <form action="">
         <label>
-          <span class="labelText">帳號</span>
+          <span class="labelText">帳號<abbr class="required" title="必填">*</abbr></span>
           <input type="text" placeholder="請輸入帳號">
           <p class="hint error">此帳號不存在</p>
         </label>
@@ -191,7 +204,7 @@
         </div>
   
         <div class="btnDiv">
-          <button class="btnLook st1" type="submit">重置密碼</button>
+          <button class="btnLook st1" type="button">重置密碼</button>
         </div>
       </form>
     </div>
@@ -199,16 +212,18 @@
   
 
   <!-- 輸入驗證碼 -->
-  <section class="popSection twoFactorVerify">
+  <section class="popSection" id="pop-2fv">
     <button class="closeThis" title="關閉"></button>
 
     <div class="message">
       驗證碼已發送至電子郵件信箱 yin****@gmail.com
     </div>
 
-    <div class="popBody">
+    <div class="popBody twoFactorVerify">
       <form action="">
-        <label><span class="labelText">請輸入6位數驗證碼</span><input type="text">
+        <label>
+          <span class="labelText">請輸入6位數驗證碼<abbr class="required" title="必填">*</abbr></span>
+          <input type="text">
           <p class="hint error">驗證碼錯誤</p>
         </label>
         <div class="btnDiv">
@@ -219,13 +234,12 @@
   </section>
 
   <script>
-    // 測試輸入驗證碼，請刪除
+    // 測試輸入驗證碼對話框，套版時請刪除
     $(function(){
-      var _popSectionRegister =  $('.popSection.register');
-      _popSectionRegister.find('.test').on('click', function() {
-        _popSectionRegister.fadeOut();
-        $('.coverAll').filter(':visible').fadeOut();
-        $('.twoFactorVerify').fadeIn().prev('.coverAll').fadeIn();
+      $('.test_2fv').on('click', function(){
+        let popid = '#' + $(this).attr('data-tgID');
+        $(this).parents('.popSection').fadeOut(200).prev('.coverAll').hide();
+        $('.popSection').filter(popid).fadeIn(200).prev('.coverAll').show();
       })
     })
   </script>
