@@ -5,23 +5,20 @@
 body{
   position: relative;
   margin: 0 auto; padding: 0;
-  box-sizing: border-box;
+  display: flex; flex-flow: column nowrap;
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
   color: $fontColor;
-
-  *{ box-sizing: border-box;}
-
-  &.noScroll{ overflow: hidden;}
-
+  &.noScroll{ overflow: hidden;}  
 }
+*{ box-sizing: border-box;}
 a, input, button {outline: none;}
 
 abbr{
   text-decoration: none;
   &.required{color: $warningColor;}
 }
-
 
 table{border-collapse: collapse; width: 100%;margin: 0;}
 
