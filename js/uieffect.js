@@ -300,6 +300,21 @@ $(function(){
   // --------------------------------------------------------------- //
 
 
+
+  // 預約紀錄[取消預約] 
+  // --------------------------------------------------------------- //
+  const _cancelIt = $('.records').find('button.cancelIt');
+  _cancelIt.on('click', function(){
+    // $('.popSection.alert').show().prev('.coverAll').fadeIn(200);
+    let _showingPop = _popSection.filter('#' + _cancelIt.attr('data-tgID'));
+    _showingPop.show().prev('.coverAll').show().end().find('.closeThis').trigger('focus');
+    _body.addClass('noScroll');
+  })
+  // --------------------------------------------------------------- //
+
+
+
+
   // 面(訪)談預約類別
   // --------------------------------------------------------------- //
   var _optionGroup = $('.optionGroup');
@@ -352,15 +367,6 @@ $(function(){
   // --------------------------------------------------------------- //
 
 
-
-  // 刪除[當前預約] 
-  // --------------------------------------------------------------- //
-  var _cancelIt = $('.records').find('button.cancelIt');
-  _cancelIt.on('click', function(){
-    $('.popSection.alert').show().prev('.coverAll').fadeIn(200);
-  })
-
-  // --------------------------------------------------------------- //
 
   // Cookie 訊息提示
   // --------------------------------------------------------------- //

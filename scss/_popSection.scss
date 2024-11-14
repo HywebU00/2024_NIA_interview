@@ -10,6 +10,12 @@
   box-shadow:rgb(0 0 0 / .3) 0 0 24px;
   border-radius:12px;
 
+  // 關閉按鈕
+  .closeThis{
+    position:sticky; left:calc(100% - 62px); top:0;
+    margin-bottom:10px;
+  }
+
   // 會員登入、註冊、email 驗證
   &:has(.login,  .resetPassword, .register, .twoFactorVerify ){
     width:clamp(280px, 88vw, 800px);
@@ -23,11 +29,13 @@
     }
   }
 
-  // 關閉按鈕
-  .closeThis{
-    position:sticky; left:calc(100% - 62px); top:0;
-    margin-bottom:10px;
+  // 確定刪除嗎？
+  &:has(.alert){ 
+    width:clamp(280px, 88vw, 640px);
+    top: 50vh; transform: translateY(-50%);
+
   }
+
 
   .popBody{
     margin:0 auto; padding:20px 5% 40px;
@@ -72,7 +80,6 @@
       }
     }
 
-
     // email 驗證碼 --------------------------------------------- //
     &.twoFactorVerify {
       margin-top: 32px;
@@ -85,6 +92,13 @@
         p.hint{ width: calc(100% - 10px); margin-left: 4px; }
       }
     }
+
+    // 確定刪除嗎？
+    &.alert{
+      .btnDiv{ border-top:1px solid $borderColor;
+      .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
+    }
+  
   }
 
   .message {
@@ -103,18 +117,16 @@
     color:$warningColor;
   }
 
-  .captcha {
-    margin-top: 32px;
-  }
+  .captcha {margin-top: 32px;}
 
 
   // 確定刪除嗎？
-  &.alert{ 
-    max-width:640px;
-    .btnDiv{ border-top:1px solid $borderColor;
-    .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
-    }
-  }
+  // &.alert{ 
+  //   max-width:640px;
+  //   .btnDiv{ border-top:1px solid $borderColor;
+  //   .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
+  //   }
+  // }
 
 
   @media screen and (min-width:$wwNormal){
@@ -169,6 +181,7 @@
 
   }
 
+  }
 }
 // ------------------------------------------------------ //
 
@@ -187,12 +200,12 @@
 }
 
 // 註冊會員內的 captcha
-.popSection.register{
-  margin-top: 50px;
-  @media screen and (min-width: $wwMedium){
-    .captcha{ max-width:720px;}
-  }
-}
+// .popSection.register{
+//   margin-top: 50px;
+//   @media screen and (min-width: $wwMedium){
+//     .captcha{ max-width:720px;}
+//   }
+// }
 // ------------------------------------------------------ //
 
 
