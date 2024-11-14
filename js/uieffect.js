@@ -135,17 +135,6 @@ $(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
   // 回到頁面頂端 Go Top
   // --------------------------------------------------------------- //
   _goTop.on( 'click', function(){
@@ -246,16 +235,15 @@ $(function(){
 
 
 
-
-
   // 彈出對話框
   // --------------------------------------------------------------- //
   var _popSection = $('.popSection');
-  _popSection.before('<div class="coverAll"></div>'); // 製作燈箱遮罩
+  _popSection.before('<div class="coverAll"></div>'); // 製作對話框遮罩
   _popSection.each(function(){
     let _this = $(this);
     let _coverAll = _this.prev('.coverAll');
     let _closePop = _this.find('.closeThis');
+    let _lastFocusEle = _this.find('a, input, button').last();
 
     _closePop.on('click', function(){
       _this.fadeOut(300);
@@ -271,6 +259,12 @@ $(function(){
       _body.removeClass('noScroll');
     })
 
+    _lastFocusEle.on('keydown', function(e){
+      if ( e.code === 'Tab' && !e.shiftKey ) {
+        e.preventDefault();
+        _closePop.trigger('focus');
+      }
+    })
   })
 
 
@@ -278,8 +272,8 @@ $(function(){
   // --------------------------------------------------------------- //
   const _loginBtn = $('.loginBtn');
   _loginBtn.on('click', function(){
-    let popid = '#' + $(this).attr('data-tgID');
-    _popSection.filter(popid).show().prev('.coverAll').fadeIn(200);
+    let _showingPop =  _popSection.filter('#' + _loginBtn.attr('data-tgID'));
+    _showingPop.show().prev('.coverAll').fadeIn(200).end().find('.closeThis').trigger('focus');
     _body.addClass('noScroll');
   })
   // --------------------------------------------------------------- //
@@ -289,9 +283,9 @@ $(function(){
   // --------------------------------------------------------------- //
   const _membReg = _popSection.find('.membReg');
   _membReg.on('click', function(){
-    let popid = '#' + $(this).attr('data-tgID');
-    $(this).parents('.popSection').fadeOut(200).prev('.coverAll').hide();
-    _popSection.filter(popid).fadeIn(200).prev('.coverAll').show();
+    let _showingPop = _popSection.filter('#' + _membReg.attr('data-tgID'));
+    _showingPop.fadeIn(200).prev('.coverAll').show().end().find('.closeThis').trigger('focus');
+    _membReg.parents('.popSection').fadeOut(200).prev('.coverAll').hide();
   })
   // --------------------------------------------------------------- //
 
@@ -299,9 +293,9 @@ $(function(){
   // 顯示[忘記密碼]對話框
   const _forgetpw = _popSection.find('.forget').children('a, button');
   _forgetpw.on('click', function(){
-    let popid = '#' + $(this).attr('data-tgID');
-    $(this).parents('.popSection').fadeOut(200).prev('.coverAll').hide();
-    _popSection.filter(popid).fadeIn(200).prev('.coverAll').show();
+    let _showingPop = _popSection.filter('#' + _forgetpw.attr('data-tgID'));
+    _showingPop.fadeIn(200).prev('.coverAll').show().end().find('.closeThis').trigger('focus');
+    _forgetpw.parents('.popSection').fadeOut(200).prev('.coverAll').hide();
   })
   // --------------------------------------------------------------- //
 
