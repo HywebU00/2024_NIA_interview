@@ -1,4 +1,4 @@
-// 彈出區塊
+// 彈出對話框區塊
 // ------------------------------------------------------ //
 .popSection {
   display:none; z-index:300;
@@ -33,9 +33,17 @@
   &:has(.alert){ 
     width:clamp(280px, 88vw, 640px);
     top: 50vh; transform: translateY(-50%);
-
   }
 
+  .message {
+    margin:0 auto; padding:12px 5% 16px;
+    line-height:1.7;
+    border-bottom:2px solid $borderColor;
+    p{ margin:0;
+      &+p{margin-top:1em;}
+    }
+    &:has(+.twoFactorVerify) {text-align: center;}
+  }
 
   .popBody{
     margin:0 auto; padding:20px 5% 40px;
@@ -96,20 +104,12 @@
     // 確定刪除嗎？
     &.alert{
       .btnDiv{ border-top:1px solid $borderColor;
-      .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
+      .btnLook:is(a, button, input) { width: auto;}
     }
   
   }
 
-  .message {
-    margin:0 auto; padding:12px 5% 16px;
-    line-height:1.7;
-    border-bottom:2px solid $borderColor;
-    p{ margin:0;
-      &+p{margin-top:1em;}
-    }
-    &:has(+.twoFactorVerify) {text-align: center;}
-  }
+
 
   .hints{ 
     padding:40px 5% 10px; margin:0 auto;
@@ -127,6 +127,8 @@
   //   .btnLook:is(a, button, input) { font-size:1em;border-radius:2em; }
   //   }
   // }
+
+  }
 
 
   @media screen and (min-width:$wwNormal){
@@ -181,7 +183,6 @@
 
   }
 
-  }
 }
 // ------------------------------------------------------ //
 
@@ -198,14 +199,6 @@
 
 
 }
-
-// 註冊會員內的 captcha
-// .popSection.register{
-//   margin-top: 50px;
-//   @media screen and (min-width: $wwMedium){
-//     .captcha{ max-width:720px;}
-//   }
-// }
 // ------------------------------------------------------ //
 
 
