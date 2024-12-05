@@ -57,7 +57,9 @@
         gap: 6px; justify-content: space-between;
         button {
           margin: 0; padding: 0; height: 2.8em; border-radius: 1.5em;
-          flex: 0 0 calc(33.3333% - 4px) !important;
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: calc(33.3333% - 4px) !important;
           background-color: $bgPale; color: $fontColor;
           box-shadow:none;
           &:not([disabled]){
@@ -150,7 +152,7 @@
       // 選月份，一月～十二月
       .react-calendar__year-view {
         .react-calendar__year-view__months{
-          button { flex: 0 0 calc(16.6666% - 5px) !important; }
+          button { flex-basis: calc(16.6666% - 5px) !important; }
         }
       }
       // 週ㄧ到週日
