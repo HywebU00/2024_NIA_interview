@@ -100,6 +100,15 @@ dl.dataReady{
       }
     }
     p.hint{ margin-top: 5px; }
+
+    .hour-minute{
+      margin: 2px 0 12px;
+      box-shadow:$primaryColor 0 1px 0;
+      select{
+        font-size:1.2em;height: 1.9em;
+        background-position: right 4px top .5em;
+      }
+    }
   }
 
   @media screen and (min-width:900px){
@@ -123,3 +132,10 @@ dl.dataReady{
 }
 
 // ---------------------------------------------------------------- //
+
+// 時：分下拉選單
+.hour-minute {
+  display: flex; align-items: center;
+  select{ margin: 4px 0;}
+  span {display: inline-block; font-weight: bold; margin: 0 8px; }
+}
