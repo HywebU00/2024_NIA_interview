@@ -28,11 +28,11 @@
       width:30px; height:30px;
       background:url(../images/icon_avatar.svg) no-repeat center center;
       background-size:contain;
-      filter:brightness(-100%);
+      filter:saturate(0) brightness(0);
     }
     &:hover, &:focus{
       background-color:$assistantColor1;
-      &::before{ filter:brightness(800%); }
+      &::before{ filter:saturate(0) brightness(5); }
     }
   }
 
@@ -161,7 +161,7 @@
         width:1.6em; height:1.6em;border-radius:50%;
         background:url(../images/icon_avatar.svg) no-repeat left top;
         background-size:contain;
-        filter:brightness(800%);
+        filter:saturate(0) brightness(5);
       }
       &:hover{box-shadow:#fff 0 0 0 3px, rgb(0 0 0 / .3) 0 2px 12px 3px;}
       &:focus{box-shadow:#fff 0 0 0 1px, #004c93 0 0 0 4px, rgb(0 0 0 / .3) 0 0 8px 5px;}
